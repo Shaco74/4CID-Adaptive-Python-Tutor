@@ -1,0 +1,46 @@
+% This is a table which can span multiple pages (longtable)
+% When creating tables, make sure to change the text size to \footnotesize and after the table change it back to normal with \normalsize
+\footnotesize 
+\begin{longtable}{|l|l|l|l|l|}
+\caption[Grouped event log]{Grouped event-log of the patient discharge process ordered by the patient\_id.}
+\label{table:full_event_log} \\
+
+\hline
+ \textbf{patient\_id} & \textbf{event\_id} & \textbf{activity} & \textbf{timestamp} & \textbf{caretaker\_ids} \\ 
+ \hline
+ \endfirsthead
+ \hline \multicolumn{5}{|r|}{{Continued on next page}} \\ \hline
+
+ \endfoot
+
+ \endlastfoot
+
+\hline
+ \multirow{6}{*}{2334} 
+     & 1  & discuss need for transitional care & 01.04.2021-7:30  & \{ 14432, 4332 \} \\ \cline{2-5}
+     & 2  & decide discharge date              & 01.04.2021-07:45 & \{ 14432 \} \\ \cline{2-5}
+     & 3  & generate discharge summary         & 01.04.2021-13:30 & \{ 14432 \} \\ \cline{2-5}
+     & 4  & confirm discharge summary          & 01.04.2021-14:22 & \{ 4332 \} \\ \cline{2-5}
+     & 5  & fill out discharge checklist       & 02.04.2021-08:01 & \{ 14432 \} \\ \cline{2-5}
+     & 6  & discharge patient                  & 02.04.2021-08:15 & \{ 14432 \} \\ \hline
+ \multirow{1}{*}{2300} 
+     & 7  & discuss need for transitional care        & 09.04.2021-7:30  & \{ 499, 132 \} \\ \cline{2-5}
+     & 8  & request assessment for transitional care  & 09.04.2021-07:45 & \{ 499 \} \\ \cline{2-5}
+     & 9  & decide discharge date                    & 11.04.2021-15:30 & \{ 14432, 499 \} \\ \cline{2-5}
+     & 10 & confirm transitional care service         & 13.04.2021-09:01 & \{ 499, 132 \} \\ \cline{2-5}
+     & 11 & generate discharge summary                & 13.04.2021-10:30 & \{ 499 \} \\ \cline{2-5}
+     & 12 & confirm discharge summary                 & 14.04.2021-16:22 & \{ 132 \} \\ \cline{2-5}
+     & 13 & fill out discharge checklist              & 15.04.2021-11:01 & \{ 499 \} \\ \cline{2-5}
+     & 14 & discharge patient                         & 15.04.2021-11:15 & \{ 499 \} \\ \hline
+ \multirow{6}{*}{2311} 
+     & 15 & discuss need for transitional care & 04.05.2021-7:30  & \{ 1229, 4332 \} \\ \cline{2-5}
+     & 16 & decide discharge date              & 05.04.2021-07:45 & \{ 1229 \} \\ \cline{2-5}
+     & 17 & generate discharge summary         & 05.04.2021-13:30 & \{ 1222 \} \\ \cline{2-5}
+     & 18 & confirm discharge summary          & 05.04.2021-14:22 & \{ 321 \} \\ \cline{2-5}
+     & 19 & generate discharge summary         & 06.04.2021-14:22 & \{ 1229 \} \\ \cline{2-5}
+     & 20 & confirm discharge summary          & 07.04.2021-14:22 & \{ 321 \} \\ \cline{2-5}
+     & 21 & fill out discharge checklist       & 07.04.2021-08:01 & \{ 1229 \} \\ \cline{2-5}
+     & 22 & discharge patient                  & 07.04.2021-08:15 & \{ 132 \} \\ \hline
+ ... & ... & ... & ... & ...
+\end{longtable}
+\normalsize

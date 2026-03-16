@@ -1,0 +1,643 @@
+{
+  "common": {
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolgreich",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "back": "Zurück",
+    "next": "Weiter",
+    "submit": "Absenden",
+    "close": "Schließen",
+    "yes": "Ja",
+    "no": "Nein",
+    "or": "oder",
+    "and": "und"
+  },
+  "metadata": {
+    "title": "Python Bootcamp",
+    "description": "Ein 4C/ID inspiriertes Python Bootcamp"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "courses": "Kurse",
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "reportBug": "Bug melden",
+    "completeCourse": "Kurs abschließen",
+    "repeatOnboarding": "Onboarding wiederholen",
+    "loggedInAs": "Angemeldet als {username}",
+    "resetProgress": {
+      "title": "Alle Fortschritte löschen?",
+      "description": "Dies entfernt:\n- Kurs-Fortschritt\n- Drill-Daten\n- Chat-Verlauf",
+      "confirm": "Ja, alles löschen",
+      "success": "Fortschritt wurde zurückgesetzt.",
+      "error": "Fehler: {message}"
+    },
+    "admin": {
+      "dashboard": "Zum Admin-Dashboard",
+      "groupA": "📚 Gruppe A (ohne KI)",
+      "groupB": "🤖 Gruppe B (KI)",
+      "switch": "Wechseln",
+      "resetProgress": "Fortschritt zurücksetzen"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Anmelden",
+      "description": "Melde dich an, um deinen Fortschritt zu speichern",
+      "instructionsLine1": "Wähle einen beliebigen Benutzernamen.",
+      "instructionsLine2": "Ob anonym (z.B. \"Zungenbrecher12\") oder mit Bezug zu dir (z.B. \"MaxM99\") bleibt dir überlassen. Wichtig: Verwende einen einzigartigen Namen, um Konflikte mit anderen Teilnehmenden zu vermeiden.",
+      "instructionsLine3": "Das Passwort wurde dir per E-Mail oder ein ähnliches Medium zugesendet.",
+      "username": "Benutzername",
+      "usernamePlaceholder": "z.B. PythonFan42",
+      "password": "Passwort",
+      "passwordPlaceholder": "Studien-Passwort eingeben",
+      "submit": "Anmelden",
+      "success": "Erfolgreich angemeldet",
+      "welcome": "Willkommen, {username}!",
+      "privacyLink": "Datenschutzhinweise zur Forschungsstudie",
+      "consent": "Mit meiner Anmeldung stimme ich zu, dass meine Eingaben und Lernfortschritte für wissenschaftliche Zwecke im Rahmen der Bachelorarbeit gespeichert und verarbeitet werden. Ich habe die <privacyLink>Datenschutzhinweise</privacyLink> gelesen und verstanden."
+    },
+    "errors": {
+      "usernameRequired": "Benutzername erforderlich",
+      "usernameRequiredDesc": "Bitte gib einen Benutzernamen ein",
+      "passwordRequired": "Passwort erforderlich",
+      "passwordRequiredDesc": "Bitte gib ein Passwort ein",
+      "wrongPassword": "Falsches Passwort",
+      "wrongPasswordDesc": "Das eingegebene Passwort ist falsch",
+      "adminPasswordRequired": "Der Benutzername 'admin' erfordert das Admin-Passwort",
+      "loginError": "Anmeldefehler",
+      "loginErrorDesc": "Bei der Anmeldung ist ein Fehler aufgetreten"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Python Bootcamp",
+      "subtitle": "Interaktiv lernen",
+      "description": "Programmieren lernen direkt im Browser - ohne Installation, ohne Vorkenntnisse.",
+      "feature1": "Hands-on Coding",
+      "feature2": "Schritt für Schritt",
+      "feature3": "Python Basics",
+      "completedTitle": "Fantastisch!",
+      "completedSubtitle": "Du hast alle Kurse erfolgreich abgeschlossen. Zeit für den letzten Schritt!",
+      "completeCourse": "Kurs abschließen"
+    },
+    "courses": {
+      "title": "Verfügbare Kurse",
+      "description": "Der <strong>BMI-Rechner</strong> ist der Hauptkurs und Voraussetzung für den abschließenden Evaluationsbogen. Der <strong>Zinsrechner</strong> ist optional – wenn du Lust auf ein weiteres Python-Projekt hast, freuen wir uns über zusätzliche Daten für die wissenschaftliche Auswertung!",
+      "locked": "Gesperrt",
+      "completed": "Abgeschlossen",
+      "stepsAvailable": "{count} Schritte verfügbar",
+      "comingSoon": "Demnächst verfügbar",
+      "comingSoonMessage": "Dieser Kurs wird bald verfügbar sein.",
+      "progress": "Du hast {completed} von {total} Schritten abgeschlossen.",
+      "lockedMessage": "Schließe zuerst den Kurs {course} ab, um diesen Kurs freizuschalten.",
+      "courseLocked": "Dieser Kurs ist noch gesperrt.",
+      "startCourse": "Kurs starten",
+      "continueCourse": "Fortsetzen",
+      "reviewCourse": "Wiederholen",
+      "optional": "Optional",
+      "allStepsCompleted": "Alle Schritte abgeschlossen:",
+      "availableSteps": "Verfügbare Schritte:",
+      "loginToSaveProgress": "Melde dich an, um deinen Fortschritt zu speichern und abgeschlossene Schritte zu sehen.",
+      "step": "Schritt {step}",
+      "stepCompleted": "Schritt {step}: Abgeschlossen",
+      "stepLocked": "Schritt {step}: Schließe zuerst die vorherigen Schritte ab"
+    }
+  },
+  "onboarding": {
+    "navigation": {
+      "back": "Zurück",
+      "next": "Weiter",
+      "skip": "Überspringen",
+      "startCourse": "Mit dem Kurs starten",
+      "ready": "Super! Lernbereit?"
+    },
+    "step1": {
+      "title": "Willkommen zur Zukunft des Python-Lernens",
+      "introBase": "Python gehört zu den gefragtesten Programmiersprachen weltweit – vielseitig, leicht zu lernen und überall einsetzbar. Lerne die Grundlagen an praktischen Beispielen: Entwickle einen BMI-Rechner und einen Zinsrechner.",
+      "introAI": "Eine Künstliche Intelligenz unterstützt deinen Lernerfolg: Ein Chatbot steht dir bei Fragen zur Seite und hilft dir, Konzepte besser zu verstehen.",
+      "whatMakesSpecial": "Was macht diese Plattform besonders?",
+      "feature4cid": {
+        "title": "4C/ID Lernmethode",
+        "description": "Basierend auf dem bewährten Four-Component Instructional Design Model. Du löst authentische Aufgaben, übst gezielt schwierige Konzepte und erhältst kontextuelle Unterstützung genau dann, wenn du sie brauchst."
+      },
+      "featureAI": {
+        "title": "KI-Lernassistent",
+        "description": "Dein persönlicher AI-Tutor hilft dir bei Fragen, erklärt Konzepte und generiert zusätzliche Übungen. Lerne in deinem eigenen Tempo mit intelligenter, adaptiver Unterstützung."
+      },
+      "featureProjects": {
+        "title": "Real-World Projekte",
+        "description": "Statt isolierter Code-Schnipsel arbeitest du an praktischen Projekten: Entwickle einen BMI-Rechner und einen Zinsrechner mit echten Python-Konzepten wie Variablen, Listen und Schleifen"
+      },
+      "learningGroup": {
+        "titleAI": "Deine Lerngruppe: Mit KI-Unterstützung",
+        "titleClassic": "Deine Lerngruppe: Klassisches Lernen",
+        "descriptionAI": "Du hast Zugang zum KI-Chatbot, der dir bei Fragen zur Seite steht. Nutze ihn, um Konzepte zu verstehen, Fehler zu finden und zusätzliche Erklärungen zu erhalten.",
+        "descriptionClassic": "Du lernst ohne KI-Chatbot – das ist Teil unserer wissenschaftlichen Studie. Du erhältst alle Kursinhalte, Übungsaufgaben und Lernmaterialien. Nur der interaktive KI-Assistent ist nicht verfügbar."
+      },
+      "learningJourney": {
+        "title": "Deine Lernreise",
+        "basics": "Python Basics",
+        "basicsDetail": "Variablen & Kontrollstrukturen",
+        "dataStructures": "Datenstrukturen",
+        "dataStructuresDetail": "Listen & Schleifen",
+        "projects": "Praxisprojekte",
+        "projectsDetail": "Echte Anwendungen"
+      },
+      "screenshotAlt": "Kursübersicht auf der Startseite",
+      "screenshotCaption": "Die Startseite zeigt dir alle verfügbaren Kurse und deinen Fortschritt",
+      "research": {
+        "title": "📊 Teil einer Forschungsstudie",
+        "description": "Du hilfst dabei, die Effektivität von KI-gestütztem Lernen zu erforschen. Am Ende des Kurses bitten wir dich um dein Feedback zur Lernplattform."
+      }
+    },
+    "step2": {
+      "title": "Lerne deinen Code-Editor kennen",
+      "intro": "In diesem Schritt zeigen wir dir die wichtigsten Funktionen des integrierten Code-Editors. Hier wirst du deine Python-Programme schreiben und testen.",
+      "layoutAlt": "Übersicht der Kursansicht",
+      "layoutCaption": "So sieht die Kursansicht aus - links der Code-Editor, rechts das Aufgaben-Panel",
+      "mainAreas": "Die wichtigsten Bereiche",
+      "codeEditor": {
+        "title": "Code-Editor",
+        "badge": "Hauptbereich",
+        "description": "Hier schreibst du deinen Python-Code. Der Editor bietet:",
+        "feature1": "Syntax-Highlighting für bessere Lesbarkeit",
+        "feature2": "Auto-Vervollständigung für schnelleres Tippen",
+        "feature3": "Hover-Tooltips: Fahre mit der Maus über Funktionen wie append() oder str() um eine kurze Beschreibung zu sehen",
+        "imageAlt": "Python Code Editor"
+      },
+      "console": {
+        "title": "Konsole",
+        "badge": "Output",
+        "description": "Hier siehst du die Ausgabe deines Python-Programms. Die Konsole zeigt:",
+        "feature1": "Print-Ausgaben deines Codes",
+        "feature2": "Fehlermeldungen und Tracebacks",
+        "imageAlt": "Python Output Konsole"
+      },
+      "taskPanel": {
+        "title": "Aufgaben-Panel",
+        "badge": "Rechts",
+        "description": "Das seitliche Panel enthält alle Aufgabeninformationen:",
+        "feature1": "Aufgabenbeschreibung und Ziele",
+        "feature2": "Hilfreiche Tipps, Hinweise und Codebeispiele",
+        "imageAlt": "Aufgaben-Panel mit Hinweisen"
+      },
+      "comments": {
+        "title": "⚠️ Wichtig: Kommentare in Python",
+        "description": "Bevor du anfängst: In Python werden Zeilen, die mit # beginnen, ignoriert. Diese Zeilen nennt man Kommentare und sie dienen nur zur Erklärung des Codes.",
+        "tip": "💡 Kommentare helfen dir, deinen Code zu verstehen, aber sie sind kein Teil des Programms. Du kannst so viele Kommentare erstellen, wie du möchtest."
+      },
+      "whitespace": {
+        "title": "⚠️ Wichtig: Leerzeichen in Python",
+        "description": "In Python sind Leerzeichen sehr wichtig! Der Kontrollfluss und die Struktur deines Codes hängen oft von der richtigen Anzahl an Leerzeichen bzw. Einrückungen ab. Achte besonders auf Leerzeichen, wenn du Texte zusammenfügst oder Print-Ausgaben machst.",
+        "wrongLabel": "❌ Ohne Leerzeichen (falsch):",
+        "correctLabel": "✅ Mit Leerzeichen (richtig):",
+        "exampleLabel": "📝 Beispiel mit Zahlen:",
+        "tip": "💡 Merke: Leerzeichen in Anführungszeichen \" \" werden ausgegeben, Leerzeichen außerhalb werden ignoriert (außer bei Einrückungen)!"
+      },
+      "example": {
+        "title": "Ein Beispiel Python Programm",
+        "codeLabel": "Python Code",
+        "outputLabel": "Konsolen-Ausgabe:",
+        "whatDoesEachLine": "Was macht jede Zeile?",
+        "line1": "Ein Kommentar - wird von Python ignoriert und dient nur als Notiz für dich.",
+        "line2": "Erstellt eine Variable namens name und speichert den Text \"Lernender\" darin.",
+        "line3": "Gibt Text aus in der Konsole. Das + verbindet Texte miteinander (String-Konkatenation).",
+        "line7": "Erstellt eine Variable alter mit einer Zahl (Integer) - keine Anführungszeichen nötig!",
+        "line8": "Berechnung: Nimmt den Wert von alter (25), addiert 1, speichert das Ergebnis (26).",
+        "line9": "Typ-Umwandlung: str() wandelt die Zahl 26 in Text \"26\" um - nötig, um Zahlen mit Text zu verbinden!"
+      },
+      "tips": {
+        "title": "💡 Profi-Tipps für den Editor",
+        "shortcut": "Strg + Enter: Um den Code auszuführen ohne Mausklick"
+      }
+    },
+    "step3": {
+      "title": "Dein KI-Lernassistent wartet auf dich",
+      "intro": "Der integrierte AI-Chatbot ist dein persönlicher Tutor, der dir beim Lernen hilft. Er kann Fragen beantworten, Konzepte erklären und zusätzliche Übungen generieren.",
+      "chatButtonAlt": "Chat-Button Standort oben rechts",
+      "chatButtonCaption": "Den Chat-Button findest du oben rechts auf jeder Kursseite (blauer Button)",
+      "featuresTitle": "Was dein AI-Assistent kann",
+      "aiAssistant": "AI-Assistent",
+      "exampleConversation": "Beispiel-Konversation",
+      "chatExampleAlt": "Beispiel einer Chat-Konversation mit dem KI-Assistenten",
+      "chatExampleCaption": "Der KI-Assistent erklärt Python-Konzepte und hilft bei Fragen",
+      "tipsTitle": "So nutzt du den Chat optimal",
+      "tip1": {
+        "title": "Sei spezifisch bei deinen Fragen",
+        "description": "Anstatt \"Ich verstehe das nicht\" frage lieber \"Warum bekomme ich einen Fehler bei meiner Print-Ausgabe?\""
+      },
+      "tip2": {
+        "title": "Der Bot kennt deinen Code bereits",
+        "description": "Der KI-Assistent sieht automatisch, was in deinem Code-Editor steht - du musst nichts kopieren"
+      },
+      "tip3": {
+        "title": "Hilfe bei Fehlern und Erklärungen",
+        "description": "Der Bot hilft dir bei Fehlerbehebung und erklärt Python-Konzepte verständlich"
+      },
+      "readyTitle": "Bereit für deine erste Frage?",
+      "readyDescription": "Der Chat-Button findest du unten rechts auf jeder Kursseite"
+    },
+    "step4": {
+      "title": "Drill Tasks - Übung macht den Meister",
+      "intro": "Zwischen den Kurs-Schritten erscheinen kurze Übungsaufgaben, sogenannte Drill Tasks. Sie helfen dir, das Gelernte zu festigen und sicherzustellen, dass du die Konzepte wirklich verstanden hast.",
+      "whatAreDrills": "Was sind Drill Tasks?",
+      "partTaskPractice": {
+        "title": "Part-Task Practice (4C/ID)",
+        "description": "Drills sind Teil der 4C/ID-Lernmethode. Sie trainieren gezielt einzelne Teilfertigkeiten, damit du sie automatisieren kannst. So wie ein Musiker Tonleitern übt, übst du hier Python-Grundlagen, bis sie sitzen."
+      },
+      "howDrillsWork": "So läuft ein Drill ab",
+      "part1": {
+        "title": "Teil 1: Multiple-Choice-Frage",
+        "tag": "Theorie",
+        "description": "Zuerst kommt eine Verständnisfrage zum aktuellen Thema. Das kann sein:",
+        "questionTypes": {
+          "concept": "Konzept-Frage: Was macht diese Funktion?",
+          "predictOutput": "Ausgabe vorhersagen: Was gibt dieser Code aus?",
+          "findError": "Fehler finden: Was ist hier falsch?",
+          "fillBlank": "Lückentext: Welcher Code gehört in die Lücke?"
+        },
+        "screenshotAlt": "Multiple-Choice-Frage im Drill Modal"
+      },
+      "part2": {
+        "title": "Teil 2: Code-Aufgabe",
+        "tag": "Praxis",
+        "description": "Dann schreibst du selbst eine kurze Code-Aufgabe. Diese sind bewusst einfach gehalten und fokussieren auf ein einzelnes Konzept.",
+        "screenshotAlt": "Code-Aufgabe im Drill Modal"
+      },
+      "whenDrillsAppear": {
+        "title": "Wann erscheinen Drills?",
+        "description": "Drills erscheinen zwischen den Kurs-Schritten. Die Themen basieren auf dem, was du bereits gelernt hast. Du musst den Drill lösen, um mit dem nächsten Kurs-Schritt fortzufahren."
+      },
+      "tips": {
+        "title": "Tipps für Drills",
+        "noFear": {
+          "title": "Keine Angst vor Fehlern:",
+          "description": "Du kannst so oft probieren, wie du möchtest. Falsche Antworten zeigen dir, wo du noch üben kannst."
+        },
+        "shortSweet": {
+          "title": "Kurz und knackig:",
+          "description": "Drills dauern nur 1-2 Minuten. Sie sollen das Gelernte festigen, nicht überfordern."
+        }
+      },
+      "readyTitle": "Bereit für deine Lernreise?",
+      "readyDescription": "Klicke auf \"Loslegen!\" um mit dem ersten Kurs zu starten."
+    }
+  },
+  "evaluation": {
+    "pageTitle": "Python Bootcamp - Evaluation",
+    "header": {
+      "emoji": "🎉",
+      "title": "Herzlichen Glückwunsch!",
+      "subtitle": "Du hast den Kurs erfolgreich abgeschlossen!"
+    },
+    "thankYou": {
+      "title": "Vielen Dank für deine Teilnahme! 🙏",
+      "paragraph1": "Du hast einen wichtigen Meilenstein erreicht. Deine Teilnahme an diesem Python Bootcamp ist ein wertvoller Beitrag zu meiner Bachelorarbeit.",
+      "paragraph2": "Um meine Forschung zu vervollständigen, bitte ich dich nun, dir noch <strong>etwa 5 Minuten Zeit</strong> zu nehmen, um den folgenden Evaluationsbogen auszufüllen.",
+      "feedbackNote": "💡 Dein ehrliches Feedback ist extrem wertvoll!",
+      "feedbackDescription": "Es hilft mir zu verstehen, wie effektiv das Lernen mit dieser Plattform ist und wo noch Verbesserungspotenzial besteht."
+    },
+    "formTitle": "Evaluationsbogen",
+    "section1": {
+      "title": "1. Vorerfahrung & Selbsteinschätzung",
+      "age": {
+        "label": "In welche Altersgruppe fallen Sie?",
+        "under18": "unter 18 Jahre",
+        "18to24": "18 - 24 Jahre",
+        "25to34": "25 - 34 Jahre",
+        "35to44": "35 - 44 Jahre",
+        "45to54": "45 - 54 Jahre",
+        "55plus": "55 Jahre und älter"
+      },
+      "employment": {
+        "label": "Was ist Ihr aktueller Beschäftigungsstatus?",
+        "student": "Schüler:in",
+        "apprentice": "Auszubildende:r",
+        "university": "Student:in",
+        "employed": "Berufstätig",
+        "seeking": "Arbeitssuchend",
+        "other": "Sonstiges"
+      },
+      "itField": {
+        "label": "Ist Ihre Tätigkeit/Ausbildung im Bereich IT oder Softwareentwicklung?",
+        "description": "Dient als Kontrollvariable für Fachexpertise.",
+        "yes": "Ja",
+        "no": "Nein"
+      },
+      "programmingSkills": {
+        "label": "Wie schätzen Sie Ihre aktuellen Programmierkenntnisse ein?",
+        "level1": "Keine Programmiererfahrung",
+        "level2": "Wenig Programmiererfahrung",
+        "level3": "Grundkenntnisse in einer Programmiersprache",
+        "level4": "Fortgeschrittene Kenntnisse in einer Programmiersprache",
+        "level5": "Professionelle Programmierkenntnisse"
+      },
+      "selfEfficacy": {
+        "label": "Programmier-Selbstwirksamkeit",
+        "description": "Bitte bewerten Sie, inwieweit die folgenden Aussagen auf Sie zutreffen.",
+        "item1": "Ich traue mir zu, auch komplexe Programmieraufgaben selbstständig zu lösen.",
+        "item2": "Wenn ich einen Fehler mache, finde ich meistens die Ursache.",
+        "item3": "Ich habe Spaß daran, mich in neue Probleme hineinzudenken.",
+        "scaleMin": "Stimme überhaupt nicht zu",
+        "scaleMax": "Stimme voll zu"
+      }
+    },
+    "section2": {
+      "title": "2. Aufgaben-Last (Cognitive Load)",
+      "mentalEffort": {
+        "label": "Mentale Anstrengung",
+        "description": "Wie viel geistige Anstrengung mussten Sie aufbringen, um die Aufgaben zu lösen?",
+        "scaleMin": "Sehr gering",
+        "scaleMax": "Sehr hoch"
+      },
+      "frustration": {
+        "label": "Frustration",
+        "description": "Wie unsicher, entmutigt, irritiert oder gestresst fühlten Sie sich während der Aufgaben?",
+        "scaleMin": "Sehr niedrig",
+        "scaleMax": "Sehr hoch"
+      }
+    },
+    "section3": {
+      "title": "3. Systemqualität (Plattform-Bewertung)",
+      "sus": {
+        "label": "System Usability Scale (SUS)",
+        "description": "Bitte bewerten Sie die folgenden Aussagen zur Plattform.",
+        "item1": "Ich denke, dass ich das System gerne häufig benutzen würde.",
+        "item2": "Ich fand das System unnötig komplex.",
+        "item3": "Ich fand das System einfach zu benutzen.",
+        "item4": "Ich glaube, ich würde die Hilfe einer technisch versierten Person benötigen.",
+        "item5": "Ich fand, die verschiedenen Funktionen waren gut integriert.",
+        "item6": "Ich denke, das System enthielt zu viele Inkonsistenzen.",
+        "item7": "Ich glaube, dass die meisten Menschen das System sehr schnell lernen.",
+        "item8": "Ich fand das System sehr umständlich zu nutzen.",
+        "item9": "Ich fühlte mich bei der Benutzung des Systems sehr sicher.",
+        "item10": "Ich musste eine Menge lernen, bevor ich anfangen konnte, das System zu verwenden.",
+        "scaleMin": "Stimme nicht zu",
+        "scaleMax": "Stimme zu"
+      },
+      "ueq": {
+        "label": "User Experience Questionnaire (UEQ-S)",
+        "description": "Bitte bewerten Sie das System anhand der folgenden Gegensatzpaare.",
+        "pair1": { "left": "behindernd", "right": "unterstützend" },
+        "pair2": { "left": "kompliziert", "right": "einfach" },
+        "pair3": { "left": "ineffizient", "right": "effizient" },
+        "pair4": { "left": "verwirrend", "right": "übersichtlich" },
+        "pair5": { "left": "langweilig", "right": "spannend" },
+        "pair6": { "left": "uninteressant", "right": "interessant" },
+        "pair7": { "left": "konventionell", "right": "originell" },
+        "pair8": { "left": "herkömmlich", "right": "neuartig" }
+      }
+    },
+    "aiCheckbox": "✓ Ich habe die KI-Hilfe während des Kurses genutzt",
+    "section4": {
+      "title": "4. KI-Assistent Bewertung",
+      "usefulness": {
+        "label": "Wahrgenommene Nützlichkeit",
+        "description": "Bitte bewerten Sie die folgenden Aussagen zum KI-Assistenten.",
+        "item1": "Die KI hat mir geholfen, die Aufgabe schneller zu lösen.",
+        "item2": "Die Erklärungen der KI waren fachlich hilfreich.",
+        "item3": "Ich würde die KI bei zukünftigen Aufgaben wieder nutzen.",
+        "scaleMin": "Stimme überhaupt nicht zu",
+        "scaleMax": "Stimme voll zu"
+      },
+      "trust": {
+        "label": "Vertrauen & Sicherheit",
+        "description": "Wie vertrauenswürdig empfanden Sie die KI?",
+        "item1": "Ich vertraue darauf, dass die Antworten der KI korrekt sind.",
+        "item2": "Ich hatte das Gefühl, die Antworten der KI überprüfen zu müssen. (Invertiert)",
+        "item3": "Die KI wirkte zuverlässig auf mich.",
+        "scaleMin": "Stimme überhaupt nicht zu",
+        "scaleMax": "Stimme voll zu"
+      }
+    },
+    "section5": {
+      "title": "5. Abschließendes Feedback",
+      "nps": {
+        "label": "Net Promoter Score",
+        "description": "Wie wahrscheinlich ist es, dass Sie diese Plattform einem Kommilitonen empfehlen?",
+        "unlikely": "Unwahrscheinlich",
+        "veryLikely": "Sehr wahrscheinlich"
+      },
+      "openFeedback": {
+        "label": "Offenes Feedback",
+        "description": "Was können wir verbessern? (Funktionen, Fehler, Wünsche)",
+        "placeholder": "Dein ausführliches Feedback..."
+      }
+    },
+    "submit": {
+      "button": "Evaluation abschließen →",
+      "loading": "Wird gespeichert..."
+    },
+    "validation": {
+      "ageGroup": "Bitte wähle deine Altersgruppe aus.",
+      "employment": "Bitte wähle deinen Beschäftigungsstatus aus.",
+      "itField": "Bitte gib an, ob du im IT-Bereich tätig bist.",
+      "programmingSkills": "Bitte bewerte deine Programmierkenntnisse.",
+      "selfEfficacy": "Bitte beantworte alle Fragen zur Selbsteinschätzung.",
+      "sus": "Bitte beantworte alle System Usability Scale Fragen.",
+      "ueq": "Bitte bewerte alle User Experience Gegensatzpaare.",
+      "aiUsefulness": "Bitte bewerte alle Fragen zur KI-Nützlichkeit.",
+      "aiTrust": "Bitte bewerte alle Fragen zum Vertrauen in die KI.",
+      "nps": "Bitte gib an, wie wahrscheinlich du die Plattform weiterempfehlen würdest.",
+      "openFeedback": "Bitte gib uns dein Feedback - was hat dir gefallen oder was können wir verbessern?"
+    }
+  },
+  "goodbye": {
+    "title": "Vielen herzlichen Dank!",
+    "subtitle": "Du hast es geschafft!",
+    "greeting": "Liebe Teilnehmerin, lieber Teilnehmer,",
+    "paragraph1": "von ganzem Herzen möchte ich mich bei dir für deine Teilnahme an diesem Python Bootcamp bedanken. Du hast nicht nur deine eigenen Python-Kenntnisse erweitert, sondern auch einen unschätzbaren Beitrag zu meiner Bachelorarbeit geleistet.",
+    "paragraph2": "Deine Zeit, dein Engagement und dein ehrliches Feedback sind das Fundament dieser Forschung. Ohne Teilnehmer wie dich wäre diese Arbeit nicht möglich gewesen. Jede Zeile Code, die du geschrieben hast, jeder Schritt, den du gemeistert hast, und jede Rückmeldung, die du gegeben hast, helfen mir dabei zu verstehen, wie KI-gestützte Lernsysteme verbessert werden können.",
+    "youAreAwesome": "🌟 Du bist großartig!",
+    "wishesMessage": "Ich wünsche dir alles Gute auf deinem weiteren Lernweg und hoffe, dass dieses Bootcamp dir geholfen hat, deine Python-Kenntnisse zu vertiefen und Spaß am Programmieren zu finden.",
+    "closing": "Nochmals vielen Dank und alles Gute!",
+    "signature": "Mit besten Grüßen,\nKacper Cömlek",
+    "closeInfo": "Du kannst dieses Fenster jetzt schließen oder zur Startseite zurückkehren.",
+    "backToHome": "Zur Startseite"
+  },
+  "chat": {
+    "title": "KI-Lernassistent",
+    "subtitle": "Immer für dich da",
+    "placeholder": "Nachricht eingeben...",
+    "send": "Senden",
+    "thinking": "Schreibt...",
+    "error": "Entschuldigung, es gab einen Fehler beim Verarbeiten deiner Nachricht. Versuche es nochmal.",
+    "errorApi": "Die OpenAI API ist momentan nicht verfügbar. Bitte versuche es in ein paar Minuten noch einmal.",
+    "errorApiKey": "Der API-Schlüssel ist nicht konfiguriert. Bitte kontaktiere den Administrator.",
+    "welcomeMessage": "Hallo! Ich bin dein AI-Assistent für das Python-Bootcamp. Wie kann ich dir beim Lernen helfen?",
+    "assistantLabel": "KI-Assistent",
+    "resetChat": "Chat zurücksetzen",
+    "closeChat": "Chat schließen",
+    "resetDialog": {
+      "title": "Chat zurücksetzen?",
+      "message": "Die bisherige Konversation wird archiviert und ein neuer Chat gestartet.",
+      "messageLoggedIn": " Du kannst den archivierten Chat nicht wiederherstellen.",
+      "cancel": "Abbrechen",
+      "confirm": "Zurücksetzen",
+      "resetting": "Wird zurückgesetzt..."
+    },
+    "introModal": {
+      "title": "Dein KI-Lernassistent",
+      "subtitle": "Lass uns kennenlernen!",
+      "greeting": "Hallo{username}! Ich bin dein persönlicher Lernassistent für diesen Python-Kurs.\n\nBevor wir loslegen, erzähl mir doch kurz von dir: Was ist dein bisheriger Erfahrungsstand mit Programmierung allgemein und speziell mit Python?\n\nKeine Sorge, es gibt keine falsche Antwort - ich möchte nur wissen, wie ich dir am besten helfen kann!",
+      "inputPlaceholder": "Erzähl mir von dir...",
+      "continue": "Super! Jetzt kennen wir uns schon etwas besser.",
+      "startCourse": "Mit dem Kurs starten",
+      "orContinueChat": "oder chatte weiter unten",
+      "errorMessage": "Entschuldigung, es gab einen Fehler. Bitte versuche es nochmal."
+    }
+  },
+  "onboardingPage": {
+    "stepOf": "Schritt {current} von {total}",
+    "back": "Zurück",
+    "next": "Weiter",
+    "start": "Loslegen!",
+    "skip": "Onboarding überspringen",
+    "stepTitles": {
+      "withAI": ["Willkommen", "Der Code-Editor", "KI-Unterstützung nutzen", "Drill Tasks"],
+      "withoutAI": ["Willkommen", "Der Code-Editor", "Drill Tasks"]
+    }
+  },
+  "reportBug": {
+    "title": "Bug melden",
+    "subtitle": "Hast du einen Fehler gefunden? Hilf uns, die Plattform zu verbessern!",
+    "describeProblem": "Beschreibe das Problem",
+    "placeholder": "Was ist passiert? Was hast du erwartet?",
+    "metadata": {
+      "title": "Deine Metadaten",
+      "subtitle": "Diese Informationen helfen uns, das Problem zu finden und zu beheben.",
+      "userId": "User-ID",
+      "username": "Username",
+      "group": "Gruppe",
+      "groupA": "A (ohne KI-Chat)",
+      "groupB": "B (mit KI-Chat)",
+      "screen": "Bildschirm",
+      "timestamp": "Zeitstempel",
+      "notLoggedIn": "Nicht angemeldet",
+      "unknown": "Unbekannt"
+    },
+    "email": {
+      "title": "Bug per E-Mail melden",
+      "subtitle": "Klicke auf den Button unten, um eine vorausgefüllte E-Mail zu öffnen.",
+      "button": "E-Mail öffnen",
+      "subject": "Bug Report - Python Bootcamp"
+    },
+    "copy": {
+      "title": "Alternativ: Manuell kopieren",
+      "emailLabel": "E-Mail-Adresse:",
+      "templateLabel": "Komplettes Bug-Report-Template mit deiner Nachricht (inkl. Metadaten):",
+      "button": "Kopieren",
+      "copied": "Kopiert!",
+      "templateButton": "Bug-Report-Template kopieren und in deine Email einfach einfügen",
+      "templateCopied": "Template kopiert!"
+    },
+    "template": {
+      "hello": "Hallo",
+      "intro": "ich möchte folgenden Bug melden:",
+      "description": "BESCHREIBUNG DES PROBLEMS:",
+      "descriptionPlaceholder": "[Bitte beschreibe das Problem hier]",
+      "steps": "SCHRITTE ZUM REPRODUZIEREN:",
+      "expected": "ERWARTETES VERHALTEN:",
+      "actual": "TATSÄCHLICHES VERHALTEN:",
+      "metadataHeader": "=== Bug Report Metadaten ==="
+    },
+    "backToHome": "Zurück zur Startseite"
+  },
+  "course": {
+    "task": "Aufgabe",
+    "yourTask": "🎯 Deine Aufgabe",
+    "stepOf": "Schritt {current} von {total}",
+    "keyboardHintPrefix": "Tipp: Drücke",
+    "keyboardHintSuffix": "um deinen Code auszuführen",
+    "runCodePrompt": "Führe deinen Code aus, um die Ausgabe hier zu sehen...",
+    "runCodeToCheck": "Führe deinen Code aus, um die Lösung zu überprüfen",
+    "alreadySolved": "Bereits gelöst",
+    "correct": "Korrekt",
+    "hint": "Hinweis",
+    "solution": "Lösung",
+    "runCode": "Code ausführen",
+    "resetCode": "Code zurücksetzen",
+    "nextStep": "Nächster Schritt",
+    "previousStep": "Vorheriger Schritt",
+    "complete": "Aufgabe abschließen",
+    "output": "Ausgabe",
+    "expected": "Erwartet",
+    "actual": "Tatsächlich",
+    "correct": "Richtig! Gut gemacht!",
+    "incorrect": "Noch nicht ganz richtig. Versuche es nochmal.",
+    "step": "Schritt {current} von {total}",
+    "continueCourse": "Kurs fortsetzen",
+    "continueDrill": "Drill fortsetzen",
+    "finishCourse": "Kurs beenden",
+    "nextStepButton": "Nächster Schritt",
+    "solveDrill": "Drill Task lösen",
+    "codeRunning": "Code wird ausgeführt...",
+    "checkSolution": "Lösung prüfen",
+    "fillBlank": "Lückentext",
+    "openChat": "Chat öffnen",
+    "selectPlaceholder": "Bitte auswählen...",
+    "learningGroupAI": "Deine Lerngruppe: Mit KI-Unterstützung",
+    "learningGroupClassic": "Deine Lerngruppe: Klassisches Lernen",
+    "hoverTooltipHint": "Hover-Tooltips: Fahre mit der Maus über Funktionen wie {func1} oder {func2} um eine kurze Beschreibung zu sehen"
+  },
+  "drill": {
+    "title": "Drill-Aufgaben",
+    "question": "Frage {current} von {total}",
+    "submit": "Antwort prüfen",
+    "correct": "Richtig!",
+    "incorrect": "Leider falsch.",
+    "notQuite": "Nicht ganz...",
+    "tryAgain": "Nochmal versuchen",
+    "explanation": "Erklärung",
+    "nextQuestion": "Nächste Frage",
+    "complete": "Drill abgeschlossen!",
+    "score": "Du hast {correct} von {total} Fragen richtig beantwortet.",
+    "codeRunning": "Code wird ausgeführt...",
+    "checkSolution": "Lösung prüfen",
+    "fillBlank": "Lückentext",
+    "types": {
+      "multipleChoice": "Multiple Choice",
+      "spotTheError": "Fehler finden",
+      "predictOutput": "Ausgabe vorhersagen",
+      "fillTheBlank": "Lückentext"
+    },
+    "attempt": "Versuch {count}",
+    "modal": {
+      "title": "Part-Task Practice - Schritt {step}",
+      "taskOf": "Aufgabe {current}/{total}",
+      "loading": "KI wählt passende Übungen aus...",
+      "progressComplete": "Beide Aufgaben abgeschlossen!",
+      "progressPercent": "{percent}% abgeschlossen",
+      "aiRecommendation": "KI-Empfehlung:",
+      "difficultyEasy": "Leicht",
+      "difficultyMedium": "Mittel",
+      "difficultyHard": "Schwer",
+      "mcqCompleted": "MCQ abgeschlossen",
+      "codeCompleted": "Code abgeschlossen",
+      "backToMcq": "Zurück zu MCQ",
+      "continueToCode": "Weiter zur Code-Aufgabe",
+      "continueCourse": "Kurs fortsetzen",
+      "saving": "Speichern..."
+    },
+    "code": {
+      "title": "Code-Aufgabe",
+      "output": "Ausgabe:",
+      "perfect": "Perfekt!",
+      "notQuiteRight": "Noch nicht ganz richtig",
+      "codeMustContain": "Code muss enthalten: {snippet}",
+      "interpreterLoading": "Python-Interpreter wird noch geladen. Bitte versuche es gleich nochmal..."
+    }
+  },
+  "errors": {
+    "notFound": "Seite nicht gefunden",
+    "serverError": "Ein Serverfehler ist aufgetreten",
+    "networkError": "Netzwerkfehler - bitte überprüfe deine Verbindung",
+    "unauthorized": "Du musst angemeldet sein, um diese Seite zu sehen"
+  }
+}

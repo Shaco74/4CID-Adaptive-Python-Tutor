@@ -1,0 +1,650 @@
+import { CourseData } from '@/types/courseTypes';
+
+export const interestCalculatorCourseData: CourseData = {
+  id: "interest-calculator",
+  title: "Zinsrechner",
+  description: "Erstelle einen Zinseszins-Rechner für Sparpläne. Du lernst Schleifen und Listen für deine Programme.",
+  tasks: [
+    {
+      id: "interest-calculator-step-1",
+      step: 1,
+      hasDrill: true,
+      title: "f-Strings - Die moderne Art der Ausgabe",
+      description: "Lerne f-Strings kennen - besser als str() + \"+\".",
+      blocks: [
+        {
+          type: "text",
+          content: "Willkommen beim Zinsrechner-Projekt! Hier entwickelst du ein Programm, das berechnet, wie dein Geld über mehrere Jahre mit Zinsen wächst.\n\n**In diesem Kurs lernst du:**\n\n📌 **f-Strings** - Variablen einfacher ausgeben als mit `str() + \"+\"`\n\n📌 **for-Schleifen** - Code automatisch wiederholen\n\n📌 **Listen** - Mehrere Werte speichern\n\nWir starten mit f-Strings. Du kennst bereits `print()`, Variablen und `str() + \"+\"` vom BMI-Rechner. f-Strings sind eine einfachere Alternative, die du ab jetzt verwenden kannst."
+        },
+        {
+          type: "hint",
+          severity: "success",
+          content: "**💡 Warum f-Strings besser sind:**\n\n✅ **Mit f-Strings (modern):**\n```python\nprint(f\"BMI: {bmi}\")\n```\n\n❌ **Mit str() + \"+\" (umständlich):**\n```python\nprint(\"BMI: \" + str(bmi))\n```\n\nf-Strings sind **kürzer, lesbarer** und du brauchst **kein str()** mehr!"
+        },
+        {
+          type: "code",
+          title: "f-Strings Syntax",
+          language: "python",
+          content: `# f vor dem String, Variablen in geschweifte Klammern {}
+betrag = 1000
+print(f"Geld: {betrag}€")  # Geld: 1000€
+
+# Mehrere Variablen einfügen
+name = "Max"
+alter = 25
+print(f"{name} ist {alter} Jahre alt")  # Max ist 25 Jahre alt`
+        },
+        {
+          type: "hint",
+          severity: "warning",
+          content: "**⚠️ Häufiger Fehler:**\n\n❌ **Vergiss das `f` nicht!**\n```python\nprint(\"Betrag: {betrag}€\")  # Falsch - gibt {betrag}€ aus\n```\n\n✅ **Mit f funktioniert es:**\n```python\nprint(f\"Betrag: {betrag}€\")  # Richtig - gibt 1000€ aus\n```"
+        },
+        {
+          type: "task",
+          content: "Erstelle Variablen für `initial` (Startkapital: 1000) und `rate` (Zinssatz: 5). Gib beide mit f-Strings aus:\n\n- `Startkapital: 1000€`\n- `Zinssatz: 5%`"
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**Tipp:** Das €-Zeichen und % schreibst du direkt in den String, z.B. `f\"Wert: {variable}€\"`"
+        }
+      ],
+      showHints: true,
+      path: "/pfade/interest-calculator/1",
+      courseId: "interest-calculator",
+      topics: ["Strings", "Variablen"],
+      solutionString: ["Mein Zinsrechner", "Startkapital: 1000€", "Zinssatz: 5%"],
+      starterCode: `# Mein Zinsrechner
+
+print("Mein Zinsrechner")
+
+# Erstelle hier die Variablen initial und rate
+
+# Gebe sie mit f-Strings in die Konsole aus`
+    },
+    {
+      id: "interest-calculator-step-2",
+      hasDrill: true,
+      step: 2,
+      title: "Prozentrechnung - Zinsen für 1 Jahr berechnen",
+      description: "Berechne wie viel Geld du nach einem Jahr hast.",
+      blocks: [
+        {
+          type: "text",
+          content: "Jetzt berechnen wir die Zinsen! Wenn du 1000€ mit 5% Zinsen anlegst, bekommst du nach einem Jahr **50€ Zinsen** dazu. Macht insgesamt **1050€**."
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**📐 Die Zinsformel:**\n\n```python\nneuer_betrag = alter_betrag * (1 + zinssatz/100)\n```\n\n**Beispiel:** 1000€ mit 5% Zinsen\n```python\nneuer_betrag = 1000 * (1 + 5/100)\n             = 1000 * (1 + 0.05)\n             = 1000 * 1.05\n             = 1050€\n```"
+        },
+        {
+          type: "code",
+          title: "Prozentrechnung in Python",
+          language: "python",
+          content: `# Prozente in Python
+preis = 100
+rabatt = 20  # 20% Rabatt
+
+# 20% Rabatt = Preis × (1 - 20/100)
+neuer_preis = preis * (1 - rabatt/100)
+print(f"Preis nach Rabatt: {neuer_preis}€")  # 80€
+
+# Bei Zinsen addieren wir statt subtrahieren:
+# 5% Zinsen = Betrag × (1 + 5/100)`
+        },
+        {
+          type: "task",
+          content: "Berechne den Betrag nach einem Jahr:\n\n1. Erstelle eine Variable `amount_after_1_year` mit der Zinsformel\n2. Gib das Ergebnis aus: `Nach 1 Jahr: 1050.0€`"
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**Tipp:** Die Formel ist `initial * (1 + rate/100)`. Das Ergebnis sollte 1050.0 sein."
+        }
+      ],
+      showHints: true,
+      path: "/pfade/interest-calculator/2",
+      courseId: "interest-calculator",
+      topics: ["Variablen", "Datentypen"],
+      solutionString: ["Mein Zinsrechner", "Startkapital: 1000€", "Zinssatz: 5%", "Nach 1 Jahr: 1050.0€"],
+      starterCode: `# Mein Zinsrechner
+
+print("Mein Zinsrechner")
+
+initial = 1000
+rate = 5
+
+print(f"Startkapital: {initial}€")
+print(f"Zinssatz: {rate}%")
+
+# Berechne hier den Betrag nach 1 Jahr
+
+# Gebe das Ergebnis in die Konsole aus`
+    },
+    {
+      id: "interest-calculator-step-3",
+      step: 3,
+      hasDrill: true,
+      title: "for-Schleifen - Code automatisch wiederholen",
+      description: "NEUES KONZEPT: Wiederhole Code automatisch mit for-Schleifen!",
+      blocks: [
+        {
+          type: "text",
+          content: "**NEUES KONZEPT: for-Schleifen**\n\nfor-Schleifen sind ein Kernkonzept der Programmierung. Sie erlauben es, Codeblöcke automatisch zu wiederholen (zu \"iterieren\")."
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**Das Problem:** Du willst 100 Zahlen ausgeben.\n\n```python\n# Ohne Schleife (extrem mühsam)\nprint(\"Zahl: 1\")\nprint(\"Zahl: 2\")\nprint(\"Zahl: 3\")\n# ...bis 100...\n```\n\nFür 100 Zeilen hast du keine Zeit! Es muss einen besseren Weg geben..."
+        },
+        {
+          type: "text",
+          content: "**Die Lösung: for-Schleife**\n\nMit einer for-Schleife schreibst du den Code nur einmal und lässt Python ihn automatisch wiederholen:"
+        },
+        {
+          type: "code",
+          title: "for-Schleife Beispiel",
+          language: "python",
+          content: `# Mit Schleife (effizient)
+for nummer in range(1, 101):
+    print(f"Zahl: {nummer}")
+
+# Das war's! Python gibt jetzt alle Zahlen von 1-100 aus.`
+        },
+        {
+          type: "text",
+          content: "**Die for-Schleifen-Syntax**\n\nEine for-Schleife hat einen **Kopf** (wie oft?) und einen **Körper** (was?)."
+        },
+        {
+          type: "code",
+          title: "Syntax erklärt",
+          language: "python",
+          content: `#   KOPF (Definiert die Wiederholung)
+#   |-----------------------------|
+for laufvariable in range(1, 4):
+    # KÖRPER (wird eingerückt)
+    print(f"Aktueller Wert: {laufvariable}")
+
+# Ausgabe:
+# Aktueller Wert: 1
+# Aktueller Wert: 2
+# Aktueller Wert: 3`
+        },
+        {
+          type: "text",
+          content: "**Die Bestandteile erklärt:**"
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**laufvariable**\n\nEin Name, den du wählst. Sie ändert ihren Wert in jedem Durchlauf.\n\nBeispiele: `nummer`, `i`, `jahr`"
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**range(1, 4)**\n\nLiefert die Zahlenfolge, über die gelaufen wird."
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**: (Doppelpunkt)**\n\nBeendet den Kopf der Schleife."
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**Einrückung (Körper)**\n\nDer Code, der wiederholt werden soll, muss eingerückt werden (4 Leerzeichen oder 1 TAB)."
+        },
+        {
+          type: "code",
+          title: "Einrückung ist wichtig!",
+          language: "python",
+          content: `for i in range(1, 3):
+    print(f"Durchlauf {i}")  # Eingerückt: Wiederholt sich
+
+print("Fertig.")  # Nicht eingerückt: Läuft nur 1x danach
+
+# Ausgabe:
+# Durchlauf 1
+# Durchlauf 2
+# Fertig.`
+        },
+        {
+          type: "hint",
+          severity: "warning",
+          content: "**⚠️ WICHTIG: Der stop-Wert ist exklusiv!**\n\n`range()` zählt **bis zur stop-Zahl, schließt sie aber NICHT mit ein.**\n\n- `range(1, 4)` liefert: **1, 2, 3** (Stoppt VOR der 4)\n- `range(0, 3)` liefert: **0, 1, 2** (Stoppt VOR der 3)\n\n**Merkregel:** Wenn du bis einschließlich 3 zählen willst, brauchst du `range(1, 4)`."
+        },
+        {
+          type: "code",
+          title: "range() Beispiele",
+          language: "python",
+          content: `# Verschiedene range() Verwendungen
+for i in range(1, 4):
+    print(i)  # 1, 2, 3
+
+for i in range(1, 6):
+    print(i)  # 1, 2, 3, 4, 5
+
+for i in range(0, 3):
+    print(i)  # 0, 1, 2`
+        },
+        {
+          type: "text",
+          content: "**🚀 Deine Aufgabe**\n\nSchreibe eine for-Schleife, die `Jahr 1`, `Jahr 2` und `Jahr 3` ausgibt.\n\n- Nutze eine sinnvoll benannte Laufvariable (überlege: worum geht's?)\n- Du hast bereits die Variable `years = 3` im Starter Code"
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**💡 Flexibler Code mit Variablen**\n\nDu kannst `range()` auch mit Variablen füttern:\n\n```python\nyears = 3\n# Dein Code hier:\n# Wie nutzt du \"years\" in range(), \n# um die Zahlen 1, 2 und 3 zu bekommen?\n# Denk daran: range(1, 4) gibt 1, 2, 3.\n```\n\nWelche Zahl muss in `range(1, ?)` stehen, wenn `years = 3` ist?"
+        }
+      ],
+      showHints: true,
+      path: "/pfade/interest-calculator/3",
+      courseId: "interest-calculator",
+      topics: ["Schleifen"],
+      solutionString: ["Mein Zinsrechner", "Startkapital: 1000€", "Zinssatz: 5%", "Jahr 1", "Jahr 2", "Jahr 3"],
+      starterCode: `# Mein Zinsrechner
+
+print("Mein Zinsrechner")
+
+initial = 1000
+rate = 5
+years = 3
+
+print(f"Startkapital: {initial}€")
+print(f"Zinssatz: {rate}%")
+
+# Das war die Lösung für Step 2 (für 1 Jahr):
+amount_after_1_year = initial * (1 + rate/100)
+print(f"Nach 1 Jahr: {amount_after_1_year}€")
+
+# Jetzt erweitern wir das mit einer for-Schleife für mehrere Jahre:
+# Nutze eine for-Schleife hier`
+    },
+    {
+      id: "interest-calculator-step-4",
+      hasDrill: true,
+      step: 4,
+      title: "Zinseszins-Effekt - Schleifen für Berechnungen nutzen",
+      description: "Berechne Zinsen für mehrere Jahre automatisch!",
+      blocks: [
+        {
+          type: "text",
+          content: "Jetzt kombinieren wir for-Schleifen mit der Zinsberechnung! So können wir automatisch für 3, 10 oder 100 Jahre rechnen. Das ist der **Zinseszins-Effekt**: Zinsen werden auf Zinsen berechnet!"
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**💰 Zinseszins-Effekt:**\n\n- **Jahr 1:** 1000€ + 5% = **1050€**\n- **Jahr 2:** 1050€ + 5% = **1102.50€** (Zinsen auf die 1050€!)\n- **Jahr 3:** 1102.50€ + 5% = **1157.63€**\n\nDie Zinsen werden jedes Jahr **auf den neuen Betrag** berechnet, nicht auf den Ursprungsbetrag!"
+        },
+        {
+          type: "code",
+          title: "Zinseszins in der Schleife",
+          language: "python",
+          content: `# Beispiel: 1000€ mit 10% Zinsen über 3 Jahre
+kapital = 1000
+
+for jahr in range(1, 4):
+    kapital = kapital * 1.10  # +10% auf aktuelles Kapital
+    print(f\"Jahr {jahr}: {kapital}€\")
+
+# Jahr 1: 1100€
+# Jahr 2: 1210€ (10% von 1100€)
+# Jahr 3: 1331€ (10% von 1210€)`
+        },
+        {
+          type: "hint",
+          severity: "warning",
+          content: "**⚠️ Wichtig: Variable aktualisieren!**\n\n```python\nkapital = kapital * 1.10\n```\n\nDas bedeutet: **Nimm den alten Wert**, multipliziere ihn, **speichere das Ergebnis wieder in kapital**.\n\nSo wächst der Betrag jedes Jahr!"
+        },
+        {
+          type: "task",
+          content: "Berechne den Zinseszins für 3 Jahre:\n\n1. Erstelle eine Variable `amount` mit dem Wert von `initial`\n2. Nutze eine for-Schleife für 3 Jahre\n3. In der Schleife: Multipliziere `amount` mit `(1 + rate/100)` und speichere es zurück in `amount`\n4. Gib jedes Jahr aus: `Jahr 1: 1050.0€`, `Jahr 2: 1102.5€`, `Jahr 3: 1157.625€`"
+        }
+      ],
+      showHints: true,
+      path: "/pfade/interest-calculator/4",
+      courseId: "interest-calculator",
+      topics: ["Schleifen", "Variablen"],
+      solutionString: ["Mein Zinsrechner", "Startkapital: 1000€", "Zinssatz: 5%", "Jahr 1: 1050.0€", "Jahr 2: 1102.5€", "Jahr 3: 1157.625€"],
+      starterCode: `# Mein Zinsrechner
+
+print("Mein Zinsrechner")
+
+initial = 1000
+rate = 5
+years = 3
+
+print(f"Startkapital: {initial}€")
+print(f"Zinssatz: {rate}%")
+
+# Das war die Lösung für Step 3 (Jahre ausgeben):
+# for year in range(1, years + 1):
+#     print(f"Jahr {year}")
+
+# Jetzt erweitern wir das: Berechne in der Schleife den Zinseszins!
+# Erstelle amount Variable hier
+
+# Nutze for-Schleife für Zinseszins-Berechnung`
+    },
+    {
+      id: "interest-calculator-step-5",
+      step: 5,
+      hasDrill: true,
+      title: "Listen - Mehrere Werte speichern",
+      description: "NEUES KONZEPT: Speichere mehrere Werte in einer Liste!",
+      blocks: [
+        {
+          type: "text",
+          content: "**NEUES KONZEPT:** Listen! Bisher haben Variablen nur **einen Wert** gespeichert. Listen können **viele Werte** speichern - perfekt für unseren Zinsverlauf!"
+        },
+        {
+          type: "hint",
+          severity: "success",
+          content: "**💡 Warum Listen?**\n\n❌ **Ohne Listen (3 Jahre):**\n```python\njahr1 = 1050.0\njahr2 = 1102.5\njahr3 = 1157.625\n```\nFür 100 Jahre? Unmöglich!\n\n✅ **Mit Listen:**\n```python\nverlauf = [1050.0, 1102.5, 1157.625]\n```\nAlle Werte an einem Ort!"
+        },
+        {
+          type: "code",
+          title: "Listen Grundlagen",
+          language: "python",
+          content: `# Leere Liste erstellen
+meine_liste = []
+print(meine_liste)  # []
+
+# Werte hinzufügen mit .append()
+meine_liste.append(10)
+print(meine_liste)  # [10]
+
+meine_liste.append(20)
+print(meine_liste)  # [10, 20]
+
+meine_liste.append(30)
+print(meine_liste)  # [10, 20, 30]`
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**📝 .append() Methode:**\n\n```python\nliste.append(wert)\n```\n\n- Fügt `wert` **am Ende** der Liste hinzu\n- Die Liste wächst automatisch\n- Du kannst beliebig viele Werte hinzufügen"
+        },
+        {
+          type: "code",
+          title: "Listen mit verschiedenen Daten",
+          language: "python",
+          content: `# Listen können auch Text speichern
+früchte = []
+früchte.append(\"Apfel\")
+früchte.append(\"Banane\")
+print(früchte)  # [\"Apfel\", \"Banane\"]
+
+# Oder Zahlen
+zahlen = []
+zahlen.append(5)
+zahlen.append(10)
+zahlen.append(15)
+print(zahlen)  # [5, 10, 15]`
+        },
+        {
+          type: "text",
+          content: "**🚀 Deine Aufgabe**\n\nErstelle eine leere Liste `amount` und füge manuell drei Geldbeträge hinzu:\n\n1. 1050.0 (Jahr 1)\n2. 1102.5 (Jahr 2)\n3. 1157.625 (Jahr 3)\n\nGib nach jedem `.append()` die Liste mit folgendem Format aus:\n- `Nach Jahr 1: [1050.0]`\n- `Nach Jahr 2: [1050.0, 1102.5]`\n- `Nach Jahr 3: [1050.0, 1102.5, 1157.625]`"
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**💡 Tipp zur Ausgabe:**\n\n```python\namount.append(1050.0)\nprint(f\"Nach Jahr 1: {amount}\")\n```\n\nDer f-String mit `{amount}` gibt die komplette Liste aus!"
+        }
+      ],
+      showHints: true,
+      path: "/pfade/interest-calculator/5",
+      courseId: "interest-calculator",
+      topics: ["Listen"],
+      solutionString: ["Mein Zinsrechner", "Nach Jahr 1: [1050.0]", "Nach Jahr 2: [1050.0, 1102.5]", "Nach Jahr 3: [1050.0, 1102.5, 1157.625]"],
+      starterCode: `# Mein Zinsrechner
+
+print("Mein Zinsrechner")
+
+# Das war deine Lösung aus Step 4 (Zinseszins-Berechnung):
+# initial = 1000
+# rate = 5
+# years = 3
+# amount = initial
+# for year in range(1, years + 1):
+#     amount = amount * (1 + rate/100)
+#     print(f"Jahr {year}: {amount}€")
+
+# Jetzt lernst du Listen kennen - speichere die Beträge!
+# Erstelle eine leere Liste amount
+
+# Füge die drei Beträge MANUELL hinzu (1050.0, 1102.5, 1157.625)
+# Gebe nach jedem .append() in die Konsole aus: "Nach Jahr 1: [...]", "Nach Jahr 2: [...]", etc.`
+    },
+    {
+      id: "interest-calculator-step-6",
+      hasDrill: true,
+      step: 6,
+      title: "Schleifen + Listen - Verlauf automatisch speichern",
+      description: "Kombiniere for-Schleifen mit Listen!",
+      blocks: [
+        {
+          type: "text",
+          content: "Jetzt kombinieren wir for-Schleifen mit Listen! Statt jeden Betrag manuell hinzuzufügen, macht die Schleife das automatisch."
+        },
+        {
+          type: "code",
+          title: "Listen in Schleifen füllen",
+          language: "python",
+          content: `# Liste in Schleife füllen
+ergebnisse = []
+
+for i in range(1, 4):
+    wert = i * 10  # 10, 20, 30
+    ergebnisse.append(wert)
+    print(f\"Jahr {i}: {wert}\")
+
+print(f\"Alle Werte: {ergebnisse}\")
+# Alle Werte: [10, 20, 30]`
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**Ablauf:**\n\n1. Schleife läuft durch Jahre 1, 2, 3\n2. **In jedem Durchlauf:**\n   - Berechne neuen Betrag\n   - Füge ihn zur Liste hinzu mit `.append()`\n   - Gib ihn aus\n3. Am Ende hast du alle Werte in der Liste!"
+        },
+        {
+          type: "text",
+          content: "**🚀 Deine Aufgabe**\n\nErweitere deine Zinseszins-Berechnung um eine `history` Liste:\n\n1. Erstelle eine leere Liste `history = []` VOR der Schleife\n2. In der Schleife: Nach der Berechnung füge `amount` zur Liste hinzu mit `history.append(amount)`\n3. Nach der Schleife: Gib die komplette `history` aus mit `print(history)`\n\n**Erwartete Ausgabe:**\n```\nMein Zinsrechner\nStartkapital: 1000€\nZinssatz: 5%\n[1050.0, 1102.5, 1157.625]\n```"
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**💡 Tipp:** Die `.append()` Zeile muss **in der Schleife** stehen, direkt nachdem `amount` berechnet wurde."
+        }
+      ],
+      showHints: true,
+      path: "/pfade/interest-calculator/6",
+      courseId: "interest-calculator",
+      topics: ["Schleifen", "Listen"],
+      solutionString: ["Mein Zinsrechner", "Startkapital: 1000€", "Zinssatz: 5%", "[1050.0, 1102.5, 1157.625]"],
+      starterCode: `# Mein Zinsrechner
+
+print("Mein Zinsrechner")
+
+initial = 1000
+rate = 5
+years = 3
+
+print(f"Startkapital: {initial}€")
+print(f"Zinssatz: {rate}%")
+
+# TODO: Erstelle hier eine leere Liste "history"
+
+# Das ist deine funktionierende Lösung aus Step 4:
+amount = initial
+for year in range(1, years + 1):
+    amount = amount * (1 + rate/100)
+    # TODO: Füge hier "amount" zur "history" Liste hinzu
+
+# TODO: Gib die "history" Liste aus`
+    },
+    {
+      id: "interest-calculator-step-7",
+      step: 7,
+      hasDrill: true,
+      title: "if/elif - Gewinn kategorisieren",
+      description: "Wiederholung: Nutze if/elif für Kategorien!",
+      blocks: [
+        {
+          type: "text",
+          content: "**Wiederholung: if/elif Kategorisierung**\n\nDu kennst if/elif schon vom BMI-Rechner! Dort hast du BMI-Werte in Kategorien eingeteilt. Jetzt nutzen wir das gleiche Konzept für Gewinn-Kategorien."
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**🔄 Bekanntes Konzept - Neue Anwendung:**\n\nBMI-Rechner:\n```python\nif bmi < 18.5:\n    category = \"Untergewicht\"\nelif bmi < 25:\n    category = \"Normalgewicht\"\n````"
+        },
+        {
+          type: "text",
+          content: "**Die Gewinn-Kategorien:**\n\n- **< 10%** → Niedriger Gewinn\n- **10% - 20%** → Mittlerer Gewinn  \n- **> 20%** → Hoher Gewinn\n\nMit 5% Zinsen über 3 Jahre erreichst du ca. 15.8% Gewinn → Das wäre **Mittlerer Gewinn**!"
+        },
+        {
+          type: "text",
+          content: "**Schritt 1: Gewinn berechnen**\n\nZuerst brauchst du zwei Werte:\n- `profit` = absoluter Gewinn in Euro (Endbetrag minus Startkapital)\n- `percent_gain` = prozentualer Gewinn"
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**💡 Die Formel für prozentualen Gewinn:**\n\n```python\npercent_gain = (profit / initial) * 100\n```\n\nBeispiel: 157.63€ Gewinn von 1000€ Startkapital:\n```python\npercent_gain = (157.63 / 1000) * 100  # = 15.763%\n```"
+        },
+        {
+          type: "text",
+          content: "**Schritt 2: Zahlen formatieren**\n\nDu willst schön formatierte Ausgaben? Nutze f-String Formatierung:\n- `{amount:.2f}` → Rundet auf 2 Dezimalstellen (z.B. 1157.63)\n- `{percent_gain:.1f}` → Rundet auf 1 Dezimalstelle (z.B. 15.8)"
+        },
+        {
+          type: "code",
+          title: "Zahlen formatieren",
+          language: "python",
+          content: `# Beispiel: Zahlen runden in f-Strings
+betrag = 1157.625
+prozent = 15.763
+
+print(f"Betrag: {betrag:.2f}€")      # Betrag: 1157.63€
+print(f"Prozent: {prozent:.1f}%")    # Prozent: 15.8%
+
+# Allgemein: {variable:.Xf} wobei X = Anzahl Dezimalstellen`
+        },
+        {
+          type: "text",
+          content: "**🚀 Deine Aufgabe**\n\n1. Berechne `profit` (Tipp: Endbetrag minus Startkapital)\n2. Berechne `percent_gain` mit der Formel oben\n3. Nutze if/elif/else um eine `rating` Variable zu setzen (wie beim BMI-Rechner!)\n4. Gib folgende Ausgaben aus:\n\n```\nEndbetrag: 1157.62€\nGewinn: 157.62€ (15.8%)\nBewertung: Mittlerer Gewinn\n```\n\n**Hinweis:** Nutze `.2f` für Euro-Beträge und `.1f` für Prozent!"
+        },
+      ],
+      showHints: true,
+      path: "/pfade/interest-calculator/7",
+      courseId: "interest-calculator",
+      topics: ["Bedingungen", "Variablen"],
+      solutionString: ["Mein Zinsrechner", "Startkapital: 1000€", "Zinssatz: 5%", "Endbetrag: 1157.62€", "Gewinn: 157.62€ (15.8%)", "Bewertung: Mittlerer Gewinn"],
+      starterCode: `# Mein Zinsrechner
+
+print("Mein Zinsrechner")
+
+initial = 1000
+rate = 5
+years = 3
+
+print(f"Startkapital: {initial}€")
+print(f"Zinssatz: {rate}%")
+
+# Das ist deine funktionierende Lösung aus Step 6:
+amount = initial
+history = []
+
+for year in range(1, years + 1):
+    amount = amount * (1 + rate/100)
+    history.append(amount)
+
+# Berechne profit und percent_gain
+
+# Nutze if/elif/else für die Bewertung
+
+# Gebe Endbetrag, Gewinn und Bewertung in die Konsole aus
+`
+    },
+    {
+      id: "interest-calculator-step-8",
+      hasDrill: true,
+      step: 8,
+      title: "Freies Experimentieren - Simuliere verschiedene Szenarien",
+      description: "Nutze dein vollständiges Programm für eigene Berechnungen!",
+      blocks: [
+        {
+          type: "text",
+          content: "**🎉 Glückwunsch!** Du hast alle wichtigen Konzepte gelernt:\n\n✅ **f-Strings** - Moderne Ausgabe\n✅ **for-Schleifen** - Code automatisch wiederholen\n✅ **Listen** - Mehrere Werte speichern\n✅ **if/elif** - Bedingungen prüfen\n\nJetzt kannst du dein Programm für echte Berechnungen nutzen!"
+        },
+        {
+          type: "text",
+          content: "**🚀 Deine Aufgabe: Simuliere einen größeren Sparplan!**\n\nStell dir vor: Du sparst **10.000€** mit **10% Zinsen** über **12 Jahre**.\n\nÄndere die Werte im Code und finde heraus:\n- Wie hoch ist der Endbetrag?\n- Wie hoch ist der prozentuale Gewinn?\n- Welche Bewertung bekommst du? (Hoher Gewinn!)"
+        },
+        {
+          type: "hint",
+          severity: "success",
+          content: "**💡 Experimentier-Ideen:**\n\nProbiere verschiedene Szenarien:\n- 🏦 Langfristiges Sparen: 5000€, 3%, 20 Jahre\n- 📈 Hohes Risiko: 2000€, 15%, 5 Jahre\n- 💰 Konservativ: 10000€, 2%, 10 Jahre\n\nVerändere einfach die Werte `initial`, `rate` und `years`!"
+        },
+        {
+          type: "hint",
+          severity: "info",
+          content: "**📊 Zinseszins-Effekt beobachten:**\n\nBeobachte wie der Gewinn über die Jahre wächst!\n\nBei 10% Zinsen über 12 Jahre verdreifacht sich dein Geld fast - das ist die Macht des Zinseszins!"
+        }
+      ],
+      showHints: true,
+      path: "/pfade/interest-calculator/8",
+      courseId: "interest-calculator",
+      topics: ["Variablen", "Schleifen", "Listen", "Bedingungen"],
+      solutionString: ["Mein Zinsrechner", "Startkapital: 10000€", "Zinssatz: 10%", "Endbetrag: 31384.28€", "Gewinn: 21384.28€ (213.8%)", "Bewertung: Hoher Gewinn"],
+      starterCode: `# Mein Zinsrechner
+
+print("Mein Zinsrechner")
+
+# TODO: Ändere diese Werte für deine Simulation!
+initial = 1000
+rate = 5
+years = 3
+
+print(f"Startkapital: {initial}€")
+print(f"Zinssatz: {rate}%")
+
+# Dein vollständiger funktionierender Code:
+amount = initial
+history = []
+
+for year in range(1, years + 1):
+    amount = amount * (1 + rate/100)
+    history.append(amount)
+
+profit = amount - initial
+percent_gain = (profit / initial) * 100
+
+rating = ""
+if percent_gain < 10:
+    rating = "Niedriger Gewinn"
+elif percent_gain <= 20:
+    rating = "Mittlerer Gewinn"
+else:
+    rating = "Hoher Gewinn"
+
+print(f"Endbetrag: {amount:.2f}€")
+print(f"Gewinn: {profit:.2f}€ ({percent_gain:.1f}%)")
+print(f"Bewertung: {rating}")
+`    }
+  ]
+};
+
+export function getInterestCalculatorCourseTask(step: number) {
+  const task = interestCalculatorCourseData.tasks.find(task => task.step === step);
+  const path = `/pfade/interest-calculator/${step}`;
+  if (task) {
+    return {
+      ...task,
+      path,
+      courseId: interestCalculatorCourseData.id
+    };
+  }
+  return null;
+}
+

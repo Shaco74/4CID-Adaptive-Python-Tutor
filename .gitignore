@@ -1,0 +1,89 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment Variables
+.env*
+!.env.example
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Firebase
+src/db/data/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Data Anonymization (DO NOT COMMIT!)
+analysis/participant_mapping*.json
+
+# LaTeX Build Artifacts
+thesis/*.aux
+thesis/*.log
+thesis/*.bbl
+thesis/*.blg
+thesis/*.out
+thesis/*.toc
+thesis/*.lof
+thesis/*.lot
+thesis/*.fls
+thesis/*.fdb_latexmk
+thesis/*.synctex.gz
+thesis/doc/*.aux
+thesis/doc/*.log
+
+# Keep final PDF
+!thesis/000report.pdf
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.github/copilot-instructions.md
+.github/agents/bmad-agent-bmad-master.agent.md
+.github/prompts/bmad-bmad-master.prompt.md
+.github/prompts/bmad-brainstorming.prompt.md
+.github/prompts/bmad-editorial-review-prose.prompt.md
+.github/prompts/bmad-editorial-review-structure.prompt.md
+.github/prompts/bmad-help.prompt.md
+.github/prompts/bmad-index-docs.prompt.md
+.github/prompts/bmad-party-mode.prompt.md
+.github/prompts/bmad-review-adversarial-general.prompt.md
+.github/prompts/bmad-review-edge-case-hunter.prompt.md
+.github/prompts/bmad-shard-doc.prompt.md

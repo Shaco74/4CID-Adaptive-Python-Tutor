@@ -1,0 +1,10 @@
+# Python Bootcamp - Robots.txt
+User-agent: *
+Allow: /
+
+# Admin-Bereich ausschließen
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap (falls später hinzugefügt)
+# Sitemap: https://your-domain.com/sitemap.xml

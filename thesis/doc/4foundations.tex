@@ -1,0 +1,222 @@
+\chapter{\textbf{Theoretische Grundlagen}}\label{ch:grundlagen}
+
+Dieses Kapitel bildet die theoretischen Grundlagen für die Konzeption und Evaluation des in dieser Arbeit entwickelten Lernsystems. Zunächst werden die Herausforderungen der Programmierausbildung für Einsteigende dargestellt. Darauf aufbauend wird das 4C/ID-Modell als didaktischer Rahmen eingeführt, einschließlich seiner lerntheoretischen Grundlagen. Anschließend wird der Einsatz von KI im Bildungskontext beleuchtet. Das Kapitel schließt mit einer Einordnung verwandter Arbeiten ab.
+
+
+\section{Programmierausbildung für Einsteigende}\label{sec:programmierausbildung}
+
+Das Erlernen von Programmierung gilt als anspruchsvolle kognitive Tätigkeit, die Einsteigende vor spezifische Hürden stellt. Im Folgenden werden diese Herausforderungen dargestellt, bestehende Lösungsansätze eingeordnet und die Rolle von Übung und Feedback für den Kompetenzerwerb beleuchtet.
+
+\subsection{Herausforderungen beim Programmierenlernen}\label{subsec:herausforderungen}
+
+Das Erlernen von Programmierung stellt Einsteigende vor erhebliche Herausforderungen. Tomaschitz beschreibt den Programmierprozess als \enquote{vielschichtig und komplex} und betont, dass analytische, mathematische und logische Fertigkeiten erforderlich sind, \enquote{um Spezifikationen zu lesen, in Algorithmen umzuwandeln und syntaktisch korrekten Code zu schreiben}~\cite{tomaschitz2020}. Dabei müssen drei kognitive Anforderungen simultan bewältigt werden.
+Erstens erfordert das \textit{Problemverständnis} die Fähigkeit, die Anforderungen einer Programmieraufgabe zu erfassen und in eine mentale Repräsentation zu überführen. Zweitens ist \textit{algorithmisches Denken} notwendig, um die Schritte zur Lösung des Problems zu planen und in eine logische Abfolge zu bringen. Drittens muss die \textit{Codeproduktion} erfolgen, also die Umsetzung der geplanten Lösung in syntaktisch korrekten Code. Diese Gleichzeitigkeit führt insbesondere bei Einsteigenden zu kognitiver Überlastung, da keine der drei Anforderungen isoliert bewältigt werden kann.
+
+Programmieren wird als hierarchische Kompetenz charakterisiert: \enquote{Programming is not a single skill. It is also not a simple set of skills; the skills form a hierarchy}~\cite{jenkins2002}. Diese Hierarchie reicht von der Syntax über die Semantik bis hin zur Programmstruktur und zum Programmierstil. Einsteigende müssen diese Ebenen nacheinander aufbauen und verbleiben häufig auf der syntaktischen Ebene, ohne ein tieferes Verständnis zu entwickeln. Als zentrale Überforderungsquelle wird dabei die Gleichzeitigkeit zweier Lernprozesse beschrieben. Einerseits erfordert \textit{Surface Learning} das Auswendiglernen syntaktischer Regeln, andererseits verlangt \textit{Deep Learning} das Durchdringen der zugrundeliegenden Logik~\cite{jenkins2002}.
+
+Ein besonderes Merkmal der Programmierung ist ihre Fehlerintoleranz. Dijkstra beschreibt Programmierung als \enquote{precision intensive -- the smallest possible perturbation of one single bit can render a program totally worthless}~\cite{jenkins2002}.
+
+In kaum einem anderen Fach führt ein minimaler Fehler, wie etwa ein fehlender Doppelpunkt oder eine falsche Einrückung in Python, zum vollständigen Scheitern des Programms. Diese von Dijkstra als \textit{Radical Novelty} bezeichnete Andersartigkeit des Programmierens unterscheidet es von anderen Lerndisziplinen und erklärt die hohe Frustration unter Einsteigenden.
+
+
+Die empirische Forschung bestätigt diese Schwierigkeiten auf breiter Basis. Qian und Lehman identifizieren in ihrer Literaturübersicht zahlreiche \textit{Misconceptions}\footnote{Mit \textit{Misconceptions} sind typische Fehlvorstellungen gemeint, die Lernende bei grundlegenden Programmierkonzepten entwickeln.} bei Programmiereinsteigenden, insbesondere bei Variablenzuweisungen, die häufig als mathematische Gleichungen statt als Speicheroperationen interpretiert werden~\cite{qian2017}. 
+
+Auch das mentale Modell, das als \textit{Notional Machine}\footnote{Die \textit{Notional Machine} beschreibt ein vereinfachtes mentales Modell darüber, wie ein Programm intern ausgeführt wird (z.\,B. Zustandsänderungen von Variablen Schritt für Schritt).} bezeichnet wird, bereitet nachweislich Schwierigkeiten. 
+Lernende müssen dabei ein Verständnis dafür aufbauen, wie der Computer Anweisungen ausführt, um Programmabläufe nachvollziehen zu können~\cite{sorva2013}. Bennedsen und Caspersen berichten von durchschnittlichen Durchfallquoten von 33\,\% in einführenden Programmierkursen weltweit~\cite{bennedsen2007}.
+
+Diese Herausforderungen werden durch das typische Lehrsetting verschärft. Einführungskurse werden als \enquote{high-speed train with no brakes} beschrieben, in denen Lernende, die einmal den Anschluss verlieren, in einen Zustand der \textit{Learned Helplessness} geraten~\cite{jenkins2002}. Das feste Kurstempo lässt wenig Raum für individuelles Lerntempo, welches ein zentrales Argument für adaptive und technologiegestützte Lernsysteme ist.
+
+Die vorliegende Arbeit fokussiert sich auf Python als Programmiersprache. Python eignet sich als Einstiegssprache, da die Syntax sich an natürlicher Sprache orientiert, auf geschweifte Klammern und Semikolons verzichtet und durch dynamische Typisierung die initiale Hürde senkt~\cite{luxton2018}. Gleichzeitig ist Python die weltweit meistgenutzte Programmiersprache~\cite{tiobe2025} und besitzt hohe praktische Relevanz für Datenanalyse, Automatisierung und für einen Einsatz außerhalb der professionellen Softwareentwicklung.
+
+
+\subsection{Bestehende Ansätze und deren Grenzen}\label{subsec:bestehende-ansaetze}
+
+Für das Erlernen von Programmierung existiert eine Vielzahl von Ansätzen und Plattformen. Online-Plattformen wie Codecademy oder freeCodeCamp bieten interaktive Kurse mit eingebetteten Programmierübungen und haben die Zugänglichkeit der Programmierausbildung erheblich verbessert. MOOCs (\textit{Massive Open Online Courses}) ermöglichen den Zugang zu Hochschulkursen für ein breites Publikum. Visuelle Programmierumgebungen wie Scratch adressieren den niedrigschwelligen Einstieg, beschränken sich jedoch auf blockbasierte Programmierung und bereiten nicht unmittelbar auf textbasierte Sprachen vor~\cite{luxton2018}.
+
+Aus Sicht des in dieser Arbeit gewählten didaktischen Rahmens weisen diese Ansätze jedoch gemeinsame Limitationen auf. Erstens bieten die meisten Plattformen wenig Individualisierung: Alle Lernenden durchlaufen dieselbe Aufgabensequenz unabhängig von ihrem Lernstand oder ihren spezifischen Schwierigkeiten. Zweitens beschränkt sich das Feedback häufig auf eine binäre Rückmeldung (richtig/falsch), ohne detaillierte Erklärungen zu liefern, warum eine Lösung fehlerhaft ist. Drittens ist die Aufgabenreihenfolge bei vielen Plattformen didaktisch nur schwach begründet, da sie meist einer thematischen Abfolge entspricht und nicht auf einem lerntheoretisch fundierten Modell basiert. Diese Limitationen machen eine Lücke deutlich, die die vorliegende Arbeit schließt: die Kombination eines evidenzbasierten didaktischen Modells mit KI-gestützter Individualisierung von Übungsaufgaben und Feedback.
+
+
+\subsection{Bedeutung von Übung und Feedback}\label{subsec:uebung-feedback}
+
+Nicht die bloße Übungszeit, sondern die Qualität des Übens und die Unmittelbarkeit des Feedbacks entscheiden über den Lernerfolg. Ericsson, Krampe und Tesch-Römer prägen den Begriff der \textit{Deliberate Practice}\footnote{\textit{Deliberate Practice} bezeichnet gezieltes, wiederholtes Üben mit klaren Lernzielen und zeitnahem, informativem Feedback.}: Gezielte, wiederholte Übung mit informativem Feedback ist wirksamer als passives Aufnehmen oder unstrukturiertes Üben~\cite{ericsson1993}. Entscheidend ist dabei nicht die Anzahl der Wiederholungen allein, sondern die Qualität der Übung, diese muss auf spezifische Schwächen ausgerichtet sein und korrigierendes Feedback bereitstellen.
+
+Hattie und Timperley identifizieren in ihrer Meta-Analyse Feedback als einen der einflussreichsten Faktoren für den Lernerfolg~\cite{hattie2007}. Besonders wirksam ist das sogenannte \textit{Process Feedback}\footnote{\textit{Process Feedback} bezieht sich auf den Lösungsprozess (z.\,B. Strategie und Vorgehen) und nicht nur auf das Ergebnis (richtig/falsch).}, das nicht nur die Korrektheit bewertet, sondern Hinweise auf den Lösungsweg gibt und zur Selbstregulation anregt. Während unmittelbares Feedback insbesondere auf der Aufgabenebene (\textit{Task Level}) vorteilhaft ist, ermöglicht die zeitnahe Verfügbarkeit in automatisierten Systemen eine kontinuierliche Begleitung des Lernprozesses, die durch Lehrkräfte in dieser Frequenz kaum zu leisten ist~\cite{hattie2007}.
+
+Für die Programmierausbildung bedeutet dies, dass Übungsaufgaben nicht primär als Prüfungs\-instrument dienen sollten. Stattdessen erfüllen sie die Funktion eines \textit{formativen Assessments} und unterstützen Lernende dabei, ihren aktuellen Wissensstand einzuschätzen.
+
+Tomaschitz bestätigt dies empirisch: Der Einsatz eines Überprüfungstools, das visuelles Feedback über den Code lieferte, steigerte die Leistung der Studierenden und führte zu erhöhtem Lernerfolg~\cite{tomaschitz2020}. KI-basierte Systeme eröffnen hier neue Möglichkeiten, da sie über vordefinierte Regeln hinaus kontextbezogene, individuelle Rückmeldungen generieren und damit die Funktion eines persönlichen Tutors annähern können.
+
+
+%% ============================================================================
+%% ABSCHNITT 2.2
+%% ============================================================================
+
+\section{Didaktischer Rahmen: Das 4C/ID-Modell}\label{sec:4cid}
+
+Aufbauend auf den in Abschnitt~\ref{sec:programmierausbildung} dargestellten Herausforderungen wird nun der didaktische Rahmen eingeführt, der das Lernsystem dieser Arbeit strukturiert. Zunächst werden die lerntheoretischen Grundlagen gelegt, bevor das 4C/ID-Modell im Detail vorgestellt wird.
+
+\subsection{Cognitive Load Theory}\label{subsec:clt}\label{subsec:lerntheorie}
+
+Die \textit{Cognitive Load Theory} nach Sweller, im Folgenden als CLT bezeichnet, bildet das theoretische Fundament des 4C/ID-Modells~\cite{sweller1988}. Die CLT geht von der Annahme aus, dass das menschliche Arbeitsgedächtnis eine begrenzte Kapazität besitzt und gleichzeitig nur eine begrenzte Anzahl von Informationselementen verarbeiten kann. Wird diese Kapazität überschritten, ist effektives Lernen nicht möglich. Sweller, van Merriënboer und Paas unterscheiden drei Arten kognitiver Belastung~\cite{sweller1998}:
+
+\begin{itemize}
+    \item \textbf{Intrinsic Load} entsteht durch die enthaltene Komplexität des Lernstoffs. Er wird durch die Anzahl der untereinander interagierenden Elemente bestimmt und kann durch geschickte Anordnung gesteuert werden. Dies lässt sich beispielsweise erreichen, indem einfache Konzepte vor komplexeren eingeführt werden.
+    \item \textbf{Extraneous Load} entsteht aus der Gestaltung der Lernumgebung selbst und trägt nicht zum Lernen an sich bei. Er sollte minimiert werden, etwa durch klare Instruktionsdesigns und bedarfsgerechte Hilfestellungen.
+    \item \textbf{Germane Load} bezeichnet die produktive kognitive Belastung, die für den Aufbau und die Automatisierung mentaler Schemata genutzt wird. Ein effektives Instruktionsdesign zielt darauf ab, kognitive Ressourcen für diesen Lernprozess optimal zu nutzen.
+\end{itemize}
+
+Für die Programmierausbildung ist die CLT besonders relevant, da Einsteigende typischerweise einem hohen Intrinsic Load ausgesetzt sind, wie Abschnitt~\ref{subsec:herausforderungen} zeigt. Das 4C/ID-Modell adressiert alle drei Load-Typen systematisch. Aufgabenklassen mit steigender Komplexität steuern den Intrinsic Load, unterstützende Strukturen wie \textit{Scaffolding}\footnote{\textit{Scaffolding} bezeichnet unterstützende Hilfen, die Lernenden anfangs Orientierung geben und mit zunehmender Kompetenz schrittweise reduziert werden.} und klare Instruktionen reduzieren den Extraneous Load und gezielte Übungen fördern die Schemaautomatisierung und damit den Germane Load.
+
+\clearpage
+\subsection{Selbstreguliertes Lernen}\label{subsec:srl}
+
+Da das in dieser Arbeit entwickelte Lernsystem vollständig ohne Lehrkraft genutzt wird, ist das Konzept des \textit{selbstregulierten Lernens} nach Zimmerman von zentraler Bedeutung \cite{zimmerman2002, panadero2017, winne2005}. 
+
+Selbstreguliertes Lernen, im Folgenden als SRL bezeichnet, beschreibt den Prozess, in dem Lernende ihre eigenen Lernaktivitäten planen, überwachen und bewerten.
+
+In digitalen, selbstgesteuerten Lernumgebungen müssen Lernende diese metakognitiven Fähig\-keiten eigenständig einsetzen, was speziell bei Einsteigenden zu Überforderung führen kann \cite{winne2005}.
+Ohne externe Regulation besteht das Risiko, dass Lernende schwierige Inhalte überspringen oder ihren Lernstand falsch einschätzen. Dazu zählen auch systematische Fehlurteile und Illusionen beim selbstregulierten Lernen \cite{bjork2013}.
+In KI-gestützten Umgebungen besteht zudem die Gefahr, dass Lernende den KI-Chatbot vorrangig als unmittelbares Lösungs\-werkzeug nutzen, anstatt ihn als lernförderliche Unterstützung einzubinden \cite{kazemitabaar2023}.
+Digitale Lernumgebungen müssen daher Mechanismen der externen Regulation bereitstellen. Dazu gehören etwa verpflichtende Übungsphasen, gestufte Hilfestellungen oder Fortschrittsanzeigen, um SRL auch bei Einsteigenden zu ermöglichen \cite{azevedo2005}. Wie das vorliegende System diesen Anforderungen konkret begegnet, wird in Kapitel~\ref{ch:konzeption} beschrieben.
+
+
+\subsection{Das 4C/ID-Modell im Überblick}\label{subsec:4cid-ueberblick}
+
+Das \textit{Four-Component Instructional Design}, kurz 4C/ID, wurde von van Merriënboer entwickelt und bietet einen systematischen Ansatz zur Gestaltung von Lernumgebungen für komplexe kognitive Fähigkeiten~\cite{vanmerrienboer2018, vanmerrienboer2003}. Das Modell basiert explizit auf der CLT und strukturiert den Lernprozess in vier miteinander verknüpfte Komponenten:
+
+\begin{enumerate}
+    \item \textbf{Learning Tasks:} Authentische, ganzheitliche Aufgaben in realitätsnahen Kontexten. Sie sind in Aufgabenklassen mit steigender Komplexität organisiert.
+    \item \textbf{Supportive Information:} Konzeptuelles Wissen und theoretische Hintergründe, die den Aufbau mentaler Modelle fördern und vor oder während der Aufgabenbearbeitung bereitgestellt werden.
+    \item \textbf{Just-in-time Information:} Prozedurale Anleitungen und Handlungsanweisungen, die genau dann bereitgestellt werden, wenn sie benötigt werden.
+    \item \textbf{Part-task Practice:} Isoliertes Üben von Teilfertigkeiten zur Automatisierung wiederkehrender Prozesse.
+\end{enumerate}
+
+Ausgehend von den dargestellten Herausforderungen beim Programmierenlernen und der Cog\-nitive Load Theory wird das 4C/ID-Modell in dieser Arbeit als didaktischer Rahmen gewählt \cite{vanmerrienboer2018, vanmerrienboer2003}. 
+
+Erstens enthält das Modell mit der Part-task Practice einen expliziten Mechanismus für isoliertes Üben, der sich gut für die technologische Umsetzung und Automatisierung eignet \cite{vanmerrienboer2018}. 
+Zweitens strukturiert 4C/ID den Lernstoff in Aufgabenklassen mit steigender Komplexität und ermöglicht dadurch eine nachvollziehbare Progression \cite{vanmerrienboer2018, vanmerrienboer2003}. 
+Drittens ist das Modell evidenzbasiert und in der Hochschuldidaktik etabliert \cite{frerejean2019}. 
+Viertens adressiert 4C/ID durch seine Fundierung in der CLT das Risiko kognitiver Überlastung, das insbesondere bei Programmiereinsteigenden relevant ist \cite{sweller1998, vanmerrienboer2018}.
+Die konkrete Umsetzung dieser Prinzipien im vorliegenden System wird in Kapitel~\ref{ch:konzeption} beschrieben.
+
+
+\subsection{Die vier Komponenten im Detail}\label{subsec:4cid-komponenten}
+
+Das Modell gliedert sich in vier aufeinander abgestimmte Komponenten, die im Folgenden einzeln dargestellt werden.
+
+\paragraph{Learning Tasks: Lernaufgaben}
+
+Lernaufgaben bilden das Kernstück des 4C/ID-Modells. Sie basieren auf authentischen, ganzheitlichen Aufgaben, die in der Literatur als \textit{Whole Tasks} beschrieben werden und Wissen, Fertigkeiten sowie Haltungen integrieren, die für die Bewältigung von Aufgaben im zukünftigen Beruf oder Alltag benötigt werden~\cite{niegemann2020}. Im Gegensatz zu isolierten Teilübungen konfrontieren sie die Lernenden mit der gesamten Komplexität einer Problemstellung.
+
+Lernaufgaben werden in \textit{Aufgabenklassen} organisiert, die eine steigende Komplexität abbilden. Innerhalb einer Klasse erhalten Lernende zunächst Unterstützung, die als \textit{Scaffolding} beschrieben wird. Mit zunehmender Kompetenz wird diese Unterstützung schrittweise zurückgenommen, was als \textit{Fading}\footnote{\textit{Fading} beschreibt den schrittweisen Abbau anfänglicher Unterstützung, damit Lernende Aufgaben zunehmend selbstständig lösen.} bezeichnet wird. Niegemann und Weinberger betonen, dass Lernen durch Entdecken nur dann effektiv ist, wenn die Lernaufgaben untereinander \enquote{eine gewisse Variation aufweisen}~\cite{niegemann2020}.
+
+\paragraph{Supportive Information: Unterstützende Informationen}
+
+Unterstützende Informationen helfen Lernenden bei den nicht-routinisierbaren Aspekten der Lernaufgaben, die Problemlösen und Entscheidungen erfordern. Van Merriënboer und Kirschner beschreiben sie als das konzeptuelle Wissen, das den Aufbau \textit{mentaler Modelle} fördert~\cite{vanmerrienboer2018}. Typische Formen sind theoretische Erklärungen, Analogien sowie \textit{Worked Examples}, also ausgearbeitete Lösungsbeispiele.
+
+Die unterstützenden Informationen sind nicht an einzelne Aufgaben gebunden, sondern an die jeweilige Aufgabenklasse: Sie werden idealerweise vor Beginn einer neuen Klasse bereitgestellt und können während der Bearbeitung abgerufen werden~\cite{niegemann2020}. Bei steigender Kompetenz werden sie schrittweise reduziert.
+
+\paragraph{Just-in-time Information: Prozedurale Information}
+
+Im Gegensatz zur unterstützenden Information wird die prozedurale Information genau dann bereitgestellt, wenn sie benötigt wird. Sie umfasst konkrete Handlungsanweisungen, die als \textit{How-to-Instruktionen} bezeichnet werden und für die Ausführung routinisierbarer Aspekte der Aufgabe erforderlich sind~\cite{niegemann2020}.
+
+Niegemann und Weinberger heben einen Vorteil menschlicher Lehrkräfte gegenüber statischen Anleitungen hervor: \enquote{Der Vorteil eines Lehrers gegenüber einer Benutzeranleitung besteht darin, dass ein Lehrer gewissermaßen über die Schulter schauen kann und Anweisungen und korrektives Feedback genau dann geben kann, wenn es benötigt wird}~\cite{niegemann2020}. Für digitale Lernumgebungen liegt nahe, dass ein KI-Chatbot eine solche Form der Unterstützung zumindest teilweise leisten kann. Dazu kann er die aktuellen Eingaben der Lernenden als Kontext nutzen und genau dann Hinweise oder korrektives Feedback geben, wenn es benötigt wird.
+
+\paragraph{Part-task Practice: Übung von Teilfertigkeiten}
+
+Die Part-task Practice dient der Automatisierung wiederkehrender Teilfertigkeiten, die als \textit{Recurrent Skills} bezeichnet werden, durch gezieltes und wiederholtes Üben. Van Merriënboer und Kirschner betonen, dass diese Übungen erst dann sinnvoll sind, wenn die entsprechende Teilfertigkeit bereits im Kontext einer Lernaufgabe eingeführt wurde~\cite{vanmerrienboer2018}. Durch die Automatisierung von Routinefertigkeiten wird kognitive Kapazität freigesetzt, die für die komplexeren Anforderungen der Lernaufgaben genutzt werden kann.
+
+Die Übungen lassen sich nach der revidierten Bloom'schen Taxonomie~\cite{anderson2001} in vier kognitive Anforderungsstufen differenzieren: von \textit{Erinnern} (Wissensabfragen) über \textit{Verstehen} (Ausgabe vorhersagen) und \textit{Anwenden} (Lücken füllen, Code ergänzen) bis hin zum \textit{Analysieren} (Fehler lokalisieren). Diese Abstufung stellt sicher, dass Übungsaufgaben schrittweise höhere kognitive Prozesse einfordern. Idealerweise wird die kognitive Anforderung dabei an den individuellen Lernstand angepasst.
+
+Die Part-task Practice adressiert primär den \textit{Near Transfer}, also den Transfer auf sehr ähnliche Aufgaben. Durch wiederholtes Üben isolierter Teilfertigkeiten werden syntaktische und prozedurale Muster automatisiert~\cite{vanmerrienboer2018}. Der \textit{Far Transfer}, also die Übertragung gelernter Konzepte auf neuartige Problemkontexte, wird hingegen durch die ganzheitlichen Lernaufgaben adressiert. Das Zusammenspiel beider Komponenten ist zentral. Im vorliegenden System wird die Part-task Practice als \textit{Drill Tasks} bezeichnet. Drill Tasks richten sich gezielt an rekurrente Teilfertigkeiten, also wiederkehrende syntaktische und prozedurale Grundmuster, die durch wiederholtes Üben automatisiert werden sollen. Auf diese Weise entlasten sie das Arbeitsgedächtnis und schaffen freie kognitive Kapazität für die höherstufigen Anforderungen der Lernaufgaben. Wie Drill Tasks in der Lernplattform konkret gestaltet und ausgewählt werden, wird in Kapitel~\ref{ch:konzeption} beschrieben.
+
+\clearpage
+\subsection{Eignung für die Programmierausbildung}\label{subsec:4cid-eignung}
+
+Das 4C/ID-Modell eignet sich in besonderer Weise für die Programmierausbildung, da es die in Abschnitt~\ref{subsec:herausforderungen} beschriebenen Herausforderungen systematisch adressiert. Die Sequenzierung in Aufgabenklassen begegnet der kognitiven Überlastung, authentische Lernaufgaben fördern den Transfer in reale Anwendungskontexte und die Part-task Practice ermöglicht die gezielte Automatisierung syntaktischer Grundfertigkeiten.
+Besonderes Potenzial entsteht durch die Kombination des Modells mit KI-Technologien. 
+
+Das 4C/ID-Modell fordert eine individualisierte Part-task Practice, abgestimmt auf den Lernstand des Einzelnen, was in klassischen Settings einen erheblichen Aufwand für Lehrkräfte bedeutet~\cite{vanmerrienboer2018}. KI-Technologien bieten hier Ansatzpunkte: Sie können die Individualisierung der Übungsauswahl automatisieren und kontextbezogene Hilfestellungen im Sinne der Just-in-time Information bereitstellen. Während das 4C/ID-Modell als didaktischer Rahmen für komplexes Lernen etabliert ist, fehlt es an Studien, die untersuchen, wie KI-Technologien die Umsetzung der Modellkomponenten unterstützen können. Die vorliegende Arbeit leistet hierzu einen Beitrag.
+
+
+%% ============================================================================
+%% ABSCHNITT 2.3
+%% ============================================================================
+
+\section{KI im Bildungskontext}\label{sec:ki-bildung}
+
+Im Folgenden werden Large Language Models als technologische Basis vorgestellt sowie Chancen und Risiken ihres Einsatzes im Bildungskontext diskutiert.
+
+\subsection{Large Language Models}\label{subsec:llm}
+
+\textit{Large Language Models} (LLMs) sind neuronale Sprachmodelle. Sie basieren auf der Trans\-former-Architektur und werden auf umfangreichen Textsammlungen trainiert.
+Durch dieses Training entwickeln sie die Fähigkeit, natürlichsprachliche Eingaben zu verarbeiten und kontextbezogene Antworten zu generieren. Modelle der GPT-Reihe (\textit{Generative Pre-trained Transformer}) von OpenAI gehören zu den bekanntesten Vertretern und werden über eine API für die Integration in Anwendungen bereitgestellt~\cite{openai_api}.
+
+Für die Einbindung in Lernsysteme sind mehrere Eigenschaften von LLMs relevant. 
+Erstens können sie natürlichsprachliche Erklärungen generieren, die auf die spezifische Frage eines Lernenden zugeschnitten sind. 
+Zweitens erlaubt \textit{Prompt Engineering}, also die gezielte Gestaltung von Systemaufforderungen, eine Steuerung des Antwortverhaltens, etwa die Einschränkung auf eine sokratische Gesprächsführung statt direkter Lösungsnennung. Dabei werden Lernende durch gezielte Rückfragen dazu angeleitet, den Lösungsweg selbst zu entwickeln. 
+Drittens ermöglichen \textit{Structured Outputs} die Erzeugung typsicherer Ausgaben im JSON-Format, die eine programmatische Weiterverarbeitung erlauben~\cite{openai_structured_outputs}.
+
+Gleichzeitig weisen LLMs systematische Limitationen auf. Zentral für den Bildungskontext ist das Phänomen der \textit{Halluzination}: LLMs können syntaktisch korrekte, aber inhaltlich falsche Antworten generieren, die für Einsteigende schwer als solche zu erkennen sind~\cite{kasneci2023}. 
+
+Diese Limitation erfordert bei der Integration in Lernsysteme besondere Vorkehrungen.
+
+
+\subsection{KI in der Bildung: Chancen und Risiken}\label{subsec:ki-chancen-risiken}
+
+Die Nutzung KI-gestützter Systeme in der Bildung hat eine längere Tradition als die aktuelle LLM-Debatte vermuten lässt. \textit{Intelligente Tutorsysteme} (ITS) werden seit den 1970er Jahren erforscht und setzen regelbasierte oder statistische Modelle ein, um Lernende individuell zu unterstützen. Meta-Analysen belegen, dass ITS Lerneffekte erzielen können, die mit individueller menschlicher Betreuung vergleichbar sind und besonders in Kombination mit klassischem Unterricht wirksam sind~\cite{vanlehn2011, scheiter2025}. Eine aktuelle Forschungssynthese des BMBF\footnote{BMBF steht für \enquote{Bundesministerium für Bildung und Forschung}.} kommt zu dem Ergebnis, dass der Einsatz von KI-Technologien insgesamt einen positiven Effekt auf Lernleistungen hat und dass die Effektivität \enquote{wesentlich von ihrem didaktischen Design und Einsatz} abhängt. Die Lernwirksamkeit lässt sich daher nicht über die Technologie allein definieren, sondern nur über die Qualität ihrer didaktischen Integration~\cite{scheiter2025}. Chatbot-basierte Systeme erzielen dabei besonders gute Effekte, wenn sie spezifische Unterstützung bieten, zur Reflexion anleiten oder elaboriertes Feedback geben~\cite{scheiter2025}.
+
+Mit der Verfügbarkeit von LLMs eröffnen sich Möglichkeiten, die über traditionelle ITS hinausgehen. Zu den zentralen Chancen zählen:
+
+\begin{itemize}
+    \item \textbf{Personalisierung:} LLM-basierte Tutoren können Erklärungen individuell an den Wissensstand und die Schwierigkeiten eines Lernenden anpassen~\cite{kasneci2023}.
+    \item \textbf{Skalierbarkeit:} Im Gegensatz zu menschlichen Tutoren kann ein KI-System viele Lernende gleichzeitig betreuen.
+    \item \textbf{Sofortiges Feedback:} Gemäß der Feedback-Forschung begünstigen Rückmeldungen ohne Wartezeit den Lernerfolg~\cite{hattie2007}.
+    \item \textbf{Niedrige Hemmschwelle:} Lernende stellen einem KI-System eher Fragen, die sie einer Lehrkraft nicht stellen würden~\cite{kasneci2023}.
+    \item \textbf{Adaptive Aufgabenauswahl:} KI kann den Lernstand analysieren und die Auswahl von Übungsaufgaben individuell anpassen.
+\end{itemize}
+
+\clearpage
+
+Diesen Chancen stehen Risiken gegenüber, die im Systemdesign berücksichtigt werden müssen:
+
+\begin{itemize}
+    \item \textbf{Halluzinationen:} LLMs können fehlerhafte Informationen generieren. In der Programmierausbildung äußert sich dies als falscher Code oder fehlerhafte Erklärungen~\cite{becker2023}.
+    \item \textbf{Lösungs-Leak:} Ohne geeignete Maßnahmen kann ein KI-Chatbot die Lösung direkt preisgeben, wodurch der Lerneffekt entfällt. Becker et al. diskutieren diese Problematik im Kontext der Frage, wie KI-Code-Generierung die Programmierausbildung verändert~\cite{becker2023}.
+    \item \textbf{Qualitätssicherung:} KI-generierte Aufgaben können fehlerhaft oder in ihrer Schwierigkeit unangemessen sein und bedürfen einer Validierung.
+\end{itemize}
+
+Sarsa et al. demonstrieren die grundsätzliche Machbarkeit KI-gestützter Aufgabengenerierung für die Programmierausbildung und zeigen, dass LLMs Übungen erzeugen können, die von Lernenden als angemessen und lehrreich bewertet werden~\cite{sarsa2022}. MacNeil et al. untersuchen LLM-generierte Code-Erklärungen in einem interaktiven Lehrbuch und berichten von positiver Aufnahme durch Studierende~\cite{macneil2023}. 
+
+Diese Studien belegen das Potenzial von LLMs als didaktisches Werkzeug, betonen aber zugleich die Notwendigkeit einer bewussten Integration in einen didaktischen Rahmen.
+
+Diese Risiken erfordern beim Entwurf eines KI-gestützten Lernsystems bewusste Gegenmaßnahmen, etwa die Einschränkung der generativen Freiheit des Modells, gestufte Hilfestellungen und eine Qualitätssicherung der Aufgabeninhalte. Die konkreten Designentscheidungen, mit denen das vorliegende System diesen Risiken begegnet, werden in Abschnitt~\ref{subsec:ki-rolle} dargestellt.
+
+
+%% ============================================================================
+%% ABSCHNITT 2.4
+%% ============================================================================
+
+\section{Verwandte Arbeiten}\label{sec:verwandte-arbeiten}
+
+Aufbauend auf den dargestellten Grundlagen werden im Folgenden zwei verwandte Arbeiten vorgestellt, die zentrale Schnittmengen mit dem in dieser Arbeit entwickelten System aufweisen: Ein LLM-basiertes Tutorsystem für Python-Einsteigende sowie ein Framework zur Erweiterung des 4C/ID-Modells durch Learning Analytics\footnote{\textit{Learning Analytics} bezeichnet die Erfassung und Auswertung von Lerndaten, um Lernprozesse zu verstehen und Lernangebote adaptiv zu steuern.}.
+
+\subsection{PyTutor: ChatGPT-basiertes Tutoring für Python}\label{subsec:pytutor}
+
+Yang, Lin, Lin und Ogata entwickelten mit \textit{PyTutor} ein auf ChatGPT basierendes Intelligent Tutoring System für die Python-Ausbildung~\cite{yang2024pytutor}. Das System bietet adaptives Feedback und ein vierstufiges Hint-System, das von Pseudocode über Lückentexte bis hin zu vollständigen Lösungen eskaliert. In einer 11-wöchigen Studie mit 71~Studierenden (35 mit PyTutor, 36 ohne) zeigten insbesondere leistungsschwächere Lernende höheres Engagement und bessere Abschlussquoten. Ein methodisches Merkmal ist die semi-synchrone Validierung: KI-generierte Erklärungen wurden vor der Auslieferung durch Lehrende geprüft.
+
+PyTutor ist die nächstverwandte Arbeit zum vorliegenden System. Beide Systeme setzen auf einen LLM-basierten Tutor mit progressivem Hint-System für Python-Einsteigende und evaluieren die Wirksamkeit in einem Zwei-Gruppen-Design. Das vorliegende System unterscheidet sich in drei Aspekten: Erstens ist es in das 4C/ID-Modell eingebettet, das die strikte Trennung von ganzheitlichen Lernaufgaben und isolierter Part-task Practice strukturiert. PyTutor verwendet hingegen kein explizites didaktisches Rahmenmodell. Zweitens bietet das vorliegende System eine KI-gestützte Aufgabenauswahl aus einem statischen Pool, die auf individuellen Leistungsdaten basiert. PyTutor verfügt über keine vergleichbare Komponente. Drittens unterscheiden sich beide Systeme in ihrer Strategie zur Qualitätssicherung. PyTutor setzt auf einen \textit{Human-in-the-Loop}-Ansatz, bei dem KI-generierte Inhalte vor der Auslieferung durch Lehrende geprüft werden. Das vorliegende System verfolgt stattdessen eine constraints-basierte Architektur: Die KI ist auf einen vorab geprüften Aufgabenpool und restriktive System-Prompts beschränkt, sodass es vollständig autonom ohne Lehrkraft-Validierung operieren kann. Dieser Ansatz erhöht die Skalierbarkeit, verlagert die Qualitätssicherung jedoch in die Entwicklungsphase.
+
+\subsection{Erweiterung des 4C/ID-Modells durch Learning Analytics}\label{subsec:mun-jo}
+
+Mun und Jo schlagen ein Framework vor, das das 4C/ID-Modell durch Methoden des Learning Analytics erweitert~\cite{mun2025evolving}.
+Durch die Erfassung und Analyse von Lernverlaufsdaten auf digitalen Plattformen demonstrieren sie, wie die Bereitstellung unterstützender Informationen und die Zuweisung von Teilaufgaben automatisiert an den kognitiven Bedarf der Lernenden angepasst werden kann. Das Framework adressiert damit eine historische Limitation des 4C/ID-Modells: die aufwendige manuelle Individualisierung von Lernpfaden.
+
+Für die vorliegende Arbeit ist diese Publikation methodisch relevant, da sie die Verbindung zwischen quantitativen Leistungsdaten und der 4C/ID-Architektur wissenschaftlich fundiert. Das vorliegende System verfolgt ein ähnliches Ziel, individuelle Lernverläufe für die Steuerung der Part-task Practice zu nutzen. Die Abgrenzung liegt im technologischen Instrumentarium: Während Mun und Jo auf statistische Learning-Analytics-Dashboards setzen, baut das vorliegende System auf generative KI und ergänzt die datengestützte Aufgabenauswahl um einen LLM-basierten KI-Tutor für die Just-in-time Information.
+
+\subsection{Positionierung der eigenen Arbeit}\label{subsec:positionierung}
+
+Die Analyse der verwandten Arbeiten zeigt, dass LLM-basierte Tutorsysteme für die Programmierausbildung zunehmend erforscht werden und dass das 4C/ID-Modell durch datengetriebene Ansätze skalierbar gemacht werden kann. Es fehlt jedoch ein evaluiertes System, das beide Stränge verbindet: die didaktische Struktur des 4C/ID-Modells mit KI-gestützter Individualisierung sowohl bei der Aufgabenauswahl als auch bei der Lernunterstützung. Die vorliegende Arbeit adressiert diese Lücke. Die konkreten Designentscheidungen, mit denen das System diese Verbindung umsetzt, werden in Kapitel~\ref{ch:konzeption} beschrieben.
+
+
+\addtocontents{toc}{\vspace{0.8cm}}

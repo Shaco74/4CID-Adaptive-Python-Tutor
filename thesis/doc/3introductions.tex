@@ -1,0 +1,55 @@
+\clearpage
+
+\chapter{\textbf{Einleitung}}\label{ch:einleitung}
+
+Dieses Kapitel beschreibt die Ausgangslage und Motivation der Arbeit, formuliert die Forschungsfrage sowie die zentrale Hypothese und erläutert den Aufbau der vorliegenden Ausarbeitung.
+
+\section{Problemstellung}\label{sec:problemstellung}
+
+Python gehört zu den meistgenutzten Programmiersprachen weltweit und ist in Bereichen wie Datenanalyse, Automatisierung und Künstlicher Intelligenz zur Standardsprache geworden~\cite{stackoverflow2024}. Die Nachfrage nach Personen mit grundlegenden Programmierkenntnissen wächst branchenübergreifend und immer mehr Bildungseinrichtungen reagieren darauf mit eigenen Einführungskursen in Python. Gleichzeitig zeigt die Forschung zur Programmierausbildung konsistent, dass gerade der Einstieg mit hohen Abbruchquoten und ausgeprägten Frustrationserlebnissen verbunden ist~\cite{bennedsen2007}. Die binäre Fehlerkultur der Programmierung, in der bereits ein fehlendes Klammerpaar zum vollständigen Programmabbruch führt, stellt viele Einsteigende vor eine Hürde, die sie schon vor dem Verständnis grundlegender Konzepte wie Variablen, Schleifen oder Listenstrukturen kapitulieren lässt~\cite{jenkins2002}. Dijkstra beschrieb dieses Phänomen treffend als \textit{Radical Novelty}: Programmieren unterscheidet sich in seiner Fehlerintoleranz fundamental von anderen Lerngegenständen, da selbst minimale Tippfehler das gesamte Programm zum Absturz bringen.
+
+Ein zentrales Problem bestehender Lernangebote ist das Fehlen unmittelbarer, individualisierter Unterstützung im Fehlerfall. Klassische Lehrformate wie Lehrbücher oder Vorlesungen können auf individuelle Fehler nicht in Echtzeit eingehen. Online-Lernplattformen bieten zwar interaktive Aufgaben, arbeiten aber mit statischem, vordefiniertem Feedback, das nicht auf den spezifischen Code einer lernenden Person eingeht. MOOCs im Hochschulbereich leiden unter demselben Problem in noch stärkerem Ausmaß: Bei Tausenden eingeschriebenen Lernenden ist individuelle Betreuung strukturell nicht möglich. Wenn Einsteigende in einer Aufgabe feststecken und keine Orientierung finden, beschreibt Jenkins~\cite{jenkins2002} das entstehende Erleben als \textit{Learned Helplessness}, also das Gefühl der Hilflosigkeit, das schnell in Frustration und Kursabbruch umschlägt.
+
+Gleichzeitig haben sich die technischen Möglichkeiten zur KI-gestützten Lernunterstützung in den letzten Jahren fundamental verändert. Große Sprachmodelle wie GPT-4 sind in der Lage, Programmiercode zu verstehen, Fehlermeldungen zu interpretieren und didaktisch sinnvolles Feedback auf natürlichsprachliche Anfragen zu geben~\cite{kasneci2023}. Während frühere Tutorsysteme aufwendig von Hand zu kuratieren waren, ermöglicht die OpenAI-API heute die Integration dieser Fähigkeiten in webbasierte Lernanwendungen mit vertretbarem Entwicklungsaufwand. Die entscheidende offene Frage ist dabei nicht mehr, ob solche Systeme technisch realisierbar sind, sondern ob sie tatsächlich besser lernen lassen als Systeme ohne KI-Unterstützung und welche didaktischen Designentscheidungen dafür ausschlaggebend sind.
+
+
+\section{Zielsetzung und Forschungsfrage}\label{sec:zielsetzung}
+
+Diese Arbeit verfolgt zwei eng miteinander verbundene Ziele. Erstens wird ein webbasiertes Lernsystem für Python-Grundlagen entwickelt und implementiert, das auf dem didaktischen Rahmen des \textit{Four-Component Instructional Design} (4C/ID-Modell) nach van Merriënboer basiert. Der Schwerpunkt liegt auf zwei Komponenten des Modells: authentischen \textit{Learning Tasks} in Form eines geführten Programmierkurses, der Lernende schrittweise durch ein vollständiges BMI-Rechner-Programm führt, sowie adaptiver \textit{Part-task Practice} durch KI-gestützte Drill Tasks\footnote{Unter \textit{Drill Tasks} werden kurze, isolierte Wiederholungsaufgaben verstanden, die gezielt einzelne Teilfähigkeiten trainieren, z. B. das Schreiben einer einfachen \texttt{print()}-Anweisung oder das Konkatenieren von Strings.}. Als KI-Komponenten kommen ein kontextgebundener Chat-Tutor mit progressivem Hint-System und ein auf der OpenAI-API (Modell \texttt{gpt-4o-mini}) basierender Algorithmus zur Drill-Auswahl zum Einsatz.
+
+Zweitens wird dieses System in einer kontrollierten empirischen Studie mit 18 Teilnehmenden erprobt. In einem \textit{Between-Subjects-Design} (d.\,h. jede Person gehört genau einer Gruppe an und sieht nur eine der beiden Varianten) bearbeiten zwei Gruppen denselben Kurs: Die Kontrollgruppe (Gruppe~A) nutzt das System ohne KI-Funktionen und die Experimentalgruppe (Gruppe~B) mit KI-Tutor und adaptiver Drillauswahl.
+Um zu verstehen, ob und wie sich diese beiden Lernumgebungen unterscheiden, werden Verhaltens- und Erlebensdaten aus mehreren Perspektiven erfasst: objektive Leistungsdaten aus den System-Logs, die subjektiv wahrgenommene kog\-nitive Belastung, die Gebrauchstauglichkeit (Usability) sowie KI-spezifische Evaluationsaspekte.
+
+Die dabei leitende Forschungsfrage lautet:
+
+\begin{quote}
+\textit{Inwiefern verbessert die Integration einer KI-gestützten Drill-Auswahl und eines KI-Tutors die lernbezogenen Indikatoren und die wahrgenommene Lernunterstützung beim Erlernen von Python-Grundlagen im Vergleich zu einem Basis-System ohne diese Komponenten?}
+\end{quote}
+
+Aus dieser Frage wird eine gerichtete Haupthypothese abgeleitet: Lernende in der Experimentalgruppe (Gruppe~B) weisen im Vergleich zur Kontrollgruppe (Gruppe~A) günstigere lernbezogene Indikatoren in den Systemlogs sowie eine höhere subjektive Zufriedenheit mit der Lernunterstütz\-ung auf. Die Operationalisierung dieser Hypothese und das vollständige Studiendesign werden in Kapitel~\ref{ch:studie} beschrieben.
+
+\clearpage
+
+\section{Aufbau der Arbeit}\label{sec:aufbau}
+
+Die vorliegende Arbeit gliedert sich in acht Kapitel:
+
+\textbf{Kapitel~\ref{ch:grundlagen}} legt die theoretischen Grundlagen dar. Es werden zunächst die Herausforderungen der Programmierausbildung für Einsteigende beleuchtet, anschließend das 4C/ID-Modell als didaktischer Rahmen vorgestellt und schließlich der Einsatz von KI im Bildungskontext diskutiert. Das Kapitel schließt mit einer Abgrenzung zu verwandten Arbeiten.
+
+\textbf{Kapitel~\ref{ch:konzeption}} beschreibt die Konzeption des Lernsystems. Ausgehend von einer Anforderungsanalyse wird das didaktische Konzept entwickelt und die Systemarchitektur einschließlich der KI-Anbindung dargestellt.
+
+\textbf{Kapitel~\ref{ch:implementierung}} dokumentiert die technische Umsetzung des Prototyps. Es werden die Technologieauswahl begründet, die Kernkomponenten beschrieben und auf Herausforderungen während der Entwicklung eingegangen.
+
+\textbf{Kapitel~\ref{ch:studie}} erläutert das Design der empirischen Studie. Hier werden Forschungsdesign, Hypothesen, Stichprobe, Studienablauf sowie die erhobenen Daten und Messinstrumente beschrieben.
+
+\textbf{Kapitel~\ref{ch:ergebnisse}} präsentiert die Ergebnisse der Studie in deskriptiver und vergleichender Form, ergänzt durch qualitative Erkenntnisse aus den Freitextantworten.
+
+\textbf{Kapitel~\ref{ch:diskussion}} interpretiert die Ergebnisse, ordnet sie in den Forschungsstand ein und beleuchtet auf Basis einer qualitativen Sichtung der Chat-Verläufe konkrete Stärken und Schwachstellen des KI-Tutors. Abschließend werden Limitationen benannt und Implikationen für Forschung und Praxis abgeleitet.
+
+\textbf{Kapitel~\ref{ch:fazit}} fasst die zentralen Erkenntnisse zusammen und gibt einen Ausblick auf weiterführende Forschung und Systementwicklung.
+
+
+Sämtliche anonymisierten Studiendaten, wie Chat-Verläufe, Aufgaben-Log-Daten und Fragebogenantworten, sind zusammen mit dem Quellcode des Systems im öffentlichen GitHub-Pro\-jekt archiviert und für weiterführende Auswertungen verfügbar (vgl.\ \hyperref[appendix:daten]{Anhang~D}).
+
+
+\addtocontents{toc}{\vspace{0.8cm}}

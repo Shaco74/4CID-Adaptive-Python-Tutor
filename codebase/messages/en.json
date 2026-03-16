@@ -1,0 +1,643 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or",
+    "and": "and"
+  },
+  "metadata": {
+    "title": "Python Bootcamp",
+    "description": "A 4C/ID inspired Python Bootcamp"
+  },
+  "navigation": {
+    "home": "Home",
+    "courses": "Courses",
+    "login": "Login",
+    "logout": "Logout",
+    "reportBug": "Report Bug",
+    "completeCourse": "Complete Course",
+    "repeatOnboarding": "Repeat Onboarding",
+    "loggedInAs": "Logged in as {username}",
+    "resetProgress": {
+      "title": "Delete all progress?",
+      "description": "This will remove:\n- Course progress\n- Drill data\n- Chat history",
+      "confirm": "Yes, delete everything",
+      "success": "Progress has been reset.",
+      "error": "Error: {message}"
+    },
+    "admin": {
+      "dashboard": "Go to Admin Dashboard",
+      "groupA": "📚 Group A (no AI)",
+      "groupB": "🤖 Group B (AI)",
+      "switch": "Switch",
+      "resetProgress": "Reset Progress"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "description": "Sign in to save your progress",
+      "instructionsLine1": "Choose any username you like.",
+      "instructionsLine2": "Whether anonymous (e.g., \"CodeNinja42\") or personal (e.g., \"MaxM99\") is up to you. Important: Use a unique name to avoid conflicts with other participants.",
+      "instructionsLine3": "The password was sent to you via email or a similar medium.",
+      "username": "Username",
+      "usernamePlaceholder": "e.g. PythonFan42",
+      "password": "Password",
+      "passwordPlaceholder": "Enter study password",
+      "submit": "Sign in",
+      "success": "Successfully signed in",
+      "welcome": "Welcome, {username}!",
+      "privacyLink": "Privacy policy for research study",
+      "consent": "By signing in, I agree that my inputs and learning progress will be stored and processed for scientific purposes as part of the bachelor thesis. I have read and understood the <privacyLink>privacy policy</privacyLink>."
+    },
+    "errors": {
+      "usernameRequired": "Username required",
+      "usernameRequiredDesc": "Please enter a username",
+      "passwordRequired": "Password required",
+      "passwordRequiredDesc": "Please enter a password",
+      "wrongPassword": "Wrong password",
+      "wrongPasswordDesc": "The password you entered is incorrect",
+      "adminPasswordRequired": "The username 'admin' requires the admin password",
+      "loginError": "Login error",
+      "loginErrorDesc": "An error occurred during login"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Python Bootcamp",
+      "subtitle": "Learn interactively",
+      "description": "Learn programming in your browser - no installation, no prior knowledge required.",
+      "feature1": "Hands-on Coding",
+      "feature2": "Step by Step",
+      "feature3": "Python Basics",
+      "completedTitle": "Fantastic!",
+      "completedSubtitle": "You have successfully completed all courses. Time for the final step!",
+      "completeCourse": "Complete Course"
+    },
+    "courses": {
+      "title": "Available Courses",
+      "description": "The <strong>BMI Calculator</strong> is the main course and required to access the final evaluation form. The <strong>Interest Calculator</strong> is optional – if you're up for another Python project, we'd appreciate additional data for our research!",
+      "locked": "Locked",
+      "completed": "Completed",
+      "stepsAvailable": "{count} steps available",
+      "comingSoon": "Coming soon",
+      "comingSoonMessage": "This course will be available soon.",
+      "progress": "You have completed {completed} of {total} steps.",
+      "lockedMessage": "Complete the course {course} first to unlock this one.",
+      "courseLocked": "This course is still locked.",
+      "startCourse": "Start course",
+      "continueCourse": "Continue",
+      "reviewCourse": "Review",
+      "optional": "Optional",
+      "allStepsCompleted": "All steps completed:",
+      "availableSteps": "Available steps:",
+      "loginToSaveProgress": "Log in to save your progress and see completed steps.",
+      "step": "Step {step}",
+      "stepCompleted": "Step {step}: Completed",
+      "stepLocked": "Step {step}: Complete previous steps first"
+    }
+  },
+  "onboarding": {
+    "navigation": {
+      "back": "Back",
+      "next": "Next",
+      "skip": "Skip",
+      "startCourse": "Start the course",
+      "ready": "Great! Ready to learn?"
+    },
+    "step1": {
+      "title": "Welcome to the Future of Python Learning",
+      "introBase": "Python is one of the most sought-after programming languages worldwide – versatile, easy to learn, and applicable everywhere. Learn the basics through practical examples: Build a BMI calculator and an interest calculator.",
+      "introAI": "Artificial intelligence supports your learning success: A chatbot is available to help you with questions and understand concepts better.",
+      "whatMakesSpecial": "What makes this platform special?",
+      "feature4cid": {
+        "title": "4C/ID Learning Method",
+        "description": "Based on the proven Four-Component Instructional Design Model. You solve authentic tasks, practice difficult concepts, and receive contextual support exactly when you need it."
+      },
+      "featureAI": {
+        "title": "AI Learning Assistant",
+        "description": "Your personal AI tutor helps you with questions, explains concepts, and generates additional exercises. Learn at your own pace with intelligent, adaptive support."
+      },
+      "featureProjects": {
+        "title": "Real-World Projects",
+        "description": "Instead of isolated code snippets, you work on practical projects: Build a BMI calculator and an interest calculator with real Python concepts like variables, lists, and loops."
+      },
+      "learningGroup": {
+        "titleAI": "Your Learning Group: With AI Support",
+        "titleClassic": "Your Learning Group: Classic Learning",
+        "descriptionAI": "You have access to the AI chatbot, which is available to help you with questions. Use it to understand concepts, find errors, and get additional explanations.",
+        "descriptionClassic": "You're learning without the AI chatbot – this is part of our scientific study. You'll receive all course content, exercises, and learning materials. Only the interactive AI assistant is not available."
+      },
+      "learningJourney": {
+        "title": "Your Learning Journey",
+        "basics": "Python Basics",
+        "basicsDetail": "Variables & Control Structures",
+        "dataStructures": "Data Structures",
+        "dataStructuresDetail": "Lists & Loops",
+        "projects": "Real Projects",
+        "projectsDetail": "Practical Applications"
+      },
+      "screenshotAlt": "Course overview on the homepage",
+      "screenshotCaption": "The homepage shows you all available courses and your progress",
+      "research": {
+        "title": "📊 Part of a Research Study",
+        "description": "You're helping to research the effectiveness of AI-assisted learning. At the end of the course, we'll ask for your feedback on the learning platform."
+      }
+    },
+    "step2": {
+      "title": "Get to Know Your Code Editor",
+      "intro": "In this step, we'll show you the most important features of the integrated code editor. This is where you'll write and test your Python programs.",
+      "layoutAlt": "Overview of the course view",
+      "layoutCaption": "This is what the course view looks like - code editor on the left, task panel on the right",
+      "mainAreas": "The main areas",
+      "codeEditor": {
+        "title": "Code Editor",
+        "badge": "Main Area",
+        "description": "This is where you write your Python code. The editor offers:",
+        "feature1": "Syntax highlighting for better readability",
+        "feature2": "Auto-completion for faster typing",
+        "feature3": "Hover tooltips: Move your mouse over functions like append() or str() to see a short description",
+        "imageAlt": "Python Code Editor"
+      },
+      "console": {
+        "title": "Console",
+        "badge": "Output",
+        "description": "Here you see the output of your Python program. The console shows:",
+        "feature1": "Print outputs from your code",
+        "feature2": "Error messages and tracebacks",
+        "imageAlt": "Python Output Console"
+      },
+      "taskPanel": {
+        "title": "Task Panel",
+        "badge": "Right",
+        "description": "The side panel contains all task information:",
+        "feature1": "Task description and goals",
+        "feature2": "Helpful tips, hints, and code examples",
+        "imageAlt": "Task panel with hints"
+      },
+      "comments": {
+        "title": "⚠️ Important: Comments in Python",
+        "description": "Before you start: In Python, lines that begin with # are ignored. These lines are called comments and serve only to explain the code.",
+        "tip": "💡 Comments help you understand your code, but they are not part of the program. You can create as many comments as you like."
+      },
+      "whitespace": {
+        "title": "⚠️ Important: Whitespace in Python",
+        "description": "In Python, whitespace is very important! The control flow and structure of your code often depend on the correct amount of spaces or indentation. Pay special attention to spaces when joining text or making print outputs.",
+        "wrongLabel": "❌ Without space (wrong):",
+        "correctLabel": "✅ With space (correct):",
+        "exampleLabel": "📝 Example with numbers:",
+        "tip": "💡 Remember: Spaces inside quotation marks \" \" are printed, spaces outside are ignored (except for indentation)!"
+      },
+      "example": {
+        "title": "An Example Python Program",
+        "codeLabel": "Python Code",
+        "outputLabel": "Console Output:",
+        "whatDoesEachLine": "What does each line do?",
+        "line1": "A comment - ignored by Python and serves only as a note for you.",
+        "line2": "Creates a variable named name and stores the text \"Learner\" in it.",
+        "line3": "Outputs text in the console. The + connects texts together (string concatenation).",
+        "line7": "Creates a variable age with a number (integer) - no quotation marks needed!",
+        "line8": "Calculation: Takes the value of age (25), adds 1, stores the result (26).",
+        "line9": "Type conversion: str() converts the number 26 to text \"26\" - necessary to combine numbers with text!"
+      },
+      "tips": {
+        "title": "💡 Pro Tips for the Editor",
+        "shortcut": "Ctrl + Enter: To run the code without clicking"
+      }
+    },
+    "step3": {
+      "title": "Your AI Learning Assistant Awaits",
+      "intro": "The integrated AI chatbot is your personal tutor who helps you learn. It can answer questions, explain concepts, and generate additional exercises.",
+      "chatButtonAlt": "Chat button location top right",
+      "chatButtonCaption": "You'll find the chat button in the top right corner of every course page (blue button)",
+      "featuresTitle": "What your AI assistant can do",
+      "aiAssistant": "AI Assistant",
+      "exampleConversation": "Example Conversation",
+      "chatExampleAlt": "Example of a chat conversation with the AI assistant",
+      "chatExampleCaption": "The AI assistant explains Python concepts and helps with questions",
+      "tipsTitle": "How to use the chat effectively",
+      "tip1": {
+        "title": "Be specific with your questions",
+        "description": "Instead of \"I don't understand this\" ask \"Why am I getting an error with my print output?\""
+      },
+      "tip2": {
+        "title": "The bot already knows your code",
+        "description": "The AI assistant automatically sees what's in your code editor - you don't need to copy anything"
+      },
+      "tip3": {
+        "title": "Help with errors and explanations",
+        "description": "The bot helps you with debugging and explains Python concepts clearly"
+      },
+      "readyTitle": "Ready for your first question?",
+      "readyDescription": "You'll find the chat button in the bottom right corner of every course page"
+    },
+    "step4": {
+      "title": "Drill Tasks - Practice Makes Perfect",
+      "intro": "Between course steps, short exercises called Drill Tasks appear. They help you reinforce what you've learned and ensure you've truly understood the concepts.",
+      "whatAreDrills": "What are Drill Tasks?",
+      "partTaskPractice": {
+        "title": "Part-Task Practice (4C/ID)",
+        "description": "Drills are part of the 4C/ID learning method. They specifically train individual sub-skills so you can automate them. Just as a musician practices scales, you practice Python basics here until they're second nature."
+      },
+      "howDrillsWork": "How a drill works",
+      "part1": {
+        "title": "Part 1: Multiple-Choice Question",
+        "tag": "Theory",
+        "description": "First comes a comprehension question on the current topic. This can be:",
+        "questionTypes": {
+          "concept": "Concept question: What does this function do?",
+          "predictOutput": "Predict output: What will this code output?",
+          "findError": "Spot the error: What's wrong here?",
+          "fillBlank": "Fill in the blank: Which code goes in the gap?"
+        },
+        "screenshotAlt": "Multiple-choice question in the drill modal"
+      },
+      "part2": {
+        "title": "Part 2: Code Task",
+        "tag": "Practice",
+        "description": "Then you write a short code task yourself. These are intentionally kept simple and focus on a single concept.",
+        "screenshotAlt": "Code task in the drill modal"
+      },
+      "whenDrillsAppear": {
+        "title": "When do drills appear?",
+        "description": "Drills appear between course steps. The topics are based on what you've already learned. You must complete the drill to continue to the next course step."
+      },
+      "tips": {
+        "title": "Tips for Drills",
+        "noFear": {
+          "title": "Don't be afraid of mistakes:",
+          "description": "You can try as many times as you want. Wrong answers show you where you can still practice."
+        },
+        "shortSweet": {
+          "title": "Short and sweet:",
+          "description": "Drills only take 1-2 minutes. They're meant to reinforce what you've learned, not overwhelm you."
+        }
+      },
+      "readyTitle": "Ready for your learning journey?",
+      "readyDescription": "Click \"Let's go!\" to start with the first course."
+    }
+  },
+  "evaluation": {
+    "pageTitle": "Python Bootcamp - Evaluation",
+    "header": {
+      "emoji": "🎉",
+      "title": "Congratulations!",
+      "subtitle": "You have successfully completed the course!"
+    },
+    "thankYou": {
+      "title": "Thank you for your participation! 🙏",
+      "paragraph1": "You have reached an important milestone. Your participation in this Python Bootcamp is a valuable contribution to my bachelor thesis.",
+      "paragraph2": "To complete my research, I would like to ask you to take <strong>about 5 minutes</strong> to fill out the following evaluation form.",
+      "feedbackNote": "💡 Your honest feedback is extremely valuable!",
+      "feedbackDescription": "It helps me understand how effective learning with this platform is and where there is room for improvement."
+    },
+    "formTitle": "Evaluation Form",
+    "section1": {
+      "title": "1. Experience & Self-Assessment",
+      "age": {
+        "label": "What is your age group?",
+        "under18": "under 18 years",
+        "18to24": "18 - 24 years",
+        "25to34": "25 - 34 years",
+        "35to44": "35 - 44 years",
+        "45to54": "45 - 54 years",
+        "55plus": "55 years and older"
+      },
+      "employment": {
+        "label": "What is your current employment status?",
+        "student": "School student",
+        "apprentice": "Apprentice",
+        "university": "University student",
+        "employed": "Employed",
+        "seeking": "Job seeking",
+        "other": "Other"
+      },
+      "itField": {
+        "label": "Is your job/education in IT or software development?",
+        "description": "Serves as a control variable for professional expertise.",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "programmingSkills": {
+        "label": "How would you rate your current programming skills?",
+        "level1": "No programming experience",
+        "level2": "Little programming experience",
+        "level3": "Basic knowledge in a programming language",
+        "level4": "Advanced knowledge in a programming language",
+        "level5": "Professional programming skills"
+      },
+      "selfEfficacy": {
+        "label": "Programming Self-Efficacy",
+        "description": "Please rate how much the following statements apply to you.",
+        "item1": "I trust myself to solve even complex programming tasks independently.",
+        "item2": "When I make a mistake, I usually find the cause.",
+        "item3": "I enjoy thinking through new problems.",
+        "scaleMin": "Strongly disagree",
+        "scaleMax": "Strongly agree"
+      }
+    },
+    "section2": {
+      "title": "2. Task Load (Cognitive Load)",
+      "mentalEffort": {
+        "label": "Mental Effort",
+        "description": "How much mental effort did you have to put in to complete the tasks?",
+        "scaleMin": "Very low",
+        "scaleMax": "Very high"
+      },
+      "frustration": {
+        "label": "Frustration",
+        "description": "How insecure, discouraged, irritated, or stressed did you feel during the tasks?",
+        "scaleMin": "Very low",
+        "scaleMax": "Very high"
+      }
+    },
+    "section3": {
+      "title": "3. System Quality (Platform Rating)",
+      "sus": {
+        "label": "System Usability Scale (SUS)",
+        "description": "Please rate the following statements about the platform.",
+        "item1": "I think that I would like to use this system frequently.",
+        "item2": "I found the system unnecessarily complex.",
+        "item3": "I thought the system was easy to use.",
+        "item4": "I think that I would need the support of a technical person to be able to use this system.",
+        "item5": "I found the various functions in this system were well integrated.",
+        "item6": "I thought there was too much inconsistency in this system.",
+        "item7": "I would imagine that most people would learn to use this system very quickly.",
+        "item8": "I found the system very cumbersome to use.",
+        "item9": "I felt very confident using the system.",
+        "item10": "I needed to learn a lot of things before I could get going with this system.",
+        "scaleMin": "Disagree",
+        "scaleMax": "Agree"
+      },
+      "ueq": {
+        "label": "User Experience Questionnaire (UEQ-S)",
+        "description": "Please rate the system using the following contrasting pairs.",
+        "pair1": { "left": "obstructive", "right": "supportive" },
+        "pair2": { "left": "complicated", "right": "easy" },
+        "pair3": { "left": "inefficient", "right": "efficient" },
+        "pair4": { "left": "confusing", "right": "clear" },
+        "pair5": { "left": "boring", "right": "exciting" },
+        "pair6": { "left": "not interesting", "right": "interesting" },
+        "pair7": { "left": "conventional", "right": "inventive" },
+        "pair8": { "left": "usual", "right": "leading edge" }
+      }
+    },
+    "aiCheckbox": "✓ I used the AI help during the course",
+    "section4": {
+      "title": "4. AI Assistant Evaluation",
+      "usefulness": {
+        "label": "Perceived Usefulness",
+        "description": "Please rate the following statements about the AI assistant.",
+        "item1": "The AI helped me solve the task faster.",
+        "item2": "The AI's explanations were technically helpful.",
+        "item3": "I would use the AI again for future tasks.",
+        "scaleMin": "Strongly disagree",
+        "scaleMax": "Strongly agree"
+      },
+      "trust": {
+        "label": "Trust & Security",
+        "description": "How trustworthy did you find the AI?",
+        "item1": "I trust that the AI's answers are correct.",
+        "item2": "I felt I had to verify the AI's answers. (Inverted)",
+        "item3": "The AI seemed reliable to me.",
+        "scaleMin": "Strongly disagree",
+        "scaleMax": "Strongly agree"
+      }
+    },
+    "section5": {
+      "title": "5. Final Feedback",
+      "nps": {
+        "label": "Net Promoter Score",
+        "description": "How likely are you to recommend this platform to a fellow student?",
+        "unlikely": "Unlikely",
+        "veryLikely": "Very likely"
+      },
+      "openFeedback": {
+        "label": "Open Feedback",
+        "description": "What can we improve? (Features, bugs, wishes)",
+        "placeholder": "Your detailed feedback..."
+      }
+    },
+    "submit": {
+      "button": "Complete Evaluation →",
+      "loading": "Saving..."
+    },
+    "validation": {
+      "ageGroup": "Please select your age group.",
+      "employment": "Please select your employment status.",
+      "itField": "Please indicate whether you work in IT.",
+      "programmingSkills": "Please rate your programming skills.",
+      "selfEfficacy": "Please answer all self-assessment questions.",
+      "sus": "Please answer all System Usability Scale questions.",
+      "ueq": "Please rate all User Experience pairs.",
+      "aiUsefulness": "Please rate all AI usefulness questions.",
+      "aiTrust": "Please rate all AI trust questions.",
+      "nps": "Please indicate how likely you are to recommend the platform.",
+      "openFeedback": "Please share your feedback - what did you like or what can we improve?"
+    }
+  },
+  "goodbye": {
+    "title": "Thank You So Much!",
+    "subtitle": "You made it!",
+    "greeting": "Dear participant,",
+    "paragraph1": "I want to sincerely thank you for participating in this Python Bootcamp. You have not only expanded your own Python skills, but also made an invaluable contribution to my bachelor thesis.",
+    "paragraph2": "Your time, dedication, and honest feedback are the foundation of this research. Without participants like you, this work would not have been possible. Every line of code you wrote, every step you mastered, and every piece of feedback you gave helps me understand how AI-assisted learning systems can be improved.",
+    "youAreAwesome": "🌟 You are awesome!",
+    "wishesMessage": "I wish you all the best on your continued learning journey and hope this bootcamp has helped you deepen your Python skills and find joy in programming.",
+    "closing": "Thank you again and all the best!",
+    "signature": "Best regards,\nKacper Cömlek",
+    "closeInfo": "You can close this window now or return to the homepage.",
+    "backToHome": "Back to Home"
+  },
+  "chat": {
+    "title": "AI Learning Assistant",
+    "subtitle": "Always here to help",
+    "placeholder": "Type a message...",
+    "send": "Send",
+    "thinking": "Writing...",
+    "error": "Sorry, there was an error processing your message. Please try again.",
+    "errorApi": "The OpenAI API is currently unavailable. Please try again in a few minutes.",
+    "errorApiKey": "The API key is not configured. Please contact the administrator.",
+    "welcomeMessage": "Hello! I'm your AI assistant for the Python Bootcamp. How can I help you learn?",
+    "assistantLabel": "AI Assistant",
+    "resetChat": "Reset chat",
+    "closeChat": "Close chat",
+    "resetDialog": {
+      "title": "Reset chat?",
+      "message": "The previous conversation will be archived and a new chat will start.",
+      "messageLoggedIn": " You cannot restore the archived chat.",
+      "cancel": "Cancel",
+      "confirm": "Reset",
+      "resetting": "Resetting..."
+    },
+    "introModal": {
+      "title": "Your AI Learning Assistant",
+      "subtitle": "Let's get to know each other!",
+      "greeting": "Hello{username}! I'm your personal learning assistant for this Python course.\n\nBefore we get started, tell me a bit about yourself: What's your experience level with programming in general and with Python specifically?\n\nDon't worry, there's no wrong answer - I just want to know how I can best help you!",
+      "inputPlaceholder": "Tell me about yourself...",
+      "continue": "Great! Now we know each other a bit better.",
+      "startCourse": "Start the course",
+      "orContinueChat": "or continue chatting below",
+      "errorMessage": "Sorry, there was an error. Please try again."
+    }
+  },
+  "onboardingPage": {
+    "stepOf": "Step {current} of {total}",
+    "back": "Back",
+    "next": "Next",
+    "start": "Let's go!",
+    "skip": "Skip onboarding",
+    "stepTitles": {
+      "withAI": ["Welcome", "The Code Editor", "Using AI Support", "Drill Tasks"],
+      "withoutAI": ["Welcome", "The Code Editor", "Drill Tasks"]
+    }
+  },
+  "reportBug": {
+    "title": "Report Bug",
+    "subtitle": "Found a bug? Help us improve the platform!",
+    "describeProblem": "Describe the problem",
+    "placeholder": "What happened? What did you expect?",
+    "metadata": {
+      "title": "Your Metadata",
+      "subtitle": "This information helps us find and fix the problem.",
+      "userId": "User ID",
+      "username": "Username",
+      "group": "Group",
+      "groupA": "A (no AI chat)",
+      "groupB": "B (with AI chat)",
+      "screen": "Screen",
+      "timestamp": "Timestamp",
+      "notLoggedIn": "Not logged in",
+      "unknown": "Unknown"
+    },
+    "email": {
+      "title": "Report Bug via Email",
+      "subtitle": "Click the button below to open a pre-filled email.",
+      "button": "Open Email",
+      "subject": "Bug Report - Python Bootcamp"
+    },
+    "copy": {
+      "title": "Alternatively: Copy manually",
+      "emailLabel": "Email address:",
+      "templateLabel": "Complete bug report template with your message (incl. metadata):",
+      "button": "Copy",
+      "copied": "Copied!",
+      "templateButton": "Copy bug report template and paste into your email",
+      "templateCopied": "Template copied!"
+    },
+    "template": {
+      "hello": "Hello",
+      "intro": "I would like to report the following bug:",
+      "description": "PROBLEM DESCRIPTION:",
+      "descriptionPlaceholder": "[Please describe the problem here]",
+      "steps": "STEPS TO REPRODUCE:",
+      "expected": "EXPECTED BEHAVIOR:",
+      "actual": "ACTUAL BEHAVIOR:",
+      "metadataHeader": "=== Bug Report Metadata ==="
+    },
+    "backToHome": "Back to homepage"
+  },
+  "course": {
+    "task": "Task",
+    "yourTask": "🎯 Your Task",
+    "stepOf": "Step {current} of {total}",
+    "keyboardHintPrefix": "Tip: Press",
+    "keyboardHintSuffix": "to run your code",
+    "runCodePrompt": "Run your code to see the output here...",
+    "runCodeToCheck": "Run your code to check your solution",
+    "alreadySolved": "Already solved",
+    "correct": "Correct",
+    "hint": "Hint",
+    "solution": "Solution",
+    "runCode": "Run code",
+    "resetCode": "Reset code",
+    "nextStep": "Next step",
+    "previousStep": "Previous step",
+    "complete": "Complete task",
+    "output": "Output",
+    "expected": "Expected",
+    "actual": "Actual",
+    "correct": "Correct! Well done!",
+    "incorrect": "Not quite right yet. Try again.",
+    "step": "Step {current} of {total}",
+    "continueCourse": "Continue course",
+    "continueDrill": "Continue drill",
+    "finishCourse": "Finish course",
+    "nextStepButton": "Next step",
+    "solveDrill": "Solve drill task",
+    "codeRunning": "Running code...",
+    "checkSolution": "Check solution",
+    "fillBlank": "Fill in the blank",
+    "openChat": "Open chat",
+    "selectPlaceholder": "Please select...",
+    "learningGroupAI": "Your learning group: With AI support",
+    "learningGroupClassic": "Your learning group: Classic learning",
+    "hoverTooltipHint": "Hover tooltips: Move your mouse over functions like {func1} or {func2} to see a short description"
+  },
+  "drill": {
+    "title": "Drill Tasks",
+    "question": "Question {current} of {total}",
+    "submit": "Check answer",
+    "correct": "Correct!",
+    "incorrect": "Unfortunately wrong.",
+    "notQuite": "Not quite...",
+    "tryAgain": "Try again",
+    "explanation": "Explanation",
+    "nextQuestion": "Next question",
+    "complete": "Drill completed!",
+    "score": "You answered {correct} out of {total} questions correctly.",
+    "codeRunning": "Running code...",
+    "checkSolution": "Check solution",
+    "fillBlank": "Fill in the blank",
+    "types": {
+      "multipleChoice": "Multiple Choice",
+      "spotTheError": "Spot the Error",
+      "predictOutput": "Predict Output",
+      "fillTheBlank": "Fill in the Blank"
+    },
+    "attempt": "Attempt {count}",
+    "modal": {
+      "title": "Part-Task Practice - Step {step}",
+      "taskOf": "Task {current}/{total}",
+      "loading": "AI is selecting suitable exercises...",
+      "progressComplete": "Both tasks completed!",
+      "progressPercent": "{percent}% completed",
+      "aiRecommendation": "AI Recommendation:",
+      "difficultyEasy": "Easy",
+      "difficultyMedium": "Medium",
+      "difficultyHard": "Hard",
+      "mcqCompleted": "MCQ completed",
+      "codeCompleted": "Code completed",
+      "backToMcq": "Back to MCQ",
+      "continueToCode": "Continue to code task",
+      "continueCourse": "Continue course",
+      "saving": "Saving..."
+    },
+    "code": {
+      "title": "Code Task",
+      "output": "Output:",
+      "perfect": "Perfect!",
+      "notQuiteRight": "Not quite right yet",
+      "codeMustContain": "Code must contain: {snippet}",
+      "interpreterLoading": "Python interpreter is still loading. Please try again in a moment..."
+    }
+  },
+  "errors": {
+    "notFound": "Page not found",
+    "serverError": "A server error occurred",
+    "networkError": "Network error - please check your connection",
+    "unauthorized": "You must be logged in to view this page"
+  }
+}

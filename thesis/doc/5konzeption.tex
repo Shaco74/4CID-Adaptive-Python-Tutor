@@ -1,0 +1,340 @@
+\chapter{\textbf{Konzeption des Lernsystems}}\label{ch:konzeption}
+
+Dieses Kapitel führt den in Kapitel~\ref{ch:grundlagen} dargestellten theoretischen Rahmen weiter und leitet daraus konkrete Entwurfsentscheidungen ab.
+Ausgehend von einer Anforderungsanalyse wird das didaktische Konzept auf Grundlage des in Abschnitt~\ref{sec:4cid} eingeführten 4C/ID-Modells entwickelt und die Systemarchitektur auf konzeptioneller Ebene dargestellt.
+Die technische Umsetzung der hier beschriebenen Konzepte folgt in Kapitel~\ref{ch:implementierung}.
+
+
+\section{Anforderungsanalyse}\label{sec:anforderungen}
+
+Die Anforderungsanalyse definiert die funktionalen und nicht-funktionalen Anforderungen an das Lernsystem.
+Sie bildet die Grundlage für die nachfolgenden Entwurfsentscheidungen.
+
+\subsection{Funktionale Anforderungen}\label{subsec:funktional}
+
+Die folgenden funktionalen Anforderungen beschreiben, welche Kernfunktionen das Lernsystem bereitstellen muss.
+
+\subsubsection{Kursstruktur und Lernpfad}
+
+Das System umfasst zwei projektbasierte Kurse mit steigender Komplexität: einen Pflichtkurs (BMI-Rechner, 12~Aufgaben) und einen optionalen Aufbaukurs (Zinsrechner, 8~Aufgaben).
+Der Pflichtkurs muss vollständig abgeschlossen werden, bevor der Aufbaukurs freigeschaltet wird.
+Nach Abschluss des Pflichtkurses können Nutzende wahlweise den Aufbaukurs bearbeiten oder direkt zum Evaluationsbogen wechseln.
+
+Innerhalb eines Kurses ist die Progression streng linear: Jede Aufgabe baut auf der vorherigen auf, wobei der Startercode der aktuellen Aufgabe auf der erwarteten Lösung der vorherigen basiert.
+Ein Vorwärts-Springen zu ungelösten Aufgaben ist nicht möglich, Rückwärts-Navigation zu bereits gelösten Aufgaben hingegen erlaubt.
+Diese lineare Struktur stellt eine strukturierte Lernprogression sicher und gewährleistet vergleichbare Bedingungen für alle Nutzenden im Rahmen der empirischen Studie.
+
+\subsubsection{Aufgabenpräsentation}
+
+Jede Aufgabe muss gleichzeitig einen Code-Editor mit vorgegebenem Startercode, die Aufgabenstellung mit Code-Beispielen und Hinweisen sowie eine Konsolenausgabe für das Ergebnis der Code-Ausführung bereitstellen.
+Die Darstellung soll so gestaltet sein, dass Lernende ohne Wechsel zwischen Ansichten arbeiten können.
+
+\subsubsection{Code-Ausführung und Validierung}
+
+Nutzende können Python-Code direkt im Browser schreiben und ausführen, ohne zusätzliche Software installieren zu müssen.
+Die Ausführung muss in einer sicheren Umgebung stattfinden, die den eingegebenen Code isoliert und vor Endlosschleifen schützt.
+
+Die Lösungsvalidierung muss drei Aspekte abdecken: Erkennung von Python-Fehlern, Prüfung auf tatsächliche Verwendung der gelernten Konzepte (um Hardcoding zu verhindern) und Abgleich der Ausgabe mit einer vordefinierten Musterlösung.
+Die technische Umsetzung dieser Anforderungen wird in Kapitel~\ref{ch:implementierung} beschrieben.
+
+\subsubsection{Part-task Practice durch Drill Tasks}
+
+Nach jeder erfolgreich gelösten Aufgabe folgt obligatorisch eine Drill Task als Part-task Practice im Sinne des 4C/ID-Modells \cite{vanmerrienboer2018}.
+Jede Drill Task besteht aus zwei Komponenten: einer Multiple-Choice-Frage und einer Mini-Code-Aufgabe.
+Beide beziehen sich auf Konzepte, die in der zuletzt gelösten Aufgabe behandelt wurden.
+Die Drill Tasks sind nicht überspringbar; erst nach Abschluss beider Komponenten erfolgt die Weiterleitung zur nächsten Aufgabe.
+Nutzende haben bei beiden Teilen unbegrenzt viele Versuche.
+
+Die Drill Tasks stammen aus einem statischen, vom Autor erstellten und geprüften Aufgabenpool.
+Die Auswahl der jeweils angezeigten Aufgabe erfolgt je nach Versuchsgruppe unterschiedlich. Die didaktische Begründung und die Auswahlverfahren werden in Abschnitt~\ref{subsec:ki-rolle} beschrieben.
+
+\subsubsection{KI-Funktionen}
+
+Das System integriert zwei KI-Funktionen, die ausschließlich für Gruppe~B, also die Experimentalgruppe mit KI-Unterstützung, verfügbar sind (Gruppe~A dient als Kontrollgruppe ohne KI-Funktionen):
+
+\begin{enumerate}
+    \item \textbf{KI-gestützte Drill-Task-Auswahl:} Ein Sprachmodell wählt aus dem statischen Aufgabenpool die didaktisch passendste Kombination aus Multiple-Choice-Frage und Code-Aufgabe, basierend auf der individuellen Performance der Nutzenden.
+    \item \textbf{KI-Tutor mit progressivem Hint-System\footnote{Ein progressives Hint-System stellt Hilfestellungen gestuft bereit: Mit jeder weiteren Hilfeanfrage werden die Hinweise konkreter, bis hin zur vollständigen Lösung.}:} Ein kontextsensitiver KI-Tutor unter\-stützt Lernende während der Aufgabenbearbeitung. Lernende können in natürlicher Sprache auf ihrem eigenen Niveau mit ihm kommunizieren. Er ist jederzeit abrufbar und ermög\-licht es, über Aufgaben, Fehler und Missverständnisse zu sprechen. Die Hilfestellung eskaliert über fünf Stufen von reinen Verständnisfragen bis zur vollständigen Lösung.
+\end{enumerate}
+
+\subsubsection{Nutzerverwaltung und Gruppenzuordnung}
+
+Die Anmeldung muss anonym sein, ohne Erhebung personenbezogener Identifikationsmerkmale wie Vorname, Nachname oder Geburtsdatum.
+Die Zuordnung zu einer Versuchsgruppe erfolgt automatisch und balanciert, wobei die Zuweisung permanent ist, um Störvariablen durch Gruppenwechsel zu vermeiden.
+Nutzende werden transparent über ihre Gruppenzugehörigkeit informiert.
+
+\subsubsection{Onboarding}
+
+Ein Erklärvideo, das die Funktionen des Systems erklärt und den Hintergrund dieser Studie erläutert, soll den Einstieg vor dem Login unterstützen.
+Neue Nutzende müssen durch ein mehrstufiges Onboarding in die Bedienung der Plattform eingeführt werden.
+Für Gruppe~B umfasst dies zusätzlich eine Einführung in den KI-Tutor sowie die Erfassung von Programmiervorkenntnissen, die als Kontext für die KI-Interaktionen dienen.
+
+\subsubsection{Datenerhebung}
+
+Das System muss alle relevanten Aktivitäten protokollieren, um die empirische Auswertung zu ermöglichen.
+Dazu gehören Code-Ausführungen, Aufgabenfortschritt, Chat-Verläufe (Gruppe~B), Drill-Ergebnisse und Evaluationsbogen-Antworten.
+Zusätzlich wird ein persistentes Lernprofil benötigt, das den aktuellen Leistungsstand und häufige Fehlertypen erfasst und als Grundlage für die KI-gestützte Aufgabenauswahl dient.
+
+
+\subsection{Nicht-funktionale Anforderungen}\label{subsec:nichtfunktional}
+
+Die nicht-funktionalen Anforderungen beschreiben Qualitätseigenschaften des Systems, die unabhängig von konkreten Funktionen gelten und den Rahmen für sämtliche technischen und gestalterischen Entscheidungen bilden.
+
+\subsubsection{Bedienfreundlichkeit}
+
+Da die Zielgruppe Personen ohne jede Programmiererfahrung umfasst, ist eine niedrige Einstiegshürde essentiell.
+Die Bedienoberfläche setzt auf ein klares, übersichtliches Design mit ausreichenden Schriftgrößen und gut lesbaren Code-Beispielen.
+Farbkodierung dient als unmittelbares Feedback: Richtige Lösungen lösen eine positive Rückmeldung aus, fehlerhafte Lösungen zeigen kontextbezogene Hinweise.
+
+\subsubsection{Datenschutz}
+
+Die in der Nutzerverwaltung vorgesehene anonyme Anmeldung minimiert die Verarbeitung personenbezogener Daten.
+Eine Datenschutzseite informiert transparent über Art und Zweck der erhobenen Daten.
+Die Datenerhebung erfolgt konform zur Datenschutz-Grundverordnung \cite{dsgvo} auf Basis der Einwilligung bei Anmeldung (Art.\,6 Abs.\,1 lit.\,a DSGVO).
+Sämtliche Nutzerdaten werden nach Abschluss des Prüfungsverfahrens gelöscht oder anonymisiert.
+
+\subsubsection{Sprache}
+
+Die Plattform muss primär auf Deutsch ausgelegt sein, da die Zielgruppe deutschsprachige Studierende umfasst.
+
+Aufbauend auf diesen Anforderungen beschreibt der folgende Abschnitt, wie die funktionalen Kernelemente, insbesondere Lernpfad, Drill Tasks und KI-Funktionen, im Rahmen des in Abschnitt~\ref{sec:4cid} eingeführten 4C/ID-Modells didaktisch begründet und gestaltet werden.
+
+
+\section{Didaktisches Konzept}\label{sec:didaktik}
+
+Das didaktische Konzept basiert auf dem in Abschnitt~\ref{sec:4cid} eingeführten 4C/ID-Modell.
+Die dort beschriebenen vier Komponenten sind Learning Tasks, Supportive Information, Just-in-time Information und Part-task Practice. Diese werden im Folgenden auf das Lernsystem abgebildet.
+Dabei wird aufgezeigt, wie die lerntheoretischen Prinzipien der Cognitive Load Theory (vgl. Abschnitt~\ref{subsec:lerntheorie}) in konkreten Designentscheidungen umgesetzt werden.
+
+\subsection{Lernpfad nach 4C/ID}\label{subsec:lernpfad}
+
+Der Lernpfad setzt die Sequenzierung in Aufgabenklassen des 4C/ID-Modells um und bildet das strukturelle Grundgerüst der Lernplattform.
+
+\subsubsection{Aufgabenklassen und Learning Tasks}
+
+Das 4C/ID-Modell organisiert Lernaufgaben in Aufgabenklassen mit steigender Komplexität (vgl. Abschnitt~\ref{subsec:4cid-komponenten}).
+Im vorliegenden System bilden die beiden Kurse jeweils eine Aufgabenklasse:
+
+\begin{itemize}
+    \item \textbf{Aufgabenklasse~1 (BMI-Rechner):} Grundlagen der Python-Programmierung: Textausgabe, Variablen, Datentypen, arithmetische Operationen, Typkonvertierung und bedingte Anweisungen.
+    \item \textbf{Aufgabenklasse~2 (Zinsrechner):} Aufbauende Konzepte: Schleifen mit Laufvariablen, das Akkumulator-Pattern, Listen und deren Kombination mit Schleifen und formatierte Zeichenketten. Bedingte Anweisungen aus Aufgabenklasse~1 werden in neuem Kontext wiederholt.
+\end{itemize}
+
+Beide Kurse sind als komplexe, authentische Learning Tasks im Sinne des 4C/ID-Modells konzipiert (vgl. Abschnitt~\ref{subsec:4cid-komponenten}).
+Der BMI-Rechner spiegelt eine reale Anforderung wider: die Berechnung des Body-Mass-Index.
+Sie erfordert die Integration mehrerer Konzepte, nämlich Eingabe, Variablen, Berechnungen und bedingte Logik, in einem sinnvollen Kontext mit Bezug zur Lebenswelt der Lernenden.
+Der Zinsrechner erweitert diesen Ansatz um iterative Berechnungen und Datensammlung in einem finanzmathematischen Kontext.
+
+Der qualitative Komplexitätssprung zwischen den Kursen liegt darin, dass im BMI-Kurs eine einmalige Berechnung ausreicht, während der Zinsrechner dieselbe Berechnung wiederholt erfordert. Dadurch wird der Einsatz von Schleifen motiviert.
+Zudem müssen im Zinsrechner mehrere Zwischenergebnisse gespeichert werden, was den Einsatz von Listen begründet.
+
+\subsubsection{Komplexitätssteigerung innerhalb der Kurse}
+
+Die Komplexitätssteigerung innerhalb des BMI-Kurses verläuft in vier Phasen.
+In der ersten Phase (Aufgaben~1--2) erzeugen Lernende reine Textausgaben ohne Zustandsverwaltung.
+In der zweiten Phase (Aufgaben~3--7) werden Variablen, Datentypen, Typkonvertierung und arithmetische Operationen eingeführt.
+Die dritte Phase (Aufgaben~8--11) umfasst bedingte Anweisungen und das Refactoring bestehenden Codes.
+Die vierte Phase (Aufgabe~12) konsolidiert das Gesamtprogramm durch das Testen verschiedener Eingabewerte.
+
+Der Zinsrechner steigert die Komplexität in drei Phasen: formatierte Ausgabe und Berechnung (Aufgaben~1--2), Iteration und Datensammlung mit Schleifen und Listen (Aufgaben~3--6) sowie Wiederholung und Konsolidierung (Aufgaben~7--8).
+
+Die Reihenfolge der Python-Konzepte folgt einer Abhängigkeitskette, in der jedes neue Konzept das vorherige voraussetzt und durch die Aufgabenstellung motiviert wird.
+Textausgabe steht am Anfang, da sie die Feedback-Schleife ermöglicht. Ohne Ausgabemöglichkeit kann der Lernende kein Ergebnis überprüfen.
+Variablen benötigen die Textausgabe zur Sichtbarmachung.
+Arithmetik erzeugt Zahlenwerte, über die erst dann per bedingter Anweisung entschieden werden kann.
+Schleifen werden erst im Zinsrechner eingeführt, wo die Aufgabenstellung sie natürlich erfordert und Listen ergeben sich als Antwort auf das Problem, mehrere Werte in einer Schleife zu speichern.
+
+\subsubsection{Scaffolding}
+
+Das Scaffolding im Lernsystem basiert auf drei statischen und einem dynamischen Mechanismus.
+
+Der zentrale Mechanismus ist der \textit{additive Startercode}: Jede Aufgabe enthält den vollständigen, funktionierenden Code aller vorherigen Aufgaben als Vorgabe.
+Lernende schreiben nur den neuen Teil.
+Der vorgegebene Code wächst von wenigen Zeilen in der ersten Aufgabe auf über zwanzig Zeilen in späteren Aufgaben.
+Dadurch können sich Lernende auf das jeweils neue Konzept konzentrieren, ohne vorherige Lösungen erneut eingeben zu müssen.
+Aus Sicht der Cognitive Load Theory (vgl. Abschnitt~\ref{subsec:lerntheorie}) reduziert dies den Extraneous Load und schafft kognitive Kapazität für den Aufbau neuer Schemata.
+
+\textit{Kommentar-Markierungen} im Startercode sind als Kommentare formulierte Platzhalter, die den Bereich kennzeichnen, in dem Lernende eigenen Code ergänzen oder bestehenden Code anpassen sollen.
+
+\textit{Hinweisblöcke} mit unterschiedlichen Dringlichkeitsstufen warnen vor typischen Fehlern oder zeigen strukturelle Vorlagen.
+Die Hinweisanzahl zeigt eine leichte Abnahme in späteren Aufgaben, wobei dies eine manuelle Autorenentscheidung ist und kein programmierter Fading-Mechan\-ismus.
+
+Das einzige \textit{dynamische Scaffolding} wird durch den KI-Tutor (nur Gruppe~B) realisiert: Sein progressives Hint-System eskaliert die Hilfestellung während der Aufgabenbearbeitung über fünf Stufen von reinen Rückfragen bis zur vollständigen Lösung.
+Der KI-Tutor ist für Lernende in Gruppe~B jederzeit verfügbar; der Hint-Zähler wird bei jeder neuen Aufgabe zurückgesetzt.
+
+\subsubsection{Part-task Practice}
+
+Die in Abschnitt~\ref{subsec:funktional} beschriebenen Drill Tasks entsprechen der 4C/ID-Komponente Part-task Practice (vgl. Abschnitt~\ref{subsec:4cid-komponenten}). Sie folgen dem Prinzip der \textit{Deliberate Practice}, das gezielte, wiederholte Übung mit informativem Feedback zur Automatisierung von Teilfertigkeiten beschreibt (vgl. Abschnitt~\ref{subsec:uebung-feedback}).
+
+Der Aufgabenpool umfasst 278~Aufgaben zu sieben Teilfertigkeiten: Textausgabe, Variablen, Datentypen, Zeichenketten, Listen, Schleifen und bedingte Anweisungen.
+Die Multiple-Choice-Fragen nutzen vier Fragetypen: Wissensabfrage, Ausgabe vorhersagen, Lücken füllen und Fehler finden. Damit decken sie verschiedene Stufen der revidierten Bloom'schen Taxonomie ab (vgl. Abschnitt~\ref{subsec:4cid-komponenten}), von Erinnern über Verstehen und Anwenden bis zu Analysieren.
+Die Kombination mit einer Code-Aufgabe ergänzt dieses passive Erkennen um aktives Anwenden.
+
+Die Platzierung direkt nach jeder gelösten Aufgabe stellt die zeitliche Nähe zum gelernten Konzept sicher und gewährleistet eine ausreichende Datenbasis für die empirische Auswertung.
+Die Auswahl erfolgt kumulativ: In späteren Aufgaben stehen alle bisherigen Themen zur Verfügung, sodass auch frühere Konzepte wiederholt werden.
+Die Part-task Practice adressiert damit primär den \textit{Near Transfer}: Durch wiederholtes Üben werden syntaktische und prozedurale Muster automatisiert, während die komplexen Learning Tasks, also die konkreten Aufgaben im Kurs, den \textit{Far Transfer} auf neuartige Problemkontexte fördern (vgl. Abschnitt~\ref{subsec:4cid-komponenten}).
+
+\subsubsection{Supportive Information}
+
+Supportive Information unterstützt den Aufbau mentaler Modelle und wird gemäß dem 4C/ID-Modell vor oder während der Aufgabenbearbeitung bereitgestellt (vgl. Abschnitt~\ref{subsec:4cid-komponenten}).
+Im Lernsystem wird diese Komponente durch vier Elemente realisiert.
+
+Konzeptuelle \textit{Textblöcke} zu Beginn jeder Aufgabe erläutern das zugrunde liegende Konzept, bevor die eigentliche Aufgabenstellung folgt.
+Beispielsweise wird bei der Einführung von Variablen die Metapher einer beschrifteten Box verwendet, bei bedingten Anweisungen das Grundprinzip einer Ja/Nein-Entscheidung erklärt.
+
+\textit{Worked Examples} als eingebettete, annotierte Code-Beispiele zeigen Konzepte in Aktion, ohne dass Lernende selbst aktiv werden müssen.
+Diese Beispiele demonstrieren die korrekte Syntax und Struktur und sind mit Erklärungen versehen.
+
+Das \textit{Onboarding} baut das mentale Modell der Plattform auf und vermittelt die Bedienung der Bedienoberfläche sowie grundlegende Python-Konventionen anhand annotierter Screenshots und eines vollständigen Beispielprogramms.
+
+Für Gruppe~B dient das \textit{KI-Intro-Dialogfenster} als zusätzliche Orientierung: Der KI-Assistent begrüßt die Nutzenden, fragt nach Vorkenntnissen und motiviert, was im 4C/ID-Sinne als Elaboration und Aktivierung von Vorwissen dient.
+
+\subsubsection{Just-in-time Information}
+
+Just-in-time Information liefert prozedurale Hilfe genau dann, wenn sie benötigt wird (vgl. Abschnitt~\ref{subsec:4cid-komponenten}).
+Im Lernsystem wird diese Komponente durch mehrere Elemente realisiert, die sich in ihrer Auslösung unterscheiden.
+
+\textit{Hinweisblöcke} im Aufgabenbereich liefern prozedurale Rezepte für den aktuellen Schritt, etwa Warnungen vor typischen Fehlern oder strukturelle Vorlagen für die erwartete Syntax.
+Diese Hinweise sind technisch immer sichtbar und nicht erst bei einem Fehler. Das ist eine pragmatische Entscheidung, die präventive Hilfe gegenüber strenger Bedarfssteuerung priorisiert.
+
+\textit{Kommentar-Markierungen} im Startercode markieren die Stelle, an der Lernende handeln müs\-sen und liefern prozedurale Anweisungen direkt am Punkt der Aktion im Editor.
+
+Die \textit{Konsolenausgabe} nach jeder Code-Ausführung zeigt das Ergebnis oder die vollständige Fehlermeldung.
+Kontextbezogene Kurzmeldungen klassifizieren Fehler und geben Hinweise zur Korrektur.
+Eine visuelle Rückmeldung bei korrekter Lösung dient als nonverbales Erfolgssignal.
+
+Der \textit{KI-Tutor} (nur Gruppe~B) ist die einzige echte bedarfsgesteuerte Just-in-time-Komponente: Er reagiert erst auf Anfrage der Nutzenden und berücksichtigt den aktuellen Code, die aktuelle Fehlermeldung und den bisherigen Gesprächsverlauf.
+Damit übernimmt er die in Abschnitt~\ref{subsec:4cid-komponenten} beschriebene Funktion des \enquote{über die Schulter schauenden Lehrers} in digitaler Form.
+Damit wird die im 4C/ID-Modell vorgesehene Trennung zwischen aufgabenklassenbezogenem Wissen und aufgabenspezifischer Anleitung funktional umgesetzt, auch wenn einzelne Just-in-time-Elemente aus Gründen der Bedienbarkeit und technischen Praktikabilität permanent angezeigt werden.
+
+
+\subsection{Rolle der KI}\label{subsec:ki-rolle}
+
+Die KI übernimmt im Lernsystem zwei distinkte Aufgaben: die adaptive Auswahl von Drill Tasks und die kontextsensitive Hilfestellung über einen KI-Tutor.
+
+\subsubsection{KI-gestützte Drill-Task-Auswahl}\label{subsec:ki-drill-auswahl}
+Beide Versuchsgruppen greifen auf denselben, kuratierten Drill-Aufgabenpool zurück. Der Pool ist auf Drills bis zum aktuellen Kurs-Step beschränkt und enthält damit ausschließlich Aufgaben zu bereits eingeführten Konzepten. So wird verhindert, dass Lernende mit noch nicht behandelten Inhalten konfrontiert werden und die Vergleichbarkeit zwischen den Gruppen bleibt gewahrt.
+
+Jede Drill-Aufgabe ist mit Metadaten versehen, unter anderem mit einem vom Autor vergebenen didaktischen \textit{Prioritätswert} (Gewichtung). Dieser Prioritätswert beschreibt, wie zentral eine Aufgabe für die Automatisierung der jeweiligen Teilfertigkeit eingeschätzt wird und operationalisiert damit die didaktische Relevanz im Aufgabenpool.
+
+\textbf{Gruppe~A (gewichtete Zufallsauswahl):} In der Kontrollgruppe wird pro Drill Task eine Aufgabe per Zufall gezogen, wobei die Ziehungswahrscheinlichkeit durch den Prioritätswert gewichtet wird. Zentralere Übungsschritte werden dadurch häufiger präsentiert, während Randthemen seltener erscheinen.
+
+\textbf{Gruppe~B (KI-gestützte Auswahl):} In der Experimentalgruppe übernimmt ein Sprachmodell die Auswahl der Drill-Kombination. Um die unabhängige Variable der Studie sauber zu isolieren, bleibt der zugrunde liegende Aufgabenpool identisch; lediglich das Auswahlverfahren unterscheidet sich.
+Dem Modell werden der aktuelle Kursfortschritt, die behandelten Themen, Performance-Daten (z.\,B. Erfolgsrate, häufige Fehlertypen, bisherige Drill-Versuche) sowie der verfügbare Aufgabenpool inklusive Metadaten übergeben. Es wird angewiesen, bei niedriger Erfolgsrate einfachere Aufgaben zu bevorzugen und bei hoher Erfolgsrate schwierigere, noch nicht gezeigte Aufgaben zu priorisieren und die Fragetypen zu variieren. Die ausgewählte Multiple-Choice-Frage und die Code-Aufgabe sollen thematisch aufeinander abgestimmt sein.
+Das Modell muss seine Auswahl begründen. Diese Begründungen werden protokolliert und mit einer anonymisierten ID für die spätere Auswertung und Qualitätssicherung gespeichert; sie werden den Lernenden nicht angezeigt.
+
+Die Schwierigkeit wird dabei über einen zusammengefassten Performance-Score (Prozentwert) gesteuert, den das Sprachmodell bei der Auswahl berücksichtigt. Es gibt keine festen Schwellen (z.\,B. \enquote{leicht/mittel/schwer}); das Modell trifft stattdessen eine heuristische Entscheidung, wie der Score zu interpretieren ist. Diese einfache, eindimensionale Steuerung wurde bewusst gewählt, um die unabhängige Variable der Studie kontrollierbar zu halten.
+
+Die KI-gestützte Auswahl erhöht die Flexibilität, reduziert jedoch die Reproduzierbarkeit einzelner Auswahlentscheidungen.
+
+\subsubsection{KI-Tutor mit progressivem Hint-System}\label{subsec:ki-tutor-konzept}
+
+Der KI-Tutor folgt der Philosophie, nicht die Lösung vorzugeben, sondern zum selbstständigen Denken anzuregen. Dies ist eine zentrale Maßnahme gegen die in Abschnitt~\ref{subsec:lerntheorie} beschriebenen Risiken selbstregulierten Lernens.
+Dies wird durch ein progressives Hint-System mit fünf Eskalationsstufen umgesetzt:
+
+\begin{itemize}
+    \item \textbf{Stufe~1:} Der KI-Tutor stellt ausschließlich Verständnisfragen.
+    \item \textbf{Stufe~2:} Der KI-Tutor erklärt die relevanten Grundkonzepte.
+    \item \textbf{Stufe~3:} Der KI-Tutor zeigt allgemeine Code-Muster, die nicht aufgabenspezifisch sind aber den Nutzenden helfen sollen.
+    \item \textbf{Stufe~4:} Der KI-Tutor gibt eine Code-Struktur mit Lücken und generischen Variablennamen vor.
+    \item \textbf{Stufe~5:} Der KI-Tutor liefert die vollständige Lösung mit ausführlicher Erklärung.
+\end{itemize}
+
+Die Eskalation erfolgt durch den Zähler der Hilfe-Anfragen pro Aufgabe und wird bei jeder neuen Aufgabe zurückgesetzt.
+Ein zentraler Schutzmechanismus adressiert das in Abschnitt~\ref{subsec:ki-chancen-risiken} beschriebene Lösungs-Leak-Risiko: Die Musterlösung wird dem Sprachmodell erst ab Stufe~5 im Kontext mitgegeben.
+Unterhalb dieser Stufe hat das Modell keinen Zugriff auf die Lösung und kann sie folglich nicht weitergeben, selbst wenn die Nutzenden direkt danach fragen.
+
+Der KI-Tutor erhält bei jeder Anfrage umfassenden Kontext: die aktuelle Aufgabe, den Code im Editor, die Konsolenausgabe mit Fehlerklassifikation sowie das aktuelle Hint-Level.
+Über einen Mechanismus zur Konversationskontinuität bleiben vorherige Nachrichten der Nutzenden im Kontext erhalten, ohne bei jeder Anfrage erneut mitgesendet werden zu müssen.
+
+\subsubsection{Entscheidung gegen dynamische Aufgabengenerierung}
+
+Die Entscheidung für eine Pool-Auswahl anstelle dynamischer Generierung war das Ergebnis praktischer Erfahrung.
+In einer frühen Entwicklungsphase wurde die dynamische Generierung erprobt, jedoch verworfen.
+Die Erfahrungen aus der Implementierung des KI-Tutors zeigten, dass es bereits anspruchsvoll ist, ein Sprachmodell mit dem Nutzungskontext vertraut zu machen und thematisch im definierten Bereich zu halten.
+Die eigenständige Bewertung, ob eine generierte Aufgabe qualitativ hochwertig, thematisch passend und frei von noch nicht behandelten Konzepten ist, erwies sich im zeitlichen und methodischen Rahmen dieser Bachelorarbeit als nicht zuverlässig lösbar.
+
+Zudem hätte eine dynamische Generierung die Vergleichbarkeit der Ergebnisse der Studie erschwert, da verschiedene Nutzende unterschiedliche Aufgabeninhalte erhalten hätten.
+Durch den statischen Pool variiert ausschließlich die Auswahlmethode, wodurch die unabhängige Variable der Studie sauber isoliert wird.
+
+Die endgültige Lösung besteht aus einem statischen, vom Autor geprüften Aufgaben-Pool mit KI-gesteuerter Auswahl. Sie adressiert das in Abschnitt~\ref{subsec:ki-chancen-risiken} beschriebene Risiko mangelnder Qualitätssicherung und stellt einen Kompromiss zwischen Zuverlässigkeit und Innovation dar.
+Eine dynamische Generierung mit verbesserter Validierung, etwa durch ein zweites Modell zur Qualitätsprüfung, bleibt eine Option für zukünftige Iterationen.
+
+\subsubsection{Abgrenzung der Versuchsgruppen}
+
+Das System unterstützt zwei Modi, deren Konfiguration über die Gruppenzugehörigkeit gesteuert wird.
+Tabelle~\ref{tab:gruppenvergleich} fasst die Unterschiede zusammen.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Merkmal} & \textbf{Gruppe~A} & \textbf{Gruppe~B} \\
+\midrule
+Aufgabeninhalte          & identisch          & identisch \\
+Drill-Aufgabenpool       & identisch          & identisch \\
+Drill-Auswahl            & gewichteter Zufall  & KI-gestützt \\
+KI-Tutor                 & nicht verfügbar     & verfügbar \\
+Onboarding               & 3~Schritte          & 4~Schritte \\
+KI-Begrüßung             & keine               & interaktives Dialogfenster \\
+\bottomrule
+\end{tabular}
+\caption{Vergleich der Versuchsgruppen}
+\label{tab:gruppenvergleich}
+\end{table}
+
+Die Aufgabeninhalte, der Startercode und die Hinweisblöcke sind für beide Gruppen identisch.
+Diese Abgrenzung ermöglicht einen kontrollierten Vergleich, der ausschließlich den Einfluss der KI-gestützten Funktionen misst.
+Das Studiendesign und die Hypothesen werden in Kapitel~\ref{ch:studie} beschrieben.
+
+Aufbauend auf der didaktischen Konzeption und der definierten Rolle der KI wird im Folgenden die Systemarchitektur beschrieben, welche die zuvor erläuterten Funktionen technisch trägt.
+
+
+\section{Systemarchitektur}\label{sec:architektur}
+
+Die Systemarchitektur legt fest, wie die zuvor beschriebenen Anforderungen auf technischer Ebene umgesetzt werden.
+
+\subsection{Überblick}\label{subsec:architektur-ueberblick}
+
+Die Systemarchitektur besteht aus vier Hauptkomponenten: dem Client (Browser), dem Server, einer Datenbank und einem externen KI-Dienst.
+Eine Besonderheit der Architektur ist die direkte Kommunikation zwischen Client und Datenbank ohne Umweg über den Server.
+Der Server fungiert ausschließlich als Vermittler für die KI-Kommunikation.
+
+Die Kommunikationswege sind wie folgt organisiert:
+
+\begin{itemize}
+    \item \textbf{Client $\leftrightarrow$ Datenbank:} Direkte Lese- und Schreiboperationen für Nutzerdaten, Fortschritt, Events und Chat-Verläufe
+    \item \textbf{Client $\rightarrow$ Server:} Anfragen für KI-Funktionen (Drill-Auswahl, KI-Tutor-Antworten)
+    \item \textbf{Server $\rightarrow$ KI-Dienst:} Weiterleitung der KI-Anfragen mit serverseitig geschütztem API-Schlüssel
+    \item \textbf{Client $\rightarrow$ Code-Sandbox:} Lokale Python-Ausführung im Browser ohne Netzwerkinteraktion
+\end{itemize}
+
+Die funktionale Aufteilung zwischen Client und Server ist bewusst asymmetrisch.
+
+Der Client übernimmt die gesamte Geschäftslogik: Darstellung der Bedienoberfläche, Code-Eingabe, Python-Ausführung in der Sandbox, Lösungsvalidierung, Drill-Anzeige, Datenbankoperationen, Gruppenzuweisung bei der Anmeldung und Event-Logging.
+Der Server beschränkt sich auf zwei Funktionen: die Weiterleitung von KI-Tutor-Anfragen und die Weiterleitung von Drill-Auswahl-Anfragen an den externen KI-Dienst.
+Diese Architektur minimiert Serverabhängigkeiten und gewährleistet, dass die Kernfunktionalität der Lernumgebung auch bei einem Ausfall des KI-Dienstes für Gruppe~A vollständig funktionsfähig bleibt.
+
+Die Aufgaben und Kursinhalte werden als statische Dateien im Quellcode gespeichert, nicht in der Datenbank.
+Diese Entscheidung gewährleistet Reproduzierbarkeit und Versionskontrolle.
+Nutzerdaten, Fortschritt, Event-Logs und Chat-Verläufe werden in der Datenbank persistiert.
+Chat-Verläufe werden zusätzlich beim KI-Dienst gespeichert, um die Konversationskontinuität über einen Referenz-Mechanismus zu ermöglichen.
+
+Nach dem Architekturüberblick wird im nächsten Schritt die KI-Anbindung als zentraler technischer Baustein der Experimentalgruppe~B konzeptionell eingeordnet.
+
+
+\subsection{KI-Anbindung und Prompt-Design}\label{subsec:ki-anbindung}
+
+Die KI-Funktionen werden über einen externen Sprachmodell-Dienst realisiert.
+Auf ein selbst gehostetes oder fein abgestimmtes Modell wurde verzichtet, da der Aufwand für Infrastruktur, Training und Wartung den Rahmen eines Prototyps übersteigt.
+Ein spezialisiertes, auf den Anwendungsfall trainiertes Modell hätte potenziell bessere Ergebnisse liefern können, war jedoch zeitlich nicht realisierbar.
+
+Das Prompt-Design wird konzeptionell durch drei Leitprinzipien bestimmt: klare Rollen- und Aufgabenbeschreibung, kontextsensitive Anfrageaufbereitung sowie explizite Verhaltensgrenzen.
+
+Damit wird sichergestellt, dass die KI-Antworten pädagogisch ausgerichtet, auf den aktuellen Lernstand bezogen und mit den Studienzielen kompatibel bleiben.
+Für den Fall fehlerhafter oder ausbleibender KI-Antworten wurde ein Fallback-Konzept vorgesehen, um die Nutzbarkeit der Lernplattform während der Studie aufrechtzuerhalten.
+Die konkrete technische Ausgestaltung der Prompts, Antwortformate, Restriktionen und Fallback-Logik für Drill-Auswahl und KI-Tutor wird in Kapitel~\ref{ch:implementierung} beschrieben.
+Screenshots der fertigen Lernplattform, die die im Konzept beschriebenen Oberflächen illustrieren, sind in \hyperref[appendix:daten]{Anhang~D} zusammengestellt.
+
+
+\addtocontents{toc}{\vspace{0.8cm}}

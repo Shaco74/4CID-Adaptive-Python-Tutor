@@ -1,0 +1,111 @@
+.courseCard {
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(26, 54, 93, 0.6) 0%, rgba(42, 67, 101, 0.6) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &--locked {
+    background: linear-gradient(135deg, rgba(45, 55, 72, 0.6) 0%, rgba(74, 85, 104, 0.6) 100%);
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  &--completed {
+    background: linear-gradient(135deg, rgba(34, 84, 61, 0.6) 0%, rgba(39, 103, 73, 0.6) 100%);
+    border-color: rgba(72, 187, 120, 0.3);
+
+    &:hover {
+      border-color: rgba(72, 187, 120, 0.5);
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    width: 100%;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border-left-width: 4px;
+    border-left-style: solid;
+    gap: 0.75rem;
+
+    &--open {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    &--closed {
+      background: transparent;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+    }
+  }
+
+  &__stepButton {
+    height: 56px;
+    width: 56px;
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    &:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    &--completed {
+      box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+      border-color: rgba(72, 187, 120, 0.4);
+
+      &:hover {
+        box-shadow: 0 6px 25px rgba(72, 187, 120, 0.4);
+      }
+    }
+
+    &--pending {
+      background: linear-gradient(135deg, rgba(66, 153, 225, 0.8) 0%, rgba(49, 130, 206, 0.8) 100%);
+      border-color: rgba(66, 153, 225, 0.4);
+
+      &:hover {
+        background: linear-gradient(135deg, rgba(66, 153, 225, 1) 0%, rgba(49, 130, 206, 1) 100%);
+        box-shadow: 0 6px 25px rgba(66, 153, 225, 0.4);
+      }
+    }
+  }
+
+  &__stepIndicator {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  &__content {
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}

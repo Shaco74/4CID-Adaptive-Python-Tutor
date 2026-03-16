@@ -1,0 +1,273 @@
+\chapter{\textbf{Implementierung}}\label{ch:implementierung}
+
+Aufbauend auf der in Kapitel~\ref{ch:konzeption} beschriebenen Konzeption und dem in Kapitel~\ref{ch:grundlagen} dargestellten theoretischen Rahmen dokumentiert dieses Kapitel die technische Umsetzung des Prototyps. Es werden die Technologieauswahl begründet, die Kernkomponenten beschrieben und auf Herausforderungen während der Entwicklung eingegangen.
+
+% Hinweis Prof. Kacper: Begründung kann auch "wegen persönlichem Know-How" sein
+
+
+\section{Technologieauswahl}\label{sec:techstack}
+
+Die Technologieauswahl orientierte sich an den Anforderungen aus Abschnitt~\ref{subsec:nichtfunktional}: niedrige Einstiegshürden für Programmiereinsteigende, Nutzbarkeit ohne Softwareinstallation und effiziente Entwicklung des Prototyps.
+Entsprechend wurden etablierte Bibliotheken und Frameworks gewählt, um den Entwicklungsaufwand auf die fachlichen Kernanforderungen zu konzentrieren.
+
+Die Lernplattform wurde als Webanwendung auf Basis von Next.js entwickelt, einem quelloffenen Framework auf Grundlage der JavaScript-Bibliothek React \cite{react} für Fullstack-Webanwendungen \cite{nextjs}.
+Next.js bietet eine solide Grundlage für interaktive Bedienoberflächen und ermöglicht gleichzeitig die Integration serverseitiger Funktionalitäten.
+Die Wahl fiel auf Next.js aufgrund des integrierten Routings, der flexiblen Komposition von client- und serverseitigen Funktionen sowie bestehender Erfahrung des Autors.
+Als Programmiersprache kam TypeScript \cite{typescript} zum Einsatz, dessen statische Typisierung die Wartbarkeit und Fehlersicherheit des Codes verbessert und durch den konsistenten Einsatz sowohl im Client als auch im Server eine einheitliche Codebasis gewährleistet.
+
+Für die Gestaltung der Bedienoberfläche wurde eine Kombination aus Tailwind CSS \cite{tailwind} und Chakra UI \cite{chakra} gewählt.
+Tailwind CSS ermöglicht durch seinen Utility-First-Ansatz die Erstellung responsiver Layouts, während Chakra UI vorgefertigte, barrierefreie Komponenten bereitstellt.
+Für die Code-Eingabe im Browser wurde der Monaco Editor \cite{monaco} integriert, der auch in Visual Studio Code \cite{vscode} zum Einsatz kommt und Syntax-Highlighting, Code-Vervollständigung sowie weitere Funktionen einer professionellen Entwicklungsumgebung bietet.
+
+Die Datenhaltung erfolgt über Firebase Firestore \cite{firebase}, eine NoSQL-basierte Dokumentendatenbank, die die effiziente Speicherung und Abfrage von Nutzerdaten, Aufgabenfortschritten und Log-Daten ermöglicht.
+Die Wahl fiel auf Firestore aufgrund des kostenlosen Kontingents für prototypische Anwendungen, der integrierten Verwaltungsoberfläche sowie der serverlosen Architektur, die den Implementierungsaufwand reduziert.
+Die Authentifizierung wird über Firebase Authentication \cite{firebase} realisiert, das E-Mail/Passwort-Anmeldung und die Integration mit Firestore für die Zugriffskontrolle bietet.
+
+Die Ausführung von Python-Code erfolgt clientseitig über Pyodide~\cite{pyodide}, eine auf WebAssembly~\cite{webassembly} basierende Python-Portierung für den Browser. Die direkte Ausführung ohne Serverinteraktion reduziert Latenz, und die integrierte Sandbox-Umgebung gewährleistet eine sichere Code-Ausführung.
+
+Die KI-Integration basiert auf der OpenAI API \cite{openai_api}, deren Grundlagen und Limitationen in Abschnitt~\ref{subsec:llm} dargestellt wurden.
+Diese werden zur Auswahl individualisierter Übungsaufgaben sowie zur Unterstützung der Lernenden eingesetzt.
+Die Nutzung der API ermöglichte die Integration leistungsstarker KI-Funktionen ohne den Aufbau eigener Infrastruktur.
+
+Die gewählten Technologien bilden eine kohärente Fullstack-Architektur: Next.js orchestriert Präsentationsschicht und serverseitige Logik, während Pyodide eine vollständig clientseitige Code-Ausführung ermöglicht. Die OpenAI API wird ausschließlich serverseitig über Next.js Server Actions angesprochen, um API-Schlüssel vor dem Client zu schützen.
+
+Die Lernplattform wird auf einem Virtual Private Server mit Ubuntu 22.04 LTS \cite{ubuntu} bei Hetzner \cite{hetzner} gehostet, gewählt aufgrund zuverlässiger Dienste, attraktiver Preisgestaltung und des Standorts in Deutschland.
+Für das Deployment kommt Coolify \cite{coolify} zum Einsatz, das die automatisierte Bereitstellung als Docker-Container \cite{docker} einschließlich SSL-Zertifikaten, Reverse-Proxy-Konfigura\-tion und Git-Integration übernimmt.
+
+
+\section{Umsetzung der Kernkomponenten}\label{sec:kernkomponenten}
+
+Die Kernkomponenten der Plattform umfassen die Web-Oberfläche, die Aufgaben-Engine mit KI-Integration sowie die Nutzerverwaltung und das Logging-System.
+
+\subsection{Web-Oberfläche}\label{subsec:webui}
+
+Die Bedienoberfläche der Lernplattform wurde mit Fokus auf Zugänglichkeit und Bedienfreundlichkeit für Programmier\-einsteigende gestaltet.
+Der Einstieg erfolgt über eine Login-Seite, auf der Nutzende einen selbstgewählten Benutzernamen eingeben und ein gemeinsames Passwort verwenden.
+Diese Seite enthält zusätzlich ein deutschsprachiges Erklärvideo, das den Ablauf der Anwendung und ihre Funktionen vorstellt, um technisch unerfahrenen Nutzenden den Einstieg zu erleichtern.
+
+Nach der Anmeldung durchlaufen Nutzende ein mehrstufiges Onboarding, das schrittweise die zentralen Komponenten der Plattform erklärt.
+Dazu gehören der Code-Editor, der Aufgabenbereich, die Konsolenausgabe sowie das Konzept der Drill Tasks mit Multiple-Choice-Fragen und Mini-Code-Aufgaben.
+Im Onboarding wird den Nutzenden mitgeteilt, zu welcher Versuchsgruppe sie gehören. Gruppe A arbeitet ohne KI-Unterstützung, Gruppe B mit KI-Tutor.
+Das Onboarding nutzt Screenshots zur visuellen Unterstützung und vermittelt grundlegende Hinweise zur Python-Programmierung.
+Nutzende der Gruppe B werden nach dem Onboarding aufgefordert, den KI-Tutor zu personalisieren, indem sie ihr Erfahrungslevel mit Programmierung und Python angeben.
+Diese Informationen dienen dazu, die KI-gestützten Hilfestellungen an das individuelle Niveau anzupassen.
+
+Nach Abschluss des Onboardings gelangen Nutzende zum Dashboard, das eine Übersicht aller verfügbaren Kurse und Aufgaben bietet.
+Das Dashboard visualisiert den Lernfortschritt durch farbliche Markierungen: Gelöste Aufgaben werden grün hervorgehoben, offene Aufgaben neutral dargestellt.
+Die Kursfreischaltung folgt der in Abschnitt~\ref{subsec:funktional} beschriebenen linearen Progression.
+
+Der Aufgabenbereich ist in einem zweispaltigen Layout organisiert.
+Links befindet sich der Monaco Editor für die Code-Eingabe, rechts die Aufgabenstellung im Markdown-Format \cite{markdown} mit Code-Blöcken und farblich hervorgehobenen Hinweisboxen für wichtige Informationen und Warnungen.
+Unterhalb des Editors wird die Konsolenausgabe angezeigt, die der originalen Python-Ausgabe entspricht.
+Nutzende lösen Aufgaben, indem sie die erwartete Ausgabe per \texttt{print}-Funktion erzeugen, woraufhin das System diese automatisch gegen vordefinierte Lösungsstrings validiert.
+
+Für Gruppe B steht ein permanenter blauer Button am rechten Bildschirmrand zur Verfügung, über den ein seitliches Dialogfenster mit dem KI-Tutor geöffnet werden kann.
+Dieses Fenster gleitet von rechts in den Bildschirm und ermöglicht kontextsensitive Hilfestellungen während der Aufgabenbearbeitung.
+Innerhalb der Drill Tasks ist der Chat jedoch nicht verfügbar, was in der empirischen Studie teilweise zu Frustration führte.
+
+Die Navigation innerhalb eines Kurses erfolgt über eine Navigationsleiste mit nummerierten Buttons.
+Gelöste Schritte sind visuell hervorgehoben und können erneut aufgerufen werden.
+Der Navigationsfluss setzt die in Abschnitt~\ref{subsec:funktional} beschriebene lineare Progression um: Nach erfolgreicher Lösung öffnet sich die zugehörige Drill Task, erst nach deren Abschluss erfolgt die Weiterleitung zur nächsten Aufgabe.
+
+Farbcodierung dient als unmittelbares visuelles Feedback: Richtige Lösungen werden positiv hervorgehoben, fehlerhafte Lösungen erzeugen kontextbezogene Hinweismeldungen.
+Nutzende haben für alle Drill Tasks unbegrenzt viele Versuche.
+Fehlermeldungen in der Konsolenausgabe entsprechen den originalen Python-Fehlern, die an kritischen Stellen durch zusätzliche Hinweise ergänzt werden.
+
+Der Monaco Editor wurde mit Syntax-Highlighting, statischem Autocomplete für Python-Built-ins und Hover-Dokumentation konfiguriert.
+Jede Aufgabe beginnt mit einem vorgegebenen Startercode, der in der Regel auf der Lösung der vorherigen Aufgabe aufbaut.
+
+Kommentare im Code markieren die Stellen, an denen Nutzende Änderungen vornehmen sollen.
+Screenshots der fertigen Bedienoberfläche mit Dashboard, Aufgabenbereich, Drill Tasks und KI-Tutor sind in \hyperref[appendix:daten]{Anhang~D} zusammengestellt.
+
+
+\subsection{Aufgaben-Engine und KI-Integration}\label{subsec:engine}
+
+Die Lernplattform basiert auf einer hybriden Architektur, die statische Aufgaben mit KI-gestützter adaptiver Aufgabenauswahl kombiniert.
+
+\clearpage
+\subsubsection{Statische Aufgaben}
+
+Die Hauptlernpfade für den BMI-Rechner mit 12 Aufgaben und den Zinsrechner mit 8 Aufgaben sind als typisierte TypeScript-Objekte in separaten Dateien hinterlegt.\footnote{Die Kursdaten sind in \texttt{bmiCalculatorCourseData.ts} und \texttt{interestCalculatorCourseData.ts} im Quellcode des Projekts definiert (vgl.\ \hyperref[appendix:daten]{Anhang~D}).}
+Diese Entscheidung für eine Code-basierte Speicherung anstelle einer Datenbank gewährleistet Reproduzierbarkeit für die Forschungsstudie und erleichtert Versionskontrolle über Git.
+
+Jede Aufgabe folgt einem definierten Interface \texttt{CourseTask} mit folgenden Kernfeldern:
+\begin{itemize}
+    \item \texttt{id} als eindeutige Kennung, \texttt{step} als Position in der Sequenz sowie \texttt{title} und \\ \texttt{description}
+    \item \texttt{blocks} als Liste aus Content-Blöcken mit Text in Markdown, Code-Beispielen, Hinweisen mit Severity-Levels und Aufgaben\-stellungen
+    \item \texttt{starterCode} als Vorgabe-Code im Editor
+    \item \texttt{solutionString} als erwartete Konsolenausgabe, die als String oder als Array mehrerer Strings vorliegen kann
+    \item \texttt{solutionCode} als optionales Feld mit erforderlichen Code-Snippets für die Anti-Cheat-Prüfung
+    \item \texttt{topics} als Liste abgedeckter Themen für die Drill-Auswahl
+    \item \texttt{hasDrill} als Boolean-Wert, der angibt, ob nach Abschluss eine Drill Task folgt
+\end{itemize}
+
+Aufgaben werden zur Laufzeit vom Backend über Hilfsfunktionen wie \texttt{getBmiCourseTask} geladen. Dabei werden die Parameter \texttt{step} und \texttt{locale} übergeben. Die Funktionen unterstützen auch die Lokalisierung in Deutsch und Englisch mit Fallback-Mechanismen.
+
+\subsubsection{Code-Ausführung}
+
+Die Ausführung des eingegebenen Codes erfolgt vollständig clientseitig über Pyodide v0.27.0, eine Web\-Assembly-Kompilierung von Python, die über ein Content Delivery Network geladen wird.
+Der Ablauf ist in der Funktion \texttt{run\-Python\-Code} implementiert.
+Der eingegebene Code wird in einen Wrapper eingebettet, der \texttt{sys.stdout} auf ein \texttt{StringIO}"=Objekt umleitet. Dieses Objekt fungiert als Puffer für String-Ausgaben im Arbeitsspeicher, um alle \texttt{print}"=Ausgaben abzufangen.
+Der Code wird innerhalb eines \texttt{try/finally}-Blocks ausgeführt, wobei \texttt{sys.stdout} anschließend zurückgesetzt wird.
+Zum Schutz vor Endlosschleifen wird der Code mit einem Iterations-Counter instrumentiert, der nach maximal 100.000 Iterationen abbricht.
+Das Ergebnis umfasst den Output-String, eine Fehlerklassifikation und den Ausführungsstatus.
+
+Die clientseitige Ausführung eliminiert Server-Abhängigkeiten, reduziert Latenz und gewährleistet durch die Pyodide-Sandbox sichere Code-Ausführung.
+
+\clearpage 
+
+\subsubsection{Lösungsvalidierung}
+
+Die Validierung erfolgt dreistufig in der Funktion \texttt{validateSolution}:
+\begin{enumerate}
+    \item \textbf{Python-Fehler-Check:} Die Ausgabe wird auf Schlüsselwörter wie \enquote{Error}, \enquote{Traceback} und \enquote{Exception} geprüft. Bei Vorhandensein wird die Lösung sofort als ungültig markiert.
+    \item \textbf{Anti-Cheat-Check:} Falls \texttt{solutionCode} definiert ist, muss der eingegebene Code bestimmte Snippets enthalten, zum Beispiel den Ausdruck \texttt{print}. Dies verhindert Hardcoding der erwarteten Ausgabe ohne Verwendung der gelernten Konzepte.
+    \item \textbf{Output-Vergleich:} Die Konsolenausgabe wird gegen \texttt{solutionString} geprüft. Bei Arrays müssen alle Strings enthalten sein. Der Vergleich ist whitespace-tolerant mit Normalisierung von Leerzeichen um Operatoren, Umwandlung einfacher in doppelte Anführungszeichen und Bereinigung von Leerzeichen in Funktionsaufrufen.
+\end{enumerate}
+
+Bei korrekter Lösung erscheint eine Konfetti-Animation als positive Rückmeldung.
+Fehlerhafte Lösungen führen zu kontextbezogenen Toast-Benachrichtigungen mit den Meldungen \enquote{Python\-Fehler}, \enquote{Progress\-Error} und \enquote{incorrect\-Solution}.
+
+\subsubsection{KI-gestützte Drill-Task-Auswahl}
+
+Die in Abschnitt~\ref{subsec:funktional} beschriebenen Drill Tasks wurden vom Autor händisch erstellt und geprüft, teilweise unter Nutzung des KI-gestützten Entwicklungswerkzeugs Claude Code \cite{anthropic_claude}.
+Sie sind in einem vordefinierten Pool hinterlegt, aus dem die Auswahl entweder algorithmisch für Gruppe~A oder KI-gestützt für Gruppe~B erfolgt.
+
+Für \textbf{Gruppe A} kommt eine gewichtete Zufallsauswahl über \texttt{weightedRandomSelect} zum Einsatz, die auf Basis der Aufgaben-Prioritäten und bereits gezeigter Drills eine thematisch passende Auswahl trifft.
+
+Für \textbf{Gruppe B} erfolgt die Auswahl über die OpenAI API mit dem Modell \texttt{gpt-4o-mini} mittels einer serverseitigen Next.js Server Action namens \texttt{selectDrillsFromPoolWithAI}.
+Der technische Ablauf:
+\begin{enumerate}
+    \item Nutzende öffnen Drill Task nach gelöster Aufgabe
+    \item Frontend sendet Request an das Backend über eine Next.js Server Action
+    \item Backend bereitet Anfrage für OpenAI auf mit: Kurskontext (Step, Topics), Leistungsprofil der Nutzenden (gelöste Drills, Erfolgsrate, Fehlertypen) und verfügbaren Aufgabenpools mit Metadaten
+    \item OpenAI wählt didaktisch optimale Kombination aus MCQ und Code-Aufgabe
+    \item Backend gibt ausgewählte Aufgaben ans Frontend zurück
+\end{enumerate}
+Die Auswahl dauert zwischen 0,5 und 3 Sekunden, währenddessen wird ein Loading-Skeleton angezeigt.
+Als Fallback bei ungültiger KI-Auswahl wird die erste verfügbare Aufgabe aus dem Pool gewählt.
+Bei einem vollständigen Ausfall des KI-Dienstes fällt die Drill-Auswahl auf den Algorithmus der Kontrollgruppe mit gewichteter Zufallsauswahl zurück, um den Lernfluss aufrechtzuerhalten.
+
+Das verwendete Modell \texttt{gpt-4o-mini} wurde gewählt aufgrund der Balance zwischen Kosten, Geschwindigkeit und Qualität.
+Es unterstützt die in Abschnitt~\ref{subsec:llm} beschriebenen \textit{Structured Outputs}~\cite{openai_structured_outputs}, die das Sprachmodell zwingen, Antworten in einem vordefinierten JSON-Schema-Format zu liefern, was vorhersagbare und typsichere Antwortformate gewährleistet.
+Die Implementierung nutzt die OpenAI Responses API aus dem Jahr 2024 mit Konversationskontinuität über \texttt{previous\_response\_id}, was manuelles Token-Management vermeidet und die Gesprächskontinuität über mehrere Anfragen hinweg sicherstellt.
+
+Das Prompt-Design folgt vier Prinzipien: Rollenanweisung zur pädagogischen Ausrichtung, Kontextinjektion mit Aufgaben- und Performancedaten, strukturierte Ausgabe über striktes JSON-Schema und explizite Verhaltensrestriktionen. Die Prompts sind instruktionsbasiert ohne Few-Shot-Beispiele.
+
+\subsubsection{KI-Tutor-Integration}
+
+Für Gruppe B steht ein KI-Tutor zur Verfügung, der über ein persistentes seitliches Dialogfenster erreichbar ist.
+Der System-Prompt definiert die Rolle als \enquote{hilfreicher AI-Assistent für das Python-Bootcamp} mit einer klaren Kern\-philosophie: nicht die Lösung vorgeben, sondern zum selbst\-ständigen Denken anregen.
+
+Umgesetzt wird dies über das in Abschnitt~\ref{subsec:ki-rolle} beschriebene progressive Hint-System mit fünf Eskalationsstufen, das mit jeder Hilfe-Anfrage der Nutzenden eine Stufe weiter eskaliert.
+
+Der Anfrage-Prompt enthält die Nachricht der Nutzenden sowie umfassenden Kurskontext, darunter die aktuelle Aufgabe mit Titel und Beschreibung, den aktuellen Code im Editor zusammen mit dem Startercode, die Konsolenausgabe mit Fehler-Flag, den Zähler der Hilfeanfragen und das aktuelle Hint-Level.
+Die Solution-Strings werden erst ab Level 5 mitgesendet, um vorzeitiges Preisgeben der Lösung zu verhindern.
+
+Die KI-Antworten folgen einem strukturierten JSON-Format mit den Types \texttt{text}, \texttt{admonition} und \texttt{codeblock}, um eine formatierte Darstellung im Chat-Drawer zu ermöglichen.
+Die Antworten enthalten weder LaTeX noch Formeln, sondern ausschließlich Unicode-Text oder Python-Code-Blöcke.
+Die Sprachauswahl erfolgt basierend auf der Sprachoption der Nutzenden, primär Deutsch und optional Englisch.
+
+Zur Qualitätssicherung wird die KI auf einen händisch geprüften Aufgabenpool restringiert.
+Dennoch kann es vorkommen, dass die gewählte Aufgabe nicht optimal zum aktuellen Lernstand passt.
+Bei fehlerhaften KI-Tutor-Antworten wird eine lokalisierte Fehlermeldung angezeigt.
+Ein dedizierter Wiederholungsmechanismus bei API-Fehlern wurde nicht implementiert. 
+
+\subsection{Nutzerverwaltung und Logging}\label{subsec:logging}
+
+Dieser Abschnitt beschreibt die technische Umsetzung der anonymen Nutzerverwaltung mit automatischer Gruppenzuweisung sowie des Event-Sourcing-basierten Logging-Systems.
+
+\subsubsection{Nutzerverwaltung und Gruppenzuweisung}
+
+Die Plattform verzichtet auf eine klassische Registrierung mit E-Mail-Verifizierung.
+Stattdessen wählen Nutzende einen beliebigen Benutzernamen und geben ein gemeinsames Passwort ein.
+Das System unterstützt vier Passwort-Varianten, die als Umgebungsvariablen konfiguriert sind. Dazu gehören je ein dediziertes Passwort für Gruppe A ohne KI und Gruppe B mit KI, ein balanciertes Passwort für automatische Gruppenzuweisung sowie ein Admin-Passwort für Verwaltungsfunktionen.
+Der eingegebene Benutzername wird normalisiert. Dabei werden Kleinbuchstaben verwendet und Leerzeichen durch Bindestriche ersetzt, zum Beispiel \enquote{Max Mustermann} zu \texttt{max-mustermann}. Anschließend dient der Name als Firestore-Dokument-ID.
+Diese Architektur ermöglicht anonyme Teilnahme ohne Erhebung personenbezogener Identifikationsmerkmale und vereinfacht die DSGVO-Konformität.
+
+Die Gruppenzuweisung erfolgt bei Nutzung des balancierten Passworts automatisch: Das System zählt die aktuelle Anzahl an Nutzenden in Gruppe A mit \texttt{aiChatTutorIsEnabled = false} und in Gruppe B mit \texttt{aiChatTutorIsEnabled = true} und weist die neue Person der kleineren Gruppe zu. Bei Gleichstand wird Gruppe A zugewiesen.
+Die Zuweisung ist permanent und wird nicht nachträglich geändert, um Störvariablen durch Gruppenwechsel zu vermeiden.
+
+Nutzende sehen ihre Gruppenzugehörigkeit transparent im Onboarding mitgeteilt; Gruppe-B-Nutzende erkennen sie zusätzlich am blauen Chat-Button.
+
+\subsubsection{Event-Tracking und Logging}
+
+Das System nutzt eine Event-Sourcing-Architektur, bei der alle Aktivitäten der Nutzenden als chronologische, unveränderliche Ereignisse mit Zeitstempel in Firestore gespeichert werden.
+Die protokollierten Events umfassen fünf Kategorien: Session-Events mit Start, Ende und Metadaten, Aufgaben-Events mit Code-Ausführungen, Bearbeitungsdauer und Lösungsversuchen, Drill-Events mit Auswahl, Versuchen und Erfolg, Chat-Events mit Hint-Level und Nachrichten nur für Gruppe~B sowie die abschließende Evaluation.
+
+Zusätzlich wird ein persistentes Lernprofil gepflegt, das einen aggregierten Performance-Score, eine nach Fehlertyp und Thema klassifizierte Fehlerhistorie sowie adaptive Themen-Gewichtun\-gen umfasst.
+Diese Daten bilden die Grundlage für die in Abschnitt~\ref{subsec:ki-rolle} beschriebene KI-gestützte Drill-Auswahl.
+Die Datenschutzanforderungen aus Abschnitt~\ref{subsec:nichtfunktional} werden technisch durch anonyme Benutzernamen, eine Datenschutzseite unter \texttt{/datenschutz} und der dauerhaften Anonymisierung der Daten nach Abschluss der Studie umgesetzt.
+
+
+\section{Herausforderungen und Designentscheidungen}\label{sec:herausforderungen}
+
+Im Verlauf der Implementierung wurden mehrere technische und konzeptionelle Herausforderungen identifiziert, die zu bewussten Designentscheidungen führten und nachfolgend dokumentiert werden.
+
+\subsection{Technische Herausforderungen}
+
+Die Pyodide-Integration verlief insgesamt weniger problematisch als erwartet, erforderte jedoch Anpassungen für die Einbindung in die React-App und die Handhabung asynchroner Operationen.
+Die Implementierung des Endlosschleifen-Schutzes mittels Iterations-Counter und die Kapselung von \texttt{sys.stdout} über \texttt{StringIO} erforderten mehrere Iterationen, um eine saubere Output-Capture zu gewährleisten.
+
+Die Firebase-Integration brachte eigene Herausforderungen mit sich, insbesondere die Entwicklung einer geeigneten Dokumentstruktur für die Event-Sourcing-Architektur.
+Mehrere Iterationen waren nötig, um eine Balance zwischen Abfrage-Effizienz, Datenkonsistenz und überschaubarer Komplexität zu finden.
+Die finale Lösung mit Events als Sub-Collection und aggregierten Daten im Wurzel-Dokument der Nutzenden erwies sich als tragfähig.
+
+Die größte Herausforderung stellte die Minimierung von Halluzinationen des KI-Tutors dar, wie in Abschnitt~\ref{subsec:ki-chancen-risiken} beschrieben. Gemeint sind Antworten, die plausibel klingen, jedoch faktisch falsch oder frei erfunden sind.
+Besonders kritisch war die Aufrechterhaltung eines stabilen Nutzungskontexts über mehrere Interaktionen hinweg, sodass der KI-Tutor stets über Nutzernamen, bisherige Fehler, gestellte Fragen und die aktuelle Aufgabe informiert bleibt.
+Die Lösung erfolgte durch eine Kombination aus drei Mechanismen: 
+
+erstens die Nutzung von \texttt{previous\_response\_id} für echte Konversationskontinuität statt manueller Nachrichtenhistorie, zweitens Structured Outputs mit \texttt{strict: true} JSON Schema für vorhersagbare und typsichere Antwortformate sowie drittens das progressive Hint-System, das vorzeitiges Preisgeben der Lösung verhindert.
+
+\subsection{Verworfene Alternativen}
+
+Eine serverseitige Code-Ausführung wurde verworfen, da die ursprünglich vorgesehene Hosting-Plattform Vercel keine native Python-Runtime unterstützt und Stabilitätsrisiken durch einen dedizierten Python-Server bestanden.
+Die clientseitige Ausführung mit Pyodide erwies sich als einfachere und stabilere Lösung ohne Server-Abhängigkeit.
+
+Die Nutzung eines lokalen, selbst gehosteten Sprachmodells anstelle der OpenAI API wurde aufgrund des hohen Aufwands für diesen Prototyp verworfen.
+Ein spezialisiertes, fein abgestimmtes Modell hätte potenziell qualitativer und näher an der Anwendungsdomäne sein können, war aber zeitlich nicht realisierbar.
+
+Die dynamische Generierung von Drill Tasks zur Laufzeit wurde nach mehreren Versuchen verworfen.
+Die Validierung dynamisch generierter Aufgaben erwies sich als unzuverlässig, da nicht sichergestellt werden konnte, dass die erwartete Antwort tatsächlich korrekt ist.
+Statische Aufgaben mit statischen Lösungsstrings waren deutlich einfacher und sicherer.
+
+Die Implementierung eines vollwertigen Python Language Servers für Echtzeit-Syntaxprüfung im Editor wurde als zu komplex für den Prototyp-Umfang bewertet.
+Statisches Autocomplete für Built-ins erwies sich als pragmatischer Kompromiss.
+
+\subsection{Bewusste Abwägungen}
+
+Eine zentrale Abwägung bestand zwischen einem stringenten Prozessablauf und vollständiger Einstiegsfreundlichkeit.
+Während die Bedienoberfläche für Nutzende mit grundlegenden Computerkenntnissen gut funktionierte, war sie für Teilnehmende ohne jegliche Programmiererfahrung teils überfordernd.
+Der zeitliche Rahmen erlaubte keine umfassende Einführung in die Grundlagen der Programmierung, sodass direkt mit Python-Syntax begonnen wurde.
+
+Gleichzeitig wurde bewusst auf eine skalierbare Architektur verzichtet zugunsten einer zügigen Prototyp-Entwicklung, da das primäre Ziel die Durchführung der empirischen Studie war.
+
+Die Entscheidung für einen statischen Aufgabenpool mit KI-gesteuerter Auswahl anstelle dynamischer Generierung priorisierte Zuverlässigkeit gegenüber Flexibilität.
+
+\subsection{Limitierungen des Prototyps}
+
+Der Prototyp weist mehrere Limitierungen auf, die bei einer Weiterentwicklung adressiert werden sollten.
+Erstens ist der KI-Tutor konzeptionell ausschließlich für die Learning Tasks implementiert; innerhalb der Drill Tasks steht den Nutzenden systemseitig keine Hilfestellung zur Verfügung. Dadurch sind die Möglichkeiten einer durchgängigen tutorierten Begleitung eingeschränkt.
+Zweitens besteht derzeit keine Möglichkeit, blockierte Aufgaben zu überspringen oder zugeteilte Drill Tasks auszutauschen. Diese fehlende Flexibilität kann bei anhaltenden Schwierigkeiten zu einer Unterbrechung des Lernflusses führen und erschwert eine dynamische Anpassung an den individuellen Lernstand.
+Drittens fehlt ein dediziertes Fehlerbehandlungssystem für API-Ausfälle. Ein Ausfall der OpenAI API würde Gruppe-B-Nutzende bei der KI-gestützten Drill-Auswahl blockieren.
+Schließlich handelt es sich nicht um ein verblindetes Experiment: Nutzende wissen, welcher Gruppe sie angehören, was potenzielle Erwartungseffekte begünstigt.
+
+Für einen produktiven Einsatz wären insbesondere niedrigschwellige Hilfeoptionen sowie eine kontrollierte Möglichkeit zum Überspringen oder Austauschen einzelner Aufgaben erforderlich, ohne Lernende zu frühzeitigem Aufgeben oder unreflektiertem Durchklicken einzuladen, damit weiterhin selbstreguliertes Lernen in hoher Qualität unterstützt wird.
+
+
+\section{Werkzeugunterstützung und KI-Nutzung}\label{sec:werkzeuge}
+
+Die Entwicklung dieser Arbeit, sowohl die schriftliche Ausarbeitung als auch die technische Umsetzung des Prototyps, wurde durch den Einsatz digitaler Werkzeuge einschließlich KI-basierter Sprachmodelle unterstützt.
+Gemäß dem Ansatz der verteilten Kognition wirkten diese Werkzeuge nicht stellvertretend für den Autor, sondern als kognitive Hilfsmittel, die das eigene Denken unterstützten und strukturierten.
+Alle inhaltlichen Entscheidungen, Quellenangaben, Interpretationen und Schlussfolgerungen wurden vom Autor selbst getroffen und verantwortet.
+KI-generierte Ausgaben wurden nicht ungeprüft übernommen; insbesondere wurden bibliografische Angaben und DOIs manuell verifiziert (vgl.\ Anhang~E).
+
+Zentrales Werkzeug war die in Visual Studio Code~\cite{vscode} integrierte KI-Erweiterung GitHub Copilot (Microsoft), die die Sprachmodelle GPT-4o und GPT-5.1 sowie Claude Sonnet~4.6 und Claude Opus~4.6 (Anthropic) einbindet.
+Dieses wurde eingesetzt, um Formulierungsvorschläge zu erarbeiten, Gliederungsideen zu entwickeln, \LaTeX-Syntax zu überprüfen sowie prototypischen Code zu generieren und zu analysieren.
+Darüber hinaus wurden zur Auseinandersetzung mit dem Forschungsstand und zur Strukturierung von Kapiteln Fragen an das Modell gestellt.
+Alle so entstandenen Inhalte wurden kritisch geprüft, überarbeitet und an die eigene Argumentation angepasst.
+Ein detailliertes Protokoll der verwendeten Werkzeuge findet sich in Anhang~E.
+Repräsentative Screenshots der implementierten Web-Anwendung, darunter die Kursansicht, der KI-Chat und die Drill Tasks, sind in \hyperref[appendix:daten]{Anhang~D} dokumentiert.
+
+
+\addtocontents{toc}{\vspace{0.8cm}}

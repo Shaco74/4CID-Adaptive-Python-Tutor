@@ -1,0 +1,34 @@
+\clearpage
+
+\chapter{\textbf{Fazit und Ausblick}}\label{ch:fazit}
+
+Dieses abschließende Kapitel fasst die zentralen Erkenntnisse der Arbeit zusammen und benennt konkrete Ansatzpunkte für weiterführende Forschung und Systementwicklung.
+
+\section{Zusammenfassung}\label{sec:zusammenfassung}
+
+Diese Arbeit untersuchte, inwiefern die Integration eines KI-Tutors und einer adaptiven Drill-Auswahl die Effektivität beim Erlernen von Python-Grundlagen steigert. Zu diesem Zweck wurde ein webbasiertes Lernsystem entwickelt, das auf dem 4C/ID-Modell aufbaut und in einer kontrollierten Studie mit 18 Teilnehmenden erprobt wurde. Die Ergebnisse lassen sich in drei Kernaussagen bündeln.
+
+Erstens konnten keine eindeutigen Unterschiede in den objektiven Leistungsmetriken festgestellt werden. Fehlerrate, Kursabschluss und Drill-Performance unterschieden sich zwischen der Kontrollgruppe (Gruppe~A) und der Experimentalgruppe (Gruppe~B) nicht systematisch. Die Haupthypothese, dass KI-Funktionen günstigere lernbezogene Indikatoren erzeugen, ließ sich bei $N=18$ weder bestätigen noch widerlegen.
+
+Zweitens liefern die subjektiven und qualitativen Daten ein konsistentes Muster zugunsten der KI-Bedingung. Gruppe~B benötigte im Mittel 68~\% mehr Zeit, wies dabei aber eine deutlich niedrigere Frustration auf (NASA-TLX-Median: 6{,}5 vs. 10{,}0). Die KI-gestützte Drill-Auswahl zeigte eine messbar geringere Shannon-Entropie (3{,}8 vs. 4{,}4~Bits), was auf eine diagnostisch fokussierte, lernwirksame Aufgabenauswahl hindeutet. Die hedonischen UEQ-S-Items \textit{interessant} und \textit{neuartig} lagen in Gruppe~B um über einen Punkt höher, und der Net Promoter Score fiel deutlich besser aus. Die KI-Integration verbesserte die Bedienbarkeit nicht, aber sie veränderte die emotionale Qualität des Lernerlebnisses spürbar.
+
+Drittens zeigt die Sichtung der Chat-Verläufe, dass das System bereits in seiner ersten Version ein breites Spektrum von Nutzungsformen ermöglicht: von der vertiefenden Konzeptanfrage bis zur Code-Optimierungsfrage. Gleichzeitig wurden klare technische Schwachstellen sichtbar, darunter fehlender Drill-Kontext im Systemprompt, konzeptuelle Vorwärtsreferenzen und nicht-deterministisches Verhalten des Sprachmodells. Diese Befunde sind weniger ein Urteil über das Potenzial von KI im Lernen als eine präzise Zielscheibe für die Weiterentwicklung.
+
+Zusammenfassend lässt sich festhalten: KI-Unterstützung beim Erlernen von Python verändert den Lernprozess qualitativ, ohne ihn messbar effizienter zu machen. Sie senkt Frustration, erhöht das Engagement und macht Fehler zu einem Interaktionsanlass statt zu einer Barriere. Ob sich daraus auch messbare Lernvorteile ergeben, bleibt eine offene Frage, die nur mit einer größeren Stichprobe und längerem Beobachtungszeitraum beantwortet werden kann.
+
+
+\section{Ausblick}\label{sec:ausblick}
+
+Aus den Befunden und Limitationen dieser Arbeit ergeben sich konkrete Ansatzpunkte für weiterführende Forschung und Systementwicklung.
+
+Auf methodischer Ebene sollte eine Folgestudie mit deutlich größerer Stichprobe, echter Randomisierung und einem objektiven Pre-Test zur Vorwissenserhebung durchgeführt werden. Erst ab einem Stichprobenumfang von mindestens 30 Personen je Gruppe werden inferenzstatistische Aussagen möglich, die über explorative Hinweise hinausgehen. Ergänzend wäre eine Untersuchung über mehrere Lernsitzungen sinnvoll, um Langzeiteffekte auf Wissensretention und Transfer zu erfassen, die in einer einmaligen Sitzung von unter 45~Minuten strukturell nicht sichtbar werden können.
+
+Auf Studiendesign-Ebene wäre ein verblindetes Paralleldesign empfehlenswert, um den in dieser Studie nicht kontrollierbaren Gruppenerwartungseffekt zu eliminieren. Beide Gruppen würden dabei eine KI-Schnittstelle erhalten, sodass keine Gruppe weiß, in welcher Bedingung sie sich befindet. Die Kontrollgruppe würde eine generische KI ohne Kurskontext und ohne adaptive Drillauswahl nutzen, die Experimentalgruppe hingegen die vollständige, kontextgebundene Tutorfunktion. Ein solches Design würde die spezifischen Effekte des intelligenten KI-Designs isolieren, anstatt lediglich KI-Nutzung mit keiner KI-Nutzung zu vergleichen.
+
+Auf Systemebene bieten die Chat-Verlauf-Analysen eine konkrete Entwicklungsagenda: Der Drill-Kontext sollte vollständig in den Systemprompt integriert werden, das konzeptuelle Vorgreifen durch eine Themenfilterung eingeschränkt werden und die Validierungslogik sollte semantisch flexibler gestaltet werden, um äquivalente Lösungen zu erkennen. Darüber hinaus war die Chat-Datenbasis mit insgesamt rund 56 Nachrichten von neun Teilnehmenden zu klein, um daraus statistisch belastbare Nutzungsmuster abzuleiten. Eine umfangreichere Datengrundlage würde es erlauben, mittels strukturierter qualitativer Inhaltsanalyse zu untersuchen, ob Lernende die Hinweis-Eskalation als Lerngelegenheit oder als Umgehungsstrategie nutzen, was den Kern der didaktischen Wirksamkeit des Systems berührt.
+
+Das entwickelte System ist ein erster, funktionsfähiger Prototyp, der zeigt, dass KI-gestütztes Lernen in einem Python-Einführungskurs technisch realisierbar und von Lernenden grundsätzlich positiv aufgenommen wird. Die offenen Fragen sind damit nicht Ausdruck eines Scheiterns, sondern das natürliche Ergebnis eines ersten empirischen Zugangs zu einem noch wenig erforschten Gestaltungsraum.
+
+
+\addtocontents{toc}{\vspace{0.8cm}}
+

@@ -1,0 +1,3 @@
+group,n,mean_bmi_tasks_solved,sd_bmi_tasks_solved,mean_bmi_completion_rate,sd_bmi_completion_rate,mean_bmi_time_minutes,sd_bmi_time_minutes,mean_bmi_python_errors,sd_bmi_python_errors,mean_bmi_progress_errors,sd_bmi_progress_errors,mean_bmi_help_requests,sd_bmi_help_requests
+A,9,10.7778,3.6667,0.8981,0.3056,19.48,9.3665,2.6667,2.2913,0,0,0,0
+B,9,11.5556,1.3333,0.963,0.1111,47.2578,44.6206,7.1111,7.9127,0,0,4.4444,2.9627

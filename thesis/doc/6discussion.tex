@@ -1,0 +1,172 @@
+\clearpage
+
+\chapter{\textbf{Diskussion}}\label{ch:diskussion}
+
+Dieses Kapitel interpretiert die in Kapitel~\ref{ch:ergebnisse} berichteten Befunde, ordnet sie in den theoretischen Rahmen aus Kapitel~\ref{ch:grundlagen} ein und benennt die zentralen Limitationen der Studie. Im Mittelpunkt steht die Frage, inwiefern die beobachteten Unterschiede zwischen Gruppe~A und Gruppe~B auf die KI-Komponenten zurückzuführen sind und welche Schlüsse daraus für die Lernwirksamkeit gezogen werden können.
+
+
+\section{Interpretation der Ergebnisse}\label{sec:interpretation}
+
+Die Forschungsfrage untersucht, inwiefern die Integration einer KI-gestützten Drill-Auswahl und eines KI-Chat-Tutors die lernbezogenen Indikatoren sowie die wahrgenommene Lernunterstützung beim Erlernen von Python-Grundlagen verbessert. Die erhobenen Daten zeichnen hierzu ein differenziertes Bild, das in mehreren Dimensionen von der formulierten Haupthypothese abweicht.
+
+\subsection{Das Effizienz-Paradoxon: Mehrzeit als Zeichen vertiefter Auseinandersetzung}\label{subsec:diskussion_zeit}
+
+Ein besonders auffälliger Befund der Studie ist der Zeitunterschied zwischen den Gruppen. Gruppe~B benötigte im AFK-bereinigten Mittel 32{,}9~Minuten für den BMI-Kurs, Gruppe~A nur 19{,}5~Minuten~(Abbildung~\ref{fig:bmi_time_boxplot}). Die Differenz von rund 13~Minuten entspricht einer Mehrzeit von 68~\% und widerspricht auf den ersten Blick der Erwartung, dass KI-Unterstützung die Aufgabenbewältigung erleichtert oder beschleunigt.
+
+Bei näherer Betrachtung lässt sich diese Beobachtung jedoch mit der \textit{Cognitive Load Theory} (CLT, Abschnitt~\ref{subsec:clt}) als Zeichen produktiver Auseinandersetzung deuten. Die CLT unterscheidet \textit{Germane Load}, also die kognitive Energie, die für den Aufbau mentaler Schemata aufgewendet wird, von \textit{Extraneous Load}, der nutzlosen Belastung durch unklare Instruktionen oder Hilflosigkeit~\cite{sweller1998}. Während Gruppe~A über keinen externen Mechanismus verfügt, der einen oberflächlichen Umgang mit den Aufgaben verhindert, könnte das progressive Hint-System des KI-Tutors (vgl. Abschnitt~\ref{subsec:ki-tutor-konzept}) bei konsequenter Nutzung zur schrittweisen Auseinandersetzung anleiten: Die Lösung ist erst nach Durchlaufen vorgelagerter Hinweisstufen zugänglich. Die Zeit, die Teilnehmende in Gruppe~B investierten, ist dann nicht Ausdruck von Ineffizienz, sondern von erhöhtem \textit{Germane Load}, also der Investition in das Verstehen.
+
+Diese Interpretation wird durch die schrittweise Analyse gestützt. In Abbildung~\ref{fig:time_per_step} konzentrieren sich die größten Zeitdifferenzen auf Step~5 (+3{,}4~min) und Step~6 (+4{,}2~min), also genau jene Kursabschnitte, in denen Variablen und Arithmetik eingeführt werden und die KI-Anfragen ihr Maximum erreichen (Abbildung~\ref{fig:ki_messages_per_step}, Peak bei Step~5 mit Ø=1{,}1 Nachrichten). In den späteren Steps, in denen die Konzepte gefestigt sind, nähern sich die Gruppenzeiten wieder an. Dieses Muster deutet darauf hin, dass der KI-Tutor nicht generell, sondern gezielt an den konzeptionell anspruchsvollen Stellen in Anspruch genommen wurde.
+
+Im Sinne von Jenkins~\cite{jenkins2002} unterscheidet sich \textit{Surface Learning}, das bloße Auswendiglernen syntaktischer Muster, fundamental von \textit{Deep Learning}, dem Durchdringen der zugrundeliegenden Logik. Gruppe~A hatte keinen äußeren Anreiz, über eine korrekte Codezeile hinaus nachzudenken. Gruppe~B wurde durch die Gesprächsführung des KI-Tutors regelmäßig mit Rückfragen zum Verarbeitungsprozess konfrontiert, was dem Konzept des \textit{Process Feedback} nach Hattie und Timperley~\cite{hattie2007} entspricht. Die Mehrzeit ist daher als strukturell erwünschtes Merkmal des KI-Designs und nicht als Fehler des Systems zu werten.
+
+\subsection{Das Belastungs-Dilemma: Höherer Aufwand, geringere Frustration}\label{subsec:diskussion_belastung}
+
+Ein zweiter, theoretisch bedeutsamer Befund ist das Überkreuz-Muster in den NASA-TLX-Daten (Abbildung~\ref{fig:nasa_tlx}). Gruppe~B zeigt gegenüber Gruppe~A einen tendenziell höheren mentalen Aufwand (M = 3{,}1 vs. M = 2{,}5), aber gleichzeitig eine niedrigere wahrgenommene Frustration (Mdn = 6{,}5 vs. Mdn = 10{,}0 in Gruppe~A). Besonders auffällig ist der einzelne Frustrations-Ausreißer in Gruppe~A mit einem Wert von 70, der in Gruppe~B in dieser Ausprägung nicht auftritt.
+
+Dieses Muster lässt sich aus der CLT-Perspektive kohärent erklären. Der tendenziell höhere mentale Aufwand in Gruppe~B lässt sich als Indikator für einen angestiegenen \textit{Germane Load} interpretieren: Die Interaktion mit dem KI-Tutor, das Lesen mehrstufiger Hinweise und das Nachvollziehen von Erklärungen sind kognitiv anstrengend. Gleichzeitig wird der \textit{Extraneous Load} gesenkt, da die spezifische Belastung durch Hilflosigkeit, also das Gefühl, nicht weiterzukommen und keine Orientierung zu haben, durch die verfügbare, kontextgebundene Unterstützung abgebaut wird. Der KI-Tutor übernimmt in dieser Hinsicht die Funktion eines \textit{affektiven Scaffoldings} und wirkt dem von Jenkins~\cite{jenkins2002} beschriebenen Phänomen der \textit{Learned Helplessness} entgegen: Teilnehmende, die ohne Hilfe in einer Aufgabe feststecken, riskieren den Absprung in Frustration und Demotivation. Er hält sie in einem Zustand der Herausforderung, ohne sie in die Hoffnungslosigkeit abrutschen zu lassen.
+
+Diese Interpretation stützt die in Abschnitt~\ref{subsec:ki-tutor-konzept} formulierte Designentscheidung für ein progressives, nicht-direktives Hint-System. Ein System, das sofort die Lösung liefert, hätte den mentalen Aufwand gesenkt, ohne den produktiven Frustrationsabbau zu leisten, da die Nutzenden nichts erarbeitet hätten. Die vorliegenden Daten deuten darauf hin, dass genau dieser Gleichgewichtszustand aus hohem Germane Load und niedrigem Extraneous Load durch die Designentscheidungen erreicht wurde.
+
+\subsection{Fehlerkultur und Explorationsbereitschaft}\label{subsec:diskussion_fehler}
+
+Gruppe~B produzierte im Mittel mehr als doppelt so viele Python-Fehler wie Gruppe~A (M = 7{,}1 vs. M = 2{,}7, Abbildung~\ref{fig:bmi_errors_boxplot}). Die schrittweise Analyse zeigt einen besonders auffälligen Peak in Gruppe~B bereits bei Step~1 (M = 2{,}5 gegenüber M = 0{,}3 in Gruppe~A, Abbildung~\ref{fig:errors_per_step}), obwohl dieser Schritt lediglich eine einfache Textausgabe verlangt.
+
+Eine mögliche Erklärung ist die von Dijkstra beschriebene Fehlerintoleranz der Programmierung: In Python führt bereits ein fehlendes Klammerpaar oder eine falsche Einrückung zu einem vollständigen Programmabbruch, was \textit{Radical Novelty} als inhärentes Merkmal der Disziplin kennzeichnet~\cite{jenkins2002}. In einem klassischen Lernsetting führt diese binäre Fehlerkultur häufig zu einer erhöhten Abbruchneigung. Die vorliegenden Daten legen nahe, dass die KI-Unterstützung die Einstiegshürde dieser radikalen Neuartigkeit senkt: Da Teilnehmende in Gruppe~B wissen, dass sie im Fehlerfall sofortige Unterstützung erhalten, sinkt die Hemmschwelle gegenüber explorativem Ausprobieren und Fehler werden von einer Barriere zu einem Interaktionsanlass transformiert. Diese Entwicklung ist theoretisch konsistent mit der Funktion von \textit{Supportive Information} im 4C/ID-Modell (Abschnitt~\ref{subsec:4cid-komponenten}): Die KI liefert das nötige Hintergrundwissen und unterstützt den Aufbau mentaler Modelle, um Programmierfehler konzeptuell zu durchdringen, anstatt nur die Lösung vorzugeben.
+
+Die Korrelationsanalyse deutet tendenziell auf einen Zusammenhang zwischen Chat-Intensität und Fehleranzahl hin (\(r = 0{,}59\), \(p = 0{,}096\), Abbildung~\ref{fig:ki_chat_errors}): Teilnehmende mit mehr Fehlern nutzten den KI-Tutor häufiger. Da der p-Wert die Signifikanzschwelle von 0{,}05 knapp verfehlt, ist dieser Befund als tendenzielle Evidenz zu werten, nicht als statistisch gesicherter Nachweis. Die Richtung des Zusammenhangs im Sinne von Ursache und Wirkung ist zudem nicht eindeutig bestimmbar. Es wäre gleichermaßen plausibel, dass mehr Fehler zu mehr Chat-Anfragen führen (reaktive Nutzung) oder dass eine KI-vermittelte Explorationsbereitschaft sowohl zu mehr Versuchen als auch zu mehr Fehlern führt, was in seiner Summe einen intensiveren Lernprozess darstellt.
+
+\subsection{Drill-Adaptivität: Fokussierung statt Streuung}\label{subsec:diskussion_drills}
+
+Die Drill-Daten legen nahe, dass der KI-Algorithmus qualitativ anders arbeitete als die gewichtete Zufallsauswahl. Gruppe~A bearbeitete 97 unterschiedliche Drill-IDs mit einer Shannon-Entropie von 4{,}4~Bits, Gruppe~B lediglich 62 mit einer Entropie von 3{,}8~Bits (Abbildung~\ref{fig:drill_diversity}). Die geringere Diversität in Gruppe~B ist nach dem 4C/ID-Modell als Qualitätsmerkmal zu werten, nicht als Defizit.
+
+Van Merriënboer beschreibt die Funktion der \textit{Part-task Practice} als gezielte Automatisierung spezifischer \textit{Recurrent Skills}, also der wiederkehrenden Teilfertigkeiten, die im Laufe eines Lernprozesses flüssig beherrschbar werden müssen~\cite{vanmerrienboer2018}. Eine zufällige Streuung über 97 verschiedene Aufgaben fördert Breite, nicht Tiefe. Gemäß dem Designziel aus Abschnitt~\ref{subsec:ki-drill-auswahl} ist das Modell angewiesen, bei niedriger Erfolgsrate einfachere, thematisch einschlägige Aufgaben zu priorisieren und dadurch jene Wiederholungsintensität zu erzeugen, die für Schemaautomatisierung notwendig ist. Die Entropiedifferenz von 0{,}6~Bits ist damit ein Indikator für diagnostische Entscheidungen des Algorithmus.
+
+Dieses Bild wird durch die Verteilung der Lösungsversuche bei den Drills ergänzt (Abbildung~\ref{fig:drill_attempts}): Gruppe~B weist mit 5{,}8~\% einen mehr als doppelt so hohen Anteil an Aufgaben mit vier oder mehr Versuchen aufweist als Gruppe~A (2{,}4~\%). 
+
+Dieser Befund lässt sich als Hinweis auf eine \textit{Optimal Challenge}\footnote{Konzept der Aufgabenschwierigkeit unmittelbar oberhalb des aktuellen Kompetenzniveaus; theoretische Grundlage der Flow-Theorie (Csikszentmihalyi) und der \textit{Zone of Proximal Development} (Vygotsky).} im Sinne des \textit{Scaffolding} interpretieren: Die KI wählt Aufgaben nahe an der oberen Grenze des aktuellen Kompetenzbereichs, was zu mehr Versuchen führt, zugleich aber die Automatisierung der Zielfertigkeiten besonders effektiv fördert. Der Zusammenhang zum NASA-TLX-Befund ist hier bedeutsam: Trotz mehr Versuchen und mehr Fehlern war die Frustration in Gruppe~B nicht höher, sondern niedriger. Das System scheint das Scheitern pädagogisch aufzufangen.
+
+\subsection{Nutzungserfahrung und Akzeptanz}\label{subsec:diskussion_ux}
+
+Beide Gruppen bewerteten die Gebrauchstauglichkeit der Plattform mit SUS-Werten von 85{,}0 (Gruppe~A) und 85{,}9 (Gruppe~B), was nach Bangor et al.~\cite{bangor2009} der Kategorie \textit{Good} entspricht (Abbildung~\ref{fig:sus_nps}). Der nahezu identische SUS-Wert ist ein relevanter Befund: Die Integration der KI-Komponente hat die Bedienbarkeit der Plattform nicht beeinträchtigt. Zusätzliche Interaktionselemente wie das Chat-Fenster oder die KI-gesteuerte Drillauswahl haben keinen messbaren \textit{Extraneous Load} durch Interfacekomplexität verursacht.
+
+Der Net Promoter Score zeigt hingegen einen Unterschied zugunsten von Gruppe~B (M = 8{,}5, Mdn = 9{,}0 gegenüber M = 7{,}5, Mdn = 8{,}5). Fünf der acht Befragten in Gruppe~B erzielten einen Score von 10, was der Promoter-Kategorie entspricht und auf eine ausgeprägte Weiterempfehlungsbereitschaft hinweist. Dieses Ergebnis deutet darauf hin, dass die KI-Integration einen emotionalen Mehrwert erzeugt, der über die reine Bedienbarkeit hinausgeht.
+
+Das UEQ-S-Item-Profil (Abbildung~\ref{fig:ueqs_items}) macht diesen Effekt sichtbar. Während sich die Gruppenunterschiede bei den pragmatischen Items (\textit{unterstützend}, \textit{einfach}, \textit{effizient}) in Grenzen halten, sind die Abstände bei den hedonischen Items erheblich: Das Attribut \textit{interessant} fällt in Gruppe~B um 1{,}3~Punkte höher aus (6{,}2 vs. 4{,}9), das Attribut \textit{neuartig} um 1{,}2~Punkte (6{,}1 vs. 4{,}9). In der subjektiven Wahrnehmung der Teilnehmenden scheint die KI-Unterstützung die Lernumgebung von einem statischen Übungssystem zu einem interaktiven Lernpartner zu transformieren. Auffällig ist, dass Gruppe~B die Plattform trotz objektiv längerer Bearbeitungszeit als \textit{effizienter} bewertet (5{,}9 vs. 5{,}2 beim Item \textit{effizient}). Dieses subjektive Zeit-Paradoxon ist ein bekanntes Phänomen aus der Usability-Forschung: Wer gut unterstützt wird und inhaltlich engagiert ist, empfindet die investierte Zeit als gut genutzt, unabhängig von der absoluten Dauer.
+
+\subsection{Wahrnehmung des KI-Tutors in Gruppe~B}\label{subsec:diskussion_ki_wahrnehmung}
+
+Die Wahrnehmung des KI-Tutors durch die Teilnehmenden in Gruppe~B wird im Folgenden anhand quantitativer Fragebogendaten sowie einer qualitativen Sichtung der Chat-Verläufe beleuchtet.
+
+\paragraph{Quantitative Fragebogenauswertung}
+
+Die KI-spezifischen Fragebogenitems in Gruppe~B (Abbildung~\ref{fig:ki_eval_items}) zeichnen ein differenziertes Bild, das für das Verständnis der Nutzungsqualität bedeutsam ist. Die höchsten Zustimmungswerte erzielten auf die Erklärungsqualität (M = 5{,}25), das Vertrauen in die Antworten (M = 5{,}38) und die Wiederverwendungsbereitschaft (Mdn = 6{,}5). Das kritischste Item war die wahrgenommene Korrektheit der KI-Antworten mit M = 3{,}50, einem Wert unterhalb des Skalenneutralpunkts.
+
+Das Nebeneinander von hohem Vertrauen und niedriger wahrgenommener Korrektheit ist zunächst widersprüchlich, lässt sich aber als Ausdruck eines kritisch-selektiven Nutzungsverhaltens interpretieren. Die Teilnehmenden nutzten den KI-Tutor als Orientierungshilfe, ohne seine Ausgaben unkritisch zu übernehmen. Das entspricht dem von Kasneci~\cite{kasneci2023} beschriebenen Prinzip des \textit{Trust but Verify}: Lernende schätzen die interaktive Unterstützung, hinterfragen aber die Belastbarkeit der generierten Inhalte. Für den Einsatz von KI in der Bildung ist dies eine grundsätzlich wünschenswerte Haltung, da sie das Risiko des unkritischen Übernehmens von Lösungen begrenzt.
+
+Das unterdurchschnittliche Abschneiden des Items zur \textit{allgemeinen Hilfreichkeit} (M = 3{,}62) lässt sich auf zwei Faktoren zurückführen. Einerseits ist das progressive Hint-System bewusst so gestaltet, dass es keine direkten Fehlerkorrekturen vornimmt (vgl. Abschnitt~\ref{subsec:ki-tutor-konzept}): Wer eine sofortige Fehlerbehebung erwartet, wird dieses Verhalten als wenig hilfreich empfinden, obwohl es didaktisch intendiert ist. 
+
+Andererseits zeigt die Sichtung der Chat-Verläufe, dass der KI-Tutor in einigen Situationen das tatsächliche Problem der Nutzenden nicht korrekt identifizieren konnte. Ein konkretes Beispiel: Die automatische Lösungsvalidierung prüfte den Code auf exakt vorgegebene Variablennamen, erwartet wurden etwa \texttt{weight} und \texttt{height}. Teilnehmende, die abweichende, aber semantisch äquivalente Namen wählten, erhielten eine Fehlermeldung, obwohl ihre Lösung funktional korrekt war. Da in Python die Bezeichnung einer Variablen für das Programmergebnis keine Rolle spielt, handelt es sich dabei um eine Einschränkung der Validierungslogik, nicht um einen inhaltlichen Fehler. Der KI-Tutor war in solchen Situationen nicht in der Lage, diesen Zusammenhang zu erkennen: Er sah eine Fehlermeldung, konnte sie aber nicht als Artefakt der strikten Validierung einordnen und gab den Nutzenden keine zielführende Rückmeldung. 
+
+Das Nutzungserlebnis mit dem KI-Tutor war daher von erheblicher Inkonsistenz geprägt: Je nach Art und Komplexität des individuellen Problems reichten die Erfahrungen von effektiver Unterstützung bis hin zu allgemeiner Frustration. Beide Faktoren zusammen erklären das unterdurchschnittliche Ergebnis dieses Items: zum einen die didaktisch intendierte Erwartungsdiskrepanz, zum anderen die technische Inkonsistenz in der Fehlerdiagnose. Die Sichtung der Chat-Verläufe erlaubt darüber hinaus eine differenziertere Einschätzung der Stärken und Schwächen des Systems, als es die Fragebogendaten allein ermöglichen. Die Beobachtungen lassen sich in produktive und problematische Interaktionsmuster unterteilen.
+
+\paragraph{Produktive Interaktionsmuster}
+
+Auf der produktiven Seite nutzte ein Teil der Teilnehmenden den KI-Tutor zur aktiven Konzeptvertiefung: Sie fragten etwa nach der Funktionsweise von Variablen, nach dem Unterschied zwischen einem String-Literal und einer \texttt{print()}-Anweisung oder nach dem Verhalten von Kontrollstrukturen in konkreten Beispielsituationen. Diese Nutzungsform entspricht dem Designziel des Tutors als \textit{Supportive Information}-Quelle im Sinne des 4C/ID-Modells (Abschnitt~\ref{subsec:4cid-komponenten}). Andere Teilnehmende fragten nach Möglichkeiten zur Code-Optimierung, beispielsweise wie eine geschachtelte \texttt{if-else}-Konstruktion mit \texttt{elif} kompakter geschrieben werden kann. Auch diese Anfragen gehen über bloßes Fehlersuchen hinaus und zeugen von einer explorativ-lernenden Grundhaltung.
+
+\paragraph{Problematische Interaktionsmuster}
+
+Daneben traten mehrere Klassen problematischer Interaktionen auf. Erstens konnte der KI-Tutor in einigen Fällen das eigentliche Problem nicht korrekt identifizieren, da er Fehlermeldungen aus der strikten Validierungslogik als inhaltliche Programmierfehler interpretierte, obwohl der Code der Lernenden funktional korrekt war (vgl. das \texttt{weight}/\texttt{height}-Beispiel oben). Zweitens fehlte dem KI-Tutor bei Fragen zu den Drill-Tasks der nötige Aufgabenkontext, weil dieser nicht in den Systemprompt übergeben wurde. Anfragen zu konkreten Übungsaufgaben konnte der Tutor daher nicht zuverlässig beantworten und wies die Lernenden nur allgemein auf Python-Konzepte hin, ohne auf die spezifische Aufgabe eingehen zu können. Drittens griff der Tutor in einzelnen Verläufen konzeptuell vor: In einem dokumentierten Fall wurden Konzepte zum Definieren eigener Funktionen erklärt, obwohl dieses Thema weder Teil des BMI-Kurses war noch an dieser Stelle benötigt wurde. Solche Vorwärtsreferenzen können den Fokus von den eigentlichen Kurszielen ablenken und zusätzlichen kognitiven Aufwand erzeugen. Viertens erwies sich das nicht-deterministische Verhalten des Sprachmodells als Inkonsistenzquelle: Kommunikationsstil und Detailtiefe der Antworten variierten zwischen den Teilnehmenden erheblich, da alle Ausgaben zur Laufzeit generiert wurden. In einem dokumentierten Fall antwortete das System trotz deutschsprachigen Kontexts auf Englisch.
+
+Diese Beobachtungen zeigen, dass das KI-System im Rahmen dieser Studie noch nicht ausreichend kalibriert werden konnte, um eine konsistent positive Lernerfahrung zu gewährleisten. Die genannten Schwachstellen sind technischer Natur und durch gezieltes Prompt-Engineering, eine vollständigere Kontextübergabe und intensiveres Testing behebbar. Die positiven Nutzungsmuster belegen, wo das Potenzial des Systems liegt; die negativen Erfahrungen definieren den Entwicklungsbedarf für eine Folgeversion. Ausgewählte Beispielverläufe sind in Abbildung~\ref{fig:anhang_chatverlaeufe} im Anhang dokumentiert. Sämtliche anonymisierten Chat-Daten sind darüber hinaus im öffentlichen Projekt-Repository archiviert und stehen für weiterführende Analysen zur Verfügung (vgl.\ \hyperref[appendix:daten]{Anhang~D}).
+
+\subsection{Kursabschluss und Abbruchquote}\label{subsec:diskussion_abbruch}
+
+Beide Gruppen wiesen eine identische Abbruchquote von 11{,}1~\% auf. Aus dieser Gleichheit lässt sich weder eine Überlegenheit noch ein Nachteil der KI-Funktionen hinsichtlich der Kurspersistenz ableiten. Bemerkenswert ist, dass die abbrechende Person in Gruppe~A die Plattform nach 2{,}13~Minuten verließ, während die abbrechende Person in Gruppe~B erst nach 45{,}27~Minuten abbrach. Bei je einem einzigen Abbruchfall pro Gruppe sind diese Einzelfälle nicht als gruppencharakteristisch zu werten, sie zeigen jedoch, dass Abbrüche unterschiedlichen Mustern folgen können. Die Abbruchquote ist grundsätzlich eine der aussagekräftigsten Metriken, um den Einfluss von KI-Unterstützung auf die Kurspersistenz zu untersuchen, da hohe Drop-out-Raten in Einführungskursen ein bekanntes und gut dokumentiertes Problem darstellen~\cite{bennedsen2007}. Mit je einem Abbruchfall pro Gruppe ist eine belastbare Aussage auf Basis dieser Studie jedoch nicht möglich. Eine größere Stichprobe würde hier deutlich mehr Aufschluss geben.
+
+\subsection{Bewertung der Haupthypothese}\label{subsec:diskussion_hypothese}
+
+Die zentrale Forschungsfrage dieser Arbeit lautet, inwiefern der Einsatz KI-generierter Übungsaufgaben und eines KI-gestützten Chat-Tutors die Effektivität beim Erlernen von Python-Grundla\-gen steigert. 
+Auf Basis der erhobenen Daten lässt sich diese Frage wie folgt beantworten: Die KI-Komponenten steigern die Effektivität nicht im Sinne objektiver Effizienz, wohl aber im Sinne der emotionalen Qualität der Lernerfahrung. 
+H1 nimmt an, dass die KI-Funktionen günstigere lernbezogene Indikatoren und eine höhere wahrgenommene Lernunterstützung erzeugen. Die Gegenhypothese H0 besagt, dass zwischen den Gruppen keine systematischen Unterschiede bestehen. 
+Die erhobenen Daten bestätigen H1 nicht einheitlich. In den objektiven Log-Daten (Fehlerrate, Abschlussquote) zeigen sich keine klaren Vorteile für Gruppe~B. In den subjektiven Metriken bestätigt der Fragebogen eine tendenziell positivere Nutzungserfahrung in Gruppe~B, insbesondere bei hedonischer Qualität und Weiterempfehlungsbereitschaft. Die Zeitdaten, der auffälligste Unterschied, können je nach theoretischer Rahmung als Indikator für tieferes Engagement oder als Mehraufwand interpretiert werden.
+
+Entscheidend ist die Differenzierung der Hypothese selbst: Wenn unter \textit{besseren lernbezogenen Indikatoren} ausschließlich objektive Effizienzmetriken wie Fehlerrate und Bearbeitungszeit verstanden werden, ist H1 nicht bestätigt. Wenn jedoch die Qualität der Auseinandersetzung, die emotionale Stabilität und die Akzeptanz der Lernumgebung als Indikatoren einbezogen werden, liefern die Daten ein konsistentes Muster zugunsten der KI-Bedingung. Mit den vorliegenden Stichprobengrößen von je neun Personen sind jedoch keine belastbaren statistischen Schlüsse möglich. Die Ergebnisse sind als erste explorative Hinweise zu verstehen, die in einer größeren Folgestudie überprüft werden müssten.
+
+
+\section{Einordnung in den Forschungsstand}\label{sec:einordnung}
+
+Die Befunde der vorliegenden Studie lassen sich auf mehreren Ebenen in den Forschungsstand einordnen.
+
+\paragraph{Cognitive Load Theory und 4C/ID}
+
+Das beobachtete Muster aus erhöhter Bearbeitungszeit, höherem mentalem Aufwand und niedrigerer Frustration in Gruppe~B ist theoretisch kohärent mit den Vorhersagen der CLT. Van Merriënboer und Sweller~\cite{sweller1998} beschreiben das Ziel effektiver Instruktion als die Maximierung des \textit{Germane Load} bei gleichzeitiger Minimierung des \textit{Extraneous Load}. Die vorliegenden Daten legen nahe, dass das KI-Design genau dieses Gleichgewicht befördert hat: mehr Energie in das Verstehen, weniger Energie in das Hilflose-Feststecken. Aus der Perspektive des 4C/ID-Modells~\cite{vanmerrienboer2018} erfüllten die Kurs-Steps die Funktion authentischer \textit{Learning Tasks}, der KI-Tutor lieferte \textit{Just-in-Time Information} bedarfsgerecht (nachgewiesen durch die Konzentration der Chat-Anfragen auf den Konzept-Peak in Step~5) und die Drills übernahmen die \textit{Part-task Practice} mit einer in Gruppe~B diagnostisch fokussierten Auswahl.
+
+\paragraph{Intelligente Tutorsysteme}
+
+VanLehn~\cite{vanlehn2011} zeigt in seiner Meta-Analyse, dass \textit{Intelligent Tutoring Systems} in der Regel zu keiner Beschleunigung, aber zu einer Verbesserung der Lernqualität führen. Das Zeitparadoxon der vorliegenden Studie, also die Mehrzeit in Gruppe~B bei gleichzeitig besserer Bewertung, entspricht exakt diesem etablierten Muster. Die KI-Unterstützung ist kein Beschleunigungs-, sondern ein Qualitätsinstrument.
+
+\paragraph{Vergleich mit PyTutor}
+
+Der direkte Vergleich mit der PyTutor-Studie von Yang et al.~\cite{yang2024pytutor} (vgl. Abschnitt~\ref{subsec:pytutor}) ist aufschlussreich. PyTutor setzte ebenfalls auf ein mehrstufiges Scaffolding-System (Pseudocode, Lückentext, Basislösung, Erweiterung) und berichtete für leistungsschwächere Lernende signifikant höhere Abschlussraten. Ein zentraler Befund der Studie war jedoch das \textit{Frequenz-Paradoxon}: Moderate KI-Nutzung führte zu besseren Lernergebnissen, sehr hohe Nutzung hingegen nicht. In der vorliegenden Studie lag die durchschnittliche Chat-Nutzung bei M = 6{,}2 Nachrichten über 12 Aufgaben, also weniger als eine Anfrage pro Aufgabe. Dieser Wert liegt im moderaten Bereich und deutet darauf hin, dass die Stichprobe den von Yang et al. als optimal beschriebenen Nutzungsbereich traf, ohne in eine Überabhängigkeit abzugleiten.
+
+Tabelle~\ref{tab:pytutor_vergleich} stellt die wichtigsten Merkmale beider Studien vergleichend gegenüber.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Merkmal} & \textbf{PyTutor (Yang et al., 2024)} & \textbf{Vorliegende Studie} \\
+\midrule
+Stichprobe & 71 Studierende & 18 Teilnehmende \\
+Dauer & 11 Wochen & Einmalige Sitzung \\
+Sprache & Python & Python \\
+KI-System & ChatGPT-basiert, 4 Hint-Stufen & OpenAI API, 5 Hint-Stufen \\
+Hauptbefund & Bessere Abschlussraten in leist.- & Mehr Engagement, niedrigere \\
+            & schwächerer Gruppe & Frustration in KI-Gruppe \\
+Nutzungsfrequenz & Moderate Nutzung optimal & M = 6{,}2 Nachrichten (moderat) \\
+Frustrationsmessung & Theoretisch argumentiert & Empirisch erhoben (NASA-TLX) \\
+\bottomrule
+\end{tabular}
+\caption{Vergleich der vorliegenden Studie mit PyTutor (Yang et al., 2024)~\cite{yang2024pytutor}.}
+\label{tab:pytutor_vergleich}
+\end{table}
+
+Ein bedeutsamer Unterschied zwischen beiden Studien ist das Messin\-strument für Frustration. Während Yang et al. das Frustrationsvermeidungsargument theoretisch herleiten, liefert die vorliegende Studie mit den NASA-TLX-Boxplots (Abbildung~\ref{fig:nasa_tlx}) erste empirische Hinweise darauf: Der Ausreißer mit einem Frustrationswert von 70 in Gruppe~A veranschaulicht, was das Fehlen einer KI-Unterstützung für einzelne Teilnehmende bedeuten kann.
+
+\paragraph{Erfahrung als Moderator}
+
+Die Korrelationsanalysen (Abschnitt~\ref{sec:korrelationen}) bestätigen Programmiererfahrung als den stärksten Prädiktor für kognitive Belastung (\(r = -0{,}73\), \(p = 0{,}001\) für mentalen Aufwand, Abbildung~\ref{fig:corr_experience_load}) und Drill-Performance (\(r = -0{,}63\), \(p = 0{,}010\) für Versuche pro Aufgabe, Abbildung~\ref{fig:corr_experience_drill}). Dieser Befund deckt sich mit dem von Yang et al. beschriebenen \textit{Expertise-Reversal-Effekt}\footnote{Kalyuga et al. (2003): Instruktionsmaßnahmen, die für Einsteigende lernförderlich sind, können für Lernende mit höherem Vorwissen wirkungslos oder sogar kontraproduktiv sein.}: Einsteigende profitieren stärker von externer Unterstützung als Fortgeschrittene, die bereits über automatisierte Schemata verfügen. Die beiden Teilnehmenden in Gruppe~A mit Selbsteinschätzungswert 5 (höchstes Vorwissen) könnten die Ergebnisse der Kontrollgruppe, insbesondere die Bearbeitungszeit, nach unten und die Abschlussrate nach oben verzerrt haben. Diese \textit{Confound-Variable}\footnote{Variable, die sowohl mit der unabhängigen als auch mit der abhängigen Variable korreliert und den beobachteten Zusammenhang verzerren kann.} ist bei der Interpretation des Gruppenvergleichs zu berücksichtigen. Die Korrelationen zwischen Erfahrung und Bearbeitungszeit (\(r = -0{,}46\), \(p = 0{,}071\)) sowie Fehleranzahl (\(r = -0{,}50\), \(p = 0{,}051\)) sind dagegen nicht signifikant und zeigen eine erhebliche Streuung, was darauf hindeutet, dass Bearbeitungszeit und Fehleraufkommen durch individuelle Faktoren beeinflusst werden, die über die Programmiererfahrung hinausgehen.
+
+\clearpage
+
+\section{Limitationen}\label{sec:limitationen}
+
+Die vorliegende Studie unterliegt mehreren Einschränkungen, die bei der Interpretation der Befunde zu berücksichtigen sind.
+
+Die wichtigste Einschränkung ist die geringe Stichprobengröße von neun Personen je Gruppe. Alle berichteten Gruppenunterschiede sind deskriptiv und erlauben keine Kausalaussagen. Statistische Inferenztests sind bei dieser Stichprobengröße nicht aussagekräftig und wurden daher nicht berichtet.
+
+Eine Replikation mit deutlich größerer Stichprobe ist Voraussetzung für belastbare Schlussfolgerungen.
+
+Das \textit{Convenience Sampling}\footnote{Stichprobenverfahren, bei dem Teilnehmende nach Verfügbarkeit und Zugänglichkeit rekrutiert werden, nicht nach dem Zufallsprinzip.} im persönlichen sozialen Umfeld birgt das Risiko von \textit{Demand Characteristics}\footnote{Tendenz von Versuchspersonen, das erwartete Verhalten der Studienleitung zu antizipieren und ihr eigenes Verhalten entsprechend anzupassen.}: Teilnehmende, die die Studienleitung kennen, könnten Fragebögen positiv verzerrt ausgefüllt haben. Dieser Effekt ist nicht kontrollierbar, aber für die Einordnung der subjektiven Bewertungen relevant.
+
+Die demografische Ungleichheit zwischen den Gruppen ist eine weitere Einschränkung. Gruppe~B war im Mittel rund 11 Jahre jünger als Gruppe~A (M = 25{,}1 vs. M = 36{,}1 Jahre, Abbildung~\ref{fig:demographics_age}). Jüngere Teilnehmende tendieren laut Kasneci~\cite{kasneci2023} zu einer höheren Affinität gegenüber KI-Syste\-men. Es ist daher nicht auszuschließen, dass die positiveren UEQ-S-Werte in Gruppe~B teilweise auf den Altersunterschied und nicht ausschließlich auf die KI-Komponente zurückzuführen sind.
+
+Außerdem wurde kein Pre-Test zur objektiven Erfassung des Vorwissens erhoben. Bjork~\cite{bjork2013} weist darauf hin, dass Selbsteinschätzungen im Lernkontext systematisch verzerrt sein können. Die Vergleichbarkeit der Gruppen ist daher nur über die Selbsteinschätzung (Gruppe~A: M = 3{,}0, Gruppe~B: M = 2{,}6) abgesichert, die zudem in Gruppe~A eine deutlich größere Streuung aufweist.
+
+Die Studie beschränkt sich auf eine einmalige Lernsitzung von unter 45~Minuten. Langzeiteffekte auf Wissensspeicherung, Transfer oder kumulativen Lernerfolg wurden nicht gemessen. Ob die beobachteten Muster bei wiederholter Nutzung oder in einem anderen inhaltlichen Kontext replizierbar sind, kann auf Basis dieser Studie nicht beurteilt werden. Yang et al.~\cite{yang2024pytutor} untersuchten PyTutor über 11 Wochen und zeigten erst dann deutlichere Lernerfolge, was für die Relevanz des Zeitfaktors spricht.
+
+Schließlich basiert die KI-gestützte Drill-Auswahl auf einem Prompt-Design, das nicht formell validiert wurde. Die tatsächlich realisierten Auswahlentscheidungen des Sprachmodells sind eine \textit{Black Box} und können nur indirekt über die beobachteten Entropie-Unterschiede erschlossen werden. Darüber hinaus wurden im freien Feedback vereinzelte technische Probleme gemeldet, darunter eine Browser-Inkompatibilität mit Safari auf macOS. Solche Stabilitätslücken sind als typisches Merkmal eines Forschungsprototyps einzuordnen, können die Nutzungserfahrung einzelner Teilnehmender jedoch beeinflusst haben.
+
+\clearpage
+\section{Implikationen für Forschung und Praxis}\label{sec:implikationen}
+
+Trotz der genannten Einschränkungen lassen sich aus den Ergebnissen Hinweise für Forschung und Praxis ableiten.
+
+Aus Praxisperspektive zeigt die Studie, dass ein autarkes KI-gestütztes Lernsystem für Python-Grundlagen technisch realisierbar ist und von Teilnehmenden mit hohen Usability-Scores von \(SUS \geq 85\) in beiden Gruppen grundsätzlich positiv aufgenommen wird. Für den Einsatz in der Hochschullehre ist das Konzept der KI-gestützten Drill-Auswahl besonders relevant, da es ohne zusätzlichen Workload für Lehrende eine individualisierte \textit{Part-task Practice} ermöglicht. Das progressive Hint-System des KI-Tutors kann als Vorlage für ein nicht-direktives, scaffolding-basiertes KI-Tutoring dienen.
+
+Für die Praxis relevant ist auch der Befund zur Frustrationsvermeidung. In Einführungskursen für Programmierung, in denen hohe Abbruchquoten ein bekanntes Problem sind~\cite{bennedsen2007}, könnte die Verfügbarkeit eines reaktiven KI-Tutors insbesondere für Einsteigende ohne Vorkenntnisse (Erfahrungsstufe~1--2, Abbildung~\ref{fig:corr_experience_load}) die kritischen Frustrationsschwellen abfedern und damit die Persistenz im Kurs erhöhen.
+
+Alle erhobenen Rohdaten, einschließlich Chat-Verläufe, Aufgaben-Log-Daten und Fragebogenantworten, sind in anonymisierter Form im öffentlichen Projekt-Repository archiviert und stehen für weiterführende Auswertungen zur Verfügung (vgl.\ \hyperref[appendix:daten]{Anhang~D}).
+
+
+\addtocontents{toc}{\vspace{0.8cm}}

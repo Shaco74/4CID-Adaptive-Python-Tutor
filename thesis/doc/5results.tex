@@ -1,0 +1,268 @@
+\clearpage
+
+\chapter{\textbf{Ergebnisse}}\label{ch:ergebnisse}
+
+Im folgenden Kapitel werden die Ergebnisse der empirischen Untersuchung im Hinblick auf die zuvor in Abschnitt~\ref{subsec:hypothesen} hergeleiteten Hypothesen dargelegt und geprüft. Es werden ausschließlich deskriptive Befunde dargestellt. Die Interpretation und Einordnung in den Forschungsstand erfolgen in Kapitel~\ref{ch:diskussion}.
+
+\section{Datenbasis und Auswertungsregeln}\label{sec:datenbasis}
+
+Die Ergebnisse basieren auf exportierten Log- und Fragebogendaten aus der Lernplattform. Für zentrale Kennzahlen wurden im Analyse-Workflow vordefinierte Filter- und Robustheitsregeln angewendet. Die im Folgenden berichteten Kennzahlen beziehen sich, sofern nicht anders angegeben, auf den gefilterten Analyse-Datensatz. Die vollständige Stichprobenbeschreibung und die Filterkriterien sind in Kapitel~\ref{ch:studie} dokumentiert.
+
+\begin{itemize}
+    \item \textbf{Analyse-Stichprobe:} \(N = 18\) Teilnehmende (\(n = 9\) in Gruppe~A, \(n = 9\) in Gruppe~B).
+    \item \textbf{Post-Evaluation (Fragebogen):} \(N = 16\) abgegebene Fragebögen (\(n = 8\) je Gruppe).
+    \item \textbf{AFK-Regel:} Step-Zeiten von mehr als 60~Minuten werden als \textit{Away-from-Keyboard}-Ver\-dacht\footnote{\textit{Away from Keyboard} (AFK): Pausen ohne Bildschirmaktivität, welche die gemessene Bearbeitungszeit künstlich erhöhen.} markiert und aus den bereinigten Zeitmetriken ausgeschlossen.
+    \item \textbf{Fehlerbalken:} In allen Abbildungen entsprechen Fehlerbalken dem \textit{Standardfehler des Mittelwerts} (SEM, \textit{Standard Error of the Mean}).
+\end{itemize}
+
+
+\section{Demografische Merkmale der Stichprobe}\label{sec:demographics}
+
+Abbildung~\ref{fig:demographics_age} zeigt die Altersverteilung beider Gruppen für die \(N = 16\) Teilnehmenden, die den abschließenden Fragebogen ausgefüllt haben. Die Gruppen unterscheiden sich demografisch deutlich: Gruppe~A weist einen Altersmittelwert von 36{,}1~Jahren (Mdn = 34{,}5~Jahre) auf und ist über mehrere Altersgruppen gleichmäßig verteilt, mit einem Schwerpunkt bei den 45- bis 54-Jährigen. 
+Gruppe~B ist deutlich jünger mit einem Altersmittelwert von 25{,}1~Jahren (Mdn = 21{,}0~Jahre). Sie konzentriert sich zu mehr als 60~\% auf die Altersgruppe 18~bis 24~Jahre. 
+Damit zeigt die Stichprobe hinsichtlich des Alters eine deutliche Diskrepanz zwischen den beiden Versuchsgruppen.
+% Ignore hbox error, cant see any problems with the figure, it looks fine in the PDF. The error is likely due to the long caption, but it doesn't affect the output.
+
+Abbildung~\ref{fig:demographics_knowledge} zeigt die Selbsteinschätzung der Programmierkenntnisse auf einer Skala von 1 (keine Kenntnisse) bis 5 (professionelle Programmierkenntnisse). Gruppe~A erzielte einen Mittelwert von 3{,}0 (Mdn = 2{,}5) und weist eine sehr breite Streuung auf, da zwei Teilnehmende sich mit dem Höchstwert 5 einstuften. Gruppe~B erreichte einen Mittelwert von 2{,}6 (Mdn = 3{,}0) bei einer kompakteren Verteilung ohne Extremwerte. Damit weist Gruppe~A eine deutlich breitere Streuung der Programmierkenntnisse auf als Gruppe~B.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.65\textwidth]{Finale Diagramme 2/Demographics_Age_Distribution.png}
+\caption{Altersverteilung nach Gruppe (Post-Fragebogen, \(n = 8\) je Gruppe). \\ Gruppe~A: M = 36{,}1, Mdn = 34{,}5. Gruppe~B: M = 25{,}1, Mdn = 21{,}0.}
+\label{fig:demographics_age}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.65\textwidth]{Finale Diagramme 2/Demographics_Prior_Knowledge_Comparison.png}
+\caption{Selbsteinschätzung der Programmierkenntnisse nach Gruppe. \\ Gruppe~A: M = 3{,}0, Mdn = 2{,}5. Gruppe~B: M = 2{,}6, Mdn = 3{,}0. \\ (Post-Fragebogen, Skala: 1 = keine Kenntnisse, 5 = professionelle Kenntnisse)}
+\label{fig:demographics_knowledge}
+\end{figure}
+
+\clearpage
+\section{Teilnahme, Abschluss und Abbruch}\label{sec:teilnahme}
+
+In der gefilterten Analyse-Stichprobe schlossen in beiden Gruppen jeweils acht von neun Teilnehmenden den Pflichtkurs (\textit{BMI-Rechner}) erfolgreich ab. Die Abbruchquote ist mit \(11{,}1\,\%\) (\(n = 1\)) pro Gruppe identisch. Aufgrund dieser minimalen Fallzahl an Abbrüchen sind keine statistisch belastbaren Rückschlüsse auf die Wirksamkeit der KI-Funktionen hinsichtlich des Kursverbleibs möglich. Der Befund wird daher als rein deskriptiver Basiswert für die weiteren Analysen festgehalten.
+
+Die Bearbeitungszeit bis zum Abbruch unterscheidet sich zwischen den beiden Abbruchfällen erheblich: Die abbrechende Person in Gruppe~A verließ den Kurs nach 2{,}13~Minuten, die abbrechende Person in Gruppe~B erst nach 45{,}27~Minuten. Da aus jeder Gruppe nur eine Person abgebrochen hat, ist ein Gruppenvergleich dieser Kennzahl statistisch nicht sinnvoll. Die Werte werden der Vollständigkeit halber berichtet.
+
+
+\section{Bearbeitungszeit im BMI-Kurs}\label{sec:zeit}
+
+Die Gesamtbearbeitungszeit des BMI-Kurses unterscheidet sich zwischen den Gruppen deutlich. Abbildung~\ref{fig:bmi_time_boxplot} zeigt die AFK-bereinigte Gesamtdauer pro Teilnehmenden (\(N = 17\), ein Ausreißer über 60~Minuten gefiltert). Gruppe~A wies einen Mittelwert von 19{,}5~Minuten auf (Mdn = 18{,}7~min), während Gruppe~B einen Mittelwert von 32{,}9~Minuten erreichte (Mdn = 32{,}4~min). Das entspricht einer Mehrzeit von durchschnittlich 13{,}4~Minuten in Gruppe~B, was rund 68~\% länger ist als in Gruppe~A. Die Box von Gruppe~B liegt nahezu vollständig oberhalb der Box von Gruppe~A. Selbst die schnellste teilnehmende Person in Gruppe~B benötigt eine vergleichbare Zeit wie der Medianwert in Gruppe~A.
+
+Abbildung~\ref{fig:time_per_step} zeigt die schrittweise Bearbeitungszeit für alle 12 Kursabschnitte (\textit{Steps}) nach Gruppe (\(N = 18\)). In den frühen Steps (1 bis 4) liegen beide Gruppen nah beieinander. Ab Step~5, der die Einführung von Variablen markiert, steigt die Bearbeitungszeit in Gruppe~B deutlich an und erreicht ihre Peaks in Step~5 (Gruppe~B: M = 5{,}6~min vs. Gruppe~A: M = 2{,}2~min, Delta: +3{,}4~min) und Step~6 (Gruppe~B: M = 6{,}0~min vs. Gruppe~A: M = 1{,}8~min, Delta: +4{,}2~min). Ab Step~7 nähern sich die Werte wieder an, bleiben in Gruppe~B jedoch bis zum letzten Schritt durchgängig höher, außer einer kleinen Ausnahme in Step~9 mit Delta: -0,2 min. Die mittlere Bearbeitungszeit pro Step beträgt für Gruppe~A 1{,}9~Minuten (Mdn = 1{,}4~min) und für Gruppe~B 2{,}9~Minuten (Mdn = 2{,}4~min).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{Finale Diagramme 2/Performance_BMI_Time_Comparison.png}
+\caption{Gesamtbearbeitungszeit des BMI-Kurses nach Gruppe (AFK-bereinigt, \(N = 17\)). Gruppe~A: M = 19{,}5~min, Mdn = 18{,}7~min. Gruppe~B: M = 32{,}9~min, Mdn = 32{,}4~min.}
+\label{fig:bmi_time_boxplot}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{Finale Diagramme 2/Process_Time_per_Step_Timeline.png}
+\caption{Durchschnittliche Bearbeitungszeit pro Step nach Gruppe (\(N = 18\), Fehlerbalken: \(\pm\)1 SEM). Gruppe~A: M = 1{,}9~min. Gruppe~B: M = 2{,}9~min. Peaks in Step~5 (+3{,}4~min) und Step~6 (+4{,}2~min).}
+\label{fig:time_per_step}
+\end{figure}
+
+\clearpage
+\section{Fehlerprofile im BMI-Kurs}\label{sec:fehler}
+
+Neben der Bearbeitungszeit wurden Python-Fehler (Syntaxfehler und Laufzeitfehler) als Leistungsindikator ausgewertet. Abbildung~\ref{fig:bmi_errors_boxplot} zeigt die kumulierte Fehleranzahl pro teilnehmender Person über den gesamten BMI-Kurs (\(N = 18\)). Gruppe~A erzielte einen Mittelwert von 2{,}7~Fehlern (Mdn = 2{,}0), Gruppe~B einen Mittelwert von 7{,}1~Fehlern (Mdn = 5{,}0). Die \textit{Interquartilsbreite}\footnote{IQR (\textit{Interquartile Range}): Abstand zwischen dem 25.~und 75.~Perzentil, umfasst die mittleren 50~\% der Datenpunkte.} in Gruppe~B ist erheblich größer; ein einzelner Ausreißer verursachte über 25~Fehler und zieht den Mittelwert nach oben. Auch der Median von 5{,}0 liegt in Gruppe~B deutlich über dem Vergleichswert von 2{,}0 in Gruppe~A.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.80\textwidth]{Finale Diagramme 2/Performance_BMI_Python_Errors_Boxplot.png}
+\caption{Gesamtanzahl Python-Fehler im BMI-Kurs nach Gruppe (\(N = 18\), Datenbasis: Teilnehmende mit aktiver Code-Nutzung). Gruppe~A: M = 2{,}7, Mdn = 2{,}0. Gruppe~B: M = 7{,}1, Mdn = 5{,}0.}
+\label{fig:bmi_errors_boxplot}
+\end{figure}
+
+Abbildung~\ref{fig:errors_per_step} stellt die durchschnittliche Fehleranzahl pro Step im Zeitverlauf gegenüber. Auffällig ist ein markanter Peak in Gruppe~B bei Step~1 (M = 2{,}5 vs. M = 0{,}3 in Gruppe~A), obwohl dieser Step lediglich eine einfache Textausgabe mit \texttt{print} verlangt. Ab Step~5 steigen die Fehler in beiden Gruppen mit der zunehmenden Aufgabenkomplexität (Variablen, Arithmetik, Bedingungen) an. In Step~8, dem Einstieg in bedingte Anweisungen, liegen die Gruppen mit M = 0{,}8 und M = 0{,}9 nahezu gleichauf. Die mittlere Fehleranzahl pro Step beträgt M = 0{,}3 für Gruppe~A und M = 0{,}6 für Gruppe~B (Median jeweils 0{,}0).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.90\textwidth]{Finale Diagramme 2/Process_Errors_per_Step_Timeline.png}
+\caption{Durchschnittliche Python-Fehleranzahl pro Step nach Gruppe (\(N = 18\), Fehlerbalken: \(\pm\)1 SEM). Gruppe~A: M = 0{,}3. Gruppe~B: M = 0{,}6. Markanter Peak in Gruppe~B bei Step~1 (M = 2{,}5).}
+\label{fig:errors_per_step}
+\end{figure}
+
+
+\section{Drill-Auswahl und Leistung}\label{sec:drill}
+
+Gruppe~A nutzte eine gewichtete Zufallsauswahl, Gruppe~B eine KI-gestützte adaptive Auswahl. Abbildung~\ref{fig:drill_diversity} zeigt zwei Kennzahlen zur Drill-Vielfalt: Gruppe~A bearbeitete 97 unterschiedliche Drill-IDs, Gruppe~B lediglich 62.
+
+Die \textit{Shannon-Entropie}~\cite{shannon1948} als Maß für die Gleichverteilung über den Drill-Pool\footnote{Berechnet als $H = -\sum p_i \log_2 p_i$; höhere Werte bedeuten gleichmäßigere Verteilung über den Aufgabenpool.} beträgt in Gruppe~A 4{,}4~Bit gegenüber 3{,}8~Bit in Gruppe~B, was auf eine stärkere Wiederholung bestimmter Aufgaben durch die KI-Auswahl hindeutet.
+
+Abbildung~\ref{fig:drill_attempts} zeigt die Verteilung der benötigten Versuche zur Lösung der Drills, basierend auf 433 erfolgreich gelösten Drills beider Gruppen. Die überwiegende Mehrheit der Aufgaben wurde im ersten Versuch gelöst, in Gruppe~A zu 86{,}0~\% und in Gruppe~B zu 83{,}6~\%. Bei Aufgaben, die vier oder mehr Versuche erforderten, weist Gruppe~B mit 5{,}8~\% gegenüber 2{,}4~\% in Gruppe~A einen deutlich höheren Anteil auf.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.90\textwidth]{Finale Diagramme 2/Drill_Diversity_Unique_Tasks_Comparison.png}
+\caption{Drill-Vielfalt nach Gruppe: Anzahl einzigartiger Drill-IDs (links) und Shannon-Entropie der Aufgabenverteilung in Bit (rechts). Gruppe~A: 97 einzigartige Drills, Entropie 4{,}4. Gruppe~B: 62 einzigartige Drills, Entropie 3{,}8.}
+\label{fig:drill_diversity}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.90\textwidth]{Finale Diagramme 2/Performance_Drill_Attempts_Comparison.png}
+\caption{Anteil der Drills nach benötigter Versuchsanzahl (Basis: 433 erfolgreich gelöste Drills, MCQ (Multiple-Choice-Fragen) und Code kombiniert). Gruppe~A: 86{,}0~\% im 1.~Versuch, 2{,}4~\% bei 4+ Versuchen. Gruppe~B: 83{,}6~\% im 1.~Versuch, 5{,}8~\% bei 4+ Versuchen.}
+\label{fig:drill_attempts}
+\end{figure}
+
+
+\section{KI-Nutzung in Gruppe~B}\label{sec:ki_nutzung}
+
+Für Gruppe~B liegen Daten zur Nutzung des KI-Chat-Tutors vor. Gruppe~A hatte keinen Zugang zu dieser Funktion, weshalb Chat-Metriken ausschließlich für Gruppe~B berichtet werden. Im Mittel wurden pro Person 6{,}2~Nachrichten gesendet (Mdn = 6{,}0, SEM: \(\pm\)1{,}1, \(n = 9\)). Die enge Übereinstimmung von Mittelwert und Median deutet auf eine relativ gleichmäßige Nutzung ohne extreme Ausreißer hin.
+
+Abbildung~\ref{fig:ki_messages_per_step} zeigt die Verteilung der KI-Anfragen über die einzelnen Kursschritte als \textit{Pain-Point-Analyse}\footnote{Als \textit{Pain Points} werden Stellen im Lernpfad bezeichnet, an denen Lernende überproportional häufig Schwierigkeiten haben. Die Häufung von KI-Anfragen an bestimmten Kursschritten dient hier als Indikator für kognitiv anspruchsvolle Abschnitte.}. Die Chat-Nutzung ist nicht gleichmäßig über den Kurs verteilt, sondern konzentriert sich auf spezifische Steps. Step~5 weist mit insgesamt 10~Nachrichten (Ø~1{,}1 pro Person) den höchsten Wert auf und entspricht jenem Kursabschnitt, in dem Variablen und Arithmetik neu eingeführt werden. Step~12 folgt mit 9~Nachrichten (Ø~1{,}1), obwohl dieser Schritt kein neues Konzept einführt. In den ersten vier Schritten ist die KI-Nutzung mit insgesamt 11~Nachrichten gering.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{Finale Diagramme 2/AI_Usage_Messages_per_Step_GrpB.png}
+\caption{KI-Anfragen pro Kursschritt in Gruppe~B (Pain-Point-Analyse). n = Gesamtanzahl Chat-Nachrichten je Step, Ø = Durchschnitt pro Teilnehmenden. Peaks in Step~5 (n=10, Ø=1{,}1) und Step~12 (n=9, Ø=1{,}1).}
+\label{fig:ki_messages_per_step}
+\end{figure}
+
+Abbildung~\ref{fig:ki_chat_errors} zeigt den Zusammenhang zwischen der Anzahl gesendeter Chat-Nachrichten und der Gesamtzahl Python-Fehler innerhalb von Gruppe~B. Der Pearson-Korrelationskoeffizient beträgt \(r = 0{,}59\) (\(p = 0{,}096\)), statistisch nicht signifikant, zeigt jedoch einen deutlichen positiven Trend: Teilnehmende mit mehr Python-Fehlern wandten sich häufiger an den KI-Chat-Tutor.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.75\textwidth]{Finale Diagramme 2/Correlation_ChatIntensity_vs_PythonErrors_GrpB.png}
+\caption{Zusammenhang zwischen Chat-Intensität und Python-Fehleranzahl in Gruppe~B (\(n = 9\)). Pearson \(r = 0{,}59\), \(p = 0{,}096\) (nicht signifikant).}
+\label{fig:ki_chat_errors}
+\end{figure}
+
+
+\section{Post-Evaluation: Fragebogenauswertung}\label{sec:evaluation}
+
+Der abschließende Evaluationsbogen wurde von \(N = 16\) Teilnehmenden ausgefüllt (\(n = 8\) je Gruppe). Er erfasst kognitive Belastung, Gebrauchstauglichkeit, Nutzungserfahrung und Weiterempfehlungsbereitschaft. Gruppe~B beantwortete zusätzlich einen KI-spezifischen Abschnitt.
+
+\subsection{Kognitive Belastung (NASA-TLX)}\label{subsec:cognitive_load}
+
+Abbildung~\ref{fig:nasa_tlx} zeigt die Ausprägung der Dimensionen \textit{Mentaler Aufwand} (Skala 1--9) und \textit{Frustration} (Skala 0--100) auf den entsprechenden NASA-TLX-Subskalen~\cite{hartstav1988}. Die Ergebnisse zeigen ein charakteristisches Überkreuz-Muster: Gruppe~B berichtet einen höheren mentalen Aufwand (M = 3{,}1, Mdn = 2{,}5) als Gruppe~A (M = 2{,}5, Mdn = 1{,}5), gleichzeitig aber eine niedrigere Frustration (Gruppe~B: M = 14{,}9, Mdn = 6{,}5 gegenüber Gruppe~A: M = 16{,}2, Mdn = 10{,}0). Der Median der Frustration liegt in Gruppe~B damit rund 35~\% unterhalb des Vergleichswertes in Gruppe~A. Hinsichtlich der Extremwerte zeigt Gruppe~A einen Ausreißer beim mentalen Aufwand (Wert: 8{,}0) sowie einen einzelnen Frustrations-Ausreißer (Wert: 70). 
+
+In Gruppe~B ist das Frustrations-Maximum auf ca.\ 61 begrenzt, während die überwiegende Mehrheit der Teilnehmenden Frustrationswerte unter 10 aufweist.
+
+\subsection{Gebrauchstauglichkeit (SUS) und Weiterempfehlung (NPS)}\label{subsec:sus_nps}
+
+Abbildung~\ref{fig:sus_nps} stellt die \textit{System Usability Scale} (SUS) und den \textit{Net Promoter Score}~\cite{reichheld2003} (NPS) im Gruppenvergleich gegenüber. Beide Gruppen erzielten SUS-Werte deutlich oberhalb des Benchmarks von 68~Punkten für gute Gebrauchstauglichkeit. Gruppe~A erreichte M = 85{,}0 (Mdn = 88{,}8), Gruppe~B M = 85{,}9 (Mdn = 90{,}0). Die Adjektiv-Bewertung nach Bangor et al.~\cite{bangor2009} ordnet beide Gruppen in die Kategorie \textit{Good} ein.
+
+
+Beim NPS (Skala 0--10) übertrifft Gruppe~B mit einem Mittelwert von 8{,}5 (Mdn = 9{,}0) die Kontrollgruppe A mit M = 7{,}5 (Mdn = 8{,}5). Der Median von 9{,}0 in Gruppe~B liegt im \textit{Promoter}-Bereich (Werte 9--10).\footnote{Der NPS teilt Befragte in drei Kategorien ein: \textit{Promoter} (Score 9--10), \textit{Passive} (Score 7--8) und \textit{Detraktoren} (Score 0--6). Der NPS-Wert ergibt sich aus der Differenz von Promoter-Anteil und Detraktoren-Anteil in Prozentpunkten.} In Gruppe~A gab es zwei \textit{Detraktoren} (Wert~1), während Gruppe~B fünf \textit{Promoter} mit einem Score von 10 aufweist.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{Finale Diagramme 2/NASA_TLX_Frustration_Effort_Comparison.png}
+\caption{NASA-TLX: Mentaler Aufwand (Skala 1--9, links) und Frustration (Skala 0--100, rechts) nach Gruppe (\(N = 16\)). Die y-Achsen beider Teilgrafiken sind unterschiedlich skaliert.}
+\label{fig:nasa_tlx}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{Finale Diagramme 2/Evaluation_SUS_and_NPS_Comparison.png}
+\caption{SUS-Scores (Skala 0--100, links) und NPS-Scores (Skala 0--10, rechts) nach Gruppe (\(N = 16\)). Gestrichelte Linien markieren die Benchmarks: SUS \(\geq\) 68 (gelb) sowie NPS-Schwellen für Passive (7) und Promoter (9).}
+\label{fig:sus_nps}
+\end{figure}
+
+\clearpage
+\subsection{User Experience Questionnaire Short (UEQ-S)}\label{subsec:ueqs}
+
+Der UEQ-S~\cite{schrepp2017} erfasst die Nutzungserfahrung anhand von acht Item-Paaren auf einer Skala von 1 bis 7. Abbildung~\ref{fig:ueqs_items} zeigt das Item-Profil beider Gruppen im Vergleich. Gruppe~B erreicht über alle Items hinweg einen höheren Gesamtmittelwert von M = 5{,}9 gegenüber M = 5{,}2 in Gruppe~A. 
+
+Die stärksten Unterschiede zeigen sich bei den hedonischen Items: Das Attributpaar \textit{uninteressant / interessant} fällt in Gruppe~B um 1{,}3~Punkte höher aus (6{,}2 vs. 4{,}9), das Paar \textit{herkömmlich / neuartig} um 1{,}2~Punkte (6{,}1 vs. 4{,}9). Bei den pragmatischen Items (\textit{behindernd / unterstützend} und \textit{kompliziert / einfach}) sind die Gruppenunterschiede geringer.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{Finale Diagramme 2/Evaluation_UEQS_Items_Profile.png}
+\caption{UEQ-S Item-Profil nach Gruppe (\(N = 16\), Fehlerbalken: \(\pm\)1 SEM). Gruppe~A: M Gesamt=5{,}2. Gruppe~B: M Gesamt=5{,}9. Größte Differenzen bei den Items \textit{interessant} (+1{,}3) und \textit{neuartig} (+1{,}2).}
+\label{fig:ueqs_items}
+\end{figure}
+
+\subsection{KI-spezifischer Fragebogen (nur Gruppe~B)}\label{subsec:ki_fragebogen}
+
+Teilnehmende in Gruppe~B beurteilten zusätzlich sechs Items zur KI-Wahrnehmung auf einer \textit{Likert-Skala}\footnote{Eine \textit{Likert-Skala} ist ein psychometrisches Format, bei dem Befragte ihre Zustimmung oder Ablehnung zu einer Aussage auf einer mehrstufigen Ordinalskala angeben.} von 1 (trifft gar nicht zu) bis 7 (trifft voll zu). Abbildung~\ref{fig:ki_eval_items} zeigt die Verteilung über alle sechs Items.
+
+Die positivsten Bewertungen erzielten die Items zur Wiederverwendungsbereitschaft (M = 5{,}38, Mdn = 6{,}5), zum Vertrauen in die Antworten (M = 5{,}38, Mdn = 5{,}5) sowie zur Erklärungsqualität (M = 5{,}25, Mdn = 6{,}0). Auch die Hilfreichkeit bei der Fehlersuche liegt mit einem Mittelwert von 5{,}12 (Mdn = 5{,}5) deutlich im positiven Bereich. Im Gegensatz dazu wurden die allgemeine Hilfreichkeit (M = 3{,}62, Mdn = 4{,}0) und die fachliche Korrektheit der KI-Antworten (M = 3{,}50, Mdn = 3{,}0) kritischer beurteilt; beide Items liegen im Mittel nahe oder unterhalb des Neutralpunkts von 4{,}0.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{Finale Diagramme 2/AI_Evaluation_Items_Distribution_GrpB.png}
+\caption{Bewertung der KI-spezifischen Items in Gruppe~B (\(n = 8\), Skala: 1--7). Die gestrichelte graue Linie markiert den Neutralpunkt bei 4{,}0.}
+\label{fig:ki_eval_items}
+\end{figure}
+
+Die grafische Darstellung der Einzelwerte (Jitter-Punkte) offenbart eine hohe Heterogenität innerhalb der Gruppe: Während einzelne Teilnehmende die KI in allen Dimensionen mit dem Maximalwert von 7{,}0 bewerteten, finden sich bei der Fehlersuche und der Erklärungsqualität deutliche Ausreißer im Minimalbereich von 1{,}0.
+
+
+\section{Korrelationsanalysen}\label{sec:korrelationen}
+
+Um Zusammenhänge zwischen der Programmiererfahrung der Teilnehmenden und ihren Leis\-tungs- und Belastungsmetriken zu untersuchen, wurden \textit{Pearson-Korrelationen}\footnote{Der \textit{Pearson-Korrelationskoeffizient} $r$ misst die Stärke und Richtung eines linearen Zusammenhangs zwischen zwei Variablen. Er nimmt Werte zwischen $-1$ (vollständig negativer Zusammenhang) und $+1$ (vollständig positiver Zusammenhang) an; $r = 0$ bedeutet kein linearer Zusammenhang.} berechnet. Da die Stichprobengröße für alle drei Analysen \(N \leq 16\) beträgt, sind die Befunde als explorative deskriptive Kennzahlen zu verstehen.
+
+Abbildung~\ref{fig:corr_experience_drill} zeigt den Zusammenhang zwischen der Programmiererfahrung (Skala 1--5) und der Drill-Performance. Die \textit{First-Try-Rate}\footnote{Als \textit{First-Try-Rate} wird der Anteil der Drills bezeichnet, die im ersten Lösungsversuch korrekt gelöst wurden.} korreliert schwach positiv mit der Erfahrung (\(r = 0{,}33\), \(p = 0{,}215\), nicht signifikant). Die durchschnittliche Anzahl benötigter Versuche weist hingegen eine starke, statistisch signifikante negative Korrelation auf (\(r = -0{,}63\), \(p = 0{,}010\)): Erfahrenere Teilnehmende benötigen deutlich weniger Versuche zur Lösung der Drill Tasks.
+
+Abbildung~\ref{fig:corr_experience_load} zeigt den Zusammenhang zwischen Erfahrung und kognitiver Belastung. Frustra\-tion wie auch mentaler Aufwand sinken mit steigender Erfahrung stark: Die Korrelation mit Frustration beträgt \(r = -0{,}68\) (\(p = 0{,}004\)), die mit mentalem Aufwand \(r = -0{,}73\) (\(p = 0{,}001\)). 
+
+Beide Zusammenhänge sind statistisch signifikant. Teilnehmende mit der niedrigsten Erfahrungsstufe (1) erreichen Frustrationswerte von bis zu 70 und mentale Aufwandswerte, die deutlich über dem Gesamtdurchschnitt liegen.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{Finale Diagramme 2/Correlation_Experience_vs_Drill_Performance.png}
+\caption{Zusammenhang zwischen Programmiererfahrung und \mbox{Drill-Performance} (\(N = 16\)). Links: First-Try-Rate (\(r = 0{,}33\), \(p = 0{,}215\), n.s.). Rechts: Durchschnittliche Versuche (\(r = -0{,}63\), \(p = 0{,}010\)).}
+\label{fig:corr_experience_drill}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{Finale Diagramme 2/Correlation_Experience_vs_Frustration_and_Effort.png}
+\caption{Zusammenhang zwischen Programmiererfahrung und kognitiver Belastung (\(N = 16\)). Links: Frustration (\(r = -0{,}68\), \(p = 0{,}004\)). Rechts: Mentaler Aufwand (\(r = -0{,}73\), \(p = 0{,}001\)).}
+\label{fig:corr_experience_load}
+\end{figure}
+
+Abbildung~\ref{fig:corr_experience_time} zeigt den Zusammenhang zwischen Erfahrung sowie Bearbeitungszeit und Fehleranzahl im BMI-Kurs (\(N = 16\)). Beide Korrelationen sind negativ, jedoch statistisch nicht signifikant: Bearbeitungszeit \(r = -0{,}46\) (\(p = 0{,}071\)) und Fehleranzahl \(r = -0{,}50\) (\(p = 0{,}051\)). Die Streuung in beiden Scatterplots ist erheblich.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{Finale Diagramme 2/Correlation_Experience_vs_Time_and_Errors.png}
+\caption{Zusammenhang zwischen Programmiererfahrung und Kursleistung (\(N = 16\)). Links: Bearbeitungszeit (\(r = -0{,}46\), \(p = 0{,}071\), n.s.). Rechts: Gesamtfehler (\(r = -0{,}50\), \(p = 0{,}051\), n.s.).}
+\label{fig:corr_experience_time}
+\end{figure}
+
+
+\section{Qualitative Ergebnisse (Freitext)}\label{sec:qualitativ}
+
+Der Fragebogen enthielt ein offenes Textfeld für freies Feedback. Alle \(N = 16\) Teilnehmenden, die den Fragebogen abgaben, nutzten dieses Feld. Die Antworten wurden thematisch kategorisiert. Da keine inhaltliche Auswertung ohne Interpretation möglich ist, werden hier ausschließlich wiederkehrende Themenfelder und exemplarische, anonymisierte Zitate berichtet.
+
+\paragraph{Bedienbarkeit und Kursdesign}
+
+Mehrere Teilnehmende beider Gruppen kommentierten positiv die schrittweise Führung durch den Kurs sowie die sofortige Rückmeldung nach jeder Code-Ausführung. Aus Gruppe~A wurde geschrieben: \enquote{Ich fand es gut, dass man durch das System geführt wurde. Am Anfang dachte ich, das schaffe ich nicht, und durch die Unterstützung wurde es Schritt für Schritt leichter.} Aus Gruppe~B hielt eine weitere Person fest: \enquote{Die Handhabung und das allgemeine UI ist sehr einfach und übersichtlich gestaltet.} Kritisch wurde angemerkt, dass die Lösungsvalidierung in einigen Fällen zu streng sei: \enquote{Etwas starre Überprüfung der Ergebnisse. Tipps, was genau an der Antwort falsch war, wären schön.}
+
+\paragraph{Drill-Qualität und Aufgabenrelevanz}
+
+Aus Gruppe~A wurde festgestellt, dass die Drill Tasks in einzelnen Fällen nicht eng genug mit dem vorherigen Kursschritt verknüpft schienen: \enquote{Die Drill-Tasks haben oft das Thema zur Aufgabe verfehlt, beispielsweise wurde im achten Schritt gefordert, `Willkommen' mithilfe der print-Funktion auszugeben.} Aus Gruppe~B wurde der Wunsch geäußert, zusätzliche Code-Fehlersuche-Aufgaben als Drill-Format anzubieten.
+
+\clearpage
+\paragraph{KI-Tutor (nur Gruppe~B)}
+
+Die Bewertungen des KI-Tutors fielen in Gruppe~B heterogen aus. Einzelne Teilnehmende berichteten, der KI-Tutor habe ihnen geholfen, alternative Lösungswege zu erkunden und Rückfragen zur Python-Syntax zu stellen. Andere Teilnehmende empfanden den KI-Tutor als überflüssig, da die Aufgaben ohne Hilfe lösbar waren. Zudem wurde angemerkt, der KI-Tutor habe in einem Fall eine umständliche Antwort gegeben, obwohl ein einfacherer Weg möglich gewesen wäre.
+
+\paragraph{Technische Hinweise}
+
+Vereinzelt wurden konkrete technische Probleme gemeldet, darunter ein inkorrektes Benachrichtigungs-Interface, das einen Navigationsbutton verdeckte, sowie eine Inkompatibilität mit Safari auf macOS (Chrome funktionierte problemlos).
+
+\section{Zusammenfassung der Ergebnisse}\label{sec:ergebnisse_zusammenfassung}
+
+Die Befunde der Studie lassen sich in vier Bereichen bündeln. In den \textbf{Leistungsmetriken} wies Gruppe~B mit einer mittleren Bearbeitungszeit von 32{,}9 Minuten eine um 68~\% längere Kursbearbeitungszeit auf als Gruppe~A (M = 19{,}5~min) und produzierte dabei im Mittel mehr als doppelt so viele Python-Fehler (M = 7{,}1 vs.\ M = 2{,}7). Die Abschlussquote war mit je acht von neun Teilnehmenden in beiden Gruppen identisch.
+
+Bei der \textbf{Drill-Performance} zeigte die KI-gestützte Auswahl in Gruppe~B eine geringere Aufgabenvielfalt (62 vs.\ 97 einzigartige Drill-IDs, Entropie 3{,}8 vs.\ 4{,}4~Bits) bei gleichzeitig höherem Anteil an Aufgaben mit vier oder mehr Versuchen (5{,}8~\% vs.\ 2{,}4~\%). In Gruppe~B wurden im Mittel 6{,}2 KI-Nachrichten pro Person gesendet, mit einem deutlichen Nutzungspeak in Step~5.
+
+In den \textbf{Fragebogendaten} (\(N = 16\)) erreichten beide Gruppen vergleichbar hohe SUS-Werte (85{,}0 bzw.\ 85{,}9). Im NASA-TLX berichtete Gruppe~B einen tendenziell höheren mentalen Aufwand (M = 3{,}1 vs.\ M = 2{,}5) bei gleichzeitig niedrigerer Frustration (Median 6{,}5 vs.\ 10{,}0). Die hedonischen UEQ-S-Items \textit{interessant} und \textit{neuartig} lagen in Gruppe~B um jeweils über einen Punkt höher. Der NPS fiel mit M = 8{,}5 ebenfalls besser aus als in Gruppe~A (M = 7{,}5).
+
+Die \textbf{Korrelationsanalysen} identifizierten Programmiererfahrung als stärksten Prädiktor: Erfahrung korrelierte signifikant negativ mit mentalem Aufwand (\(r = -0{,}73\)) und Drill-Versuchen (\(r = -0{,}63\)). Die Zusammenhänge mit Bearbeitungszeit und Fehleranzahl waren negativ, aber nicht signifikant.
+
+Die Interpretation dieser Befunde, ihre Einordnung in den theoretischen Rahmen aus Kapitel~\ref{ch:grundlagen} sowie die Bewertung der Haupthypothese folgen in Kapitel~\ref{ch:diskussion} der Diskussion.
+
+\addtocontents{toc}{\vspace{0.8cm}}
+

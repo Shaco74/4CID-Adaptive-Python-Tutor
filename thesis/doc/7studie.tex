@@ -1,0 +1,191 @@
+\chapter{\textbf{Empirische Studie}}\label{ch:studie}
+
+Dieses Kapitel beschreibt das Design der empirischen Studie, sodass diese theoretisch reproduzierbar wäre.
+Die Untersuchung wurde als Online-Intervention im Zeitraum von Dezember~2025 bis Januar~2026 durchgeführt. Die Datenerhebung erfolgte systemseitig anonym und ortsunabhängig über die Webplattform.
+
+\section{Forschungsdesign und Hypothesen}\label{sec:forschungsdesign}
+
+Im Folgenden werden die zentrale Forschungsfrage, das Studiendesign, die Variablen und die Hypothesen der Untersuchung strukturiert dargestellt.
+
+\subsection{Studiendesign}\label{subsec:studiendesign}
+
+Die Studie ist als \textit{Between-Subjects-Design} mit zwei Versuchsbedingungen umgesetzt. Beide Gruppen bearbeiten dieselben Lernaufgaben (Learning Tasks) und greifen auf denselben redaktionell erstellten Drill-Aufgabenpool (Part-task Practice) zurück. Die Gruppen unterscheiden sich ausschließlich in der Verfügbarkeit der KI-Funktionen:
+
+\begin{itemize}
+    \item \textbf{Gruppe A (ohne KI-Funktionen):} Drill Tasks werden per gewichteter Zufallsauswahl aus dem statischen Pool ausgewählt. Ein KI-Chat-Tutor ist nicht verfügbar.
+    \item \textbf{Gruppe B (mit KI-Funktionen):} Drill Tasks werden KI-gestützt aus demselben statischen Pool ausgewählt (OpenAI API, Modell \texttt{gpt-4o-mini}). Zusätzlich steht ein KI-Chat-Tutor mit progressivem Hint-System zur Verfügung.
+\end{itemize}
+
+Die Gruppenzuteilung erfolgt als \textit{Quasi-Randomisierung} durch balancierte systemseitige Zuteilung (vgl. Abschnitt~\ref{sec:stichprobe}). Der Lernerfolg wird über Logdaten und einen abschließenden Evaluationsbogen operationalisiert. Die daraus folgende deskriptive Auswertungsstrategie ist in Abschnitt~\ref{sec:auswertungsstrategie} näher beschrieben.
+
+\subsection{Unabhängige Variable}\label{subsec:uv}
+
+Die unabhängige Variable ist der \textit{Zugang zu KI-Funktionen} (ja/nein). Dieser Zugang beeinflusst (i) das Auswahlverfahren der Drill Tasks (Algorithmus vs. KI-gestützt) und (ii) die Verfügbarkeit eines KI-Tutors (nur Gruppe~B).
+
+\subsection{Abhängige Variablen (Outcomes)}\label{subsec:avs}
+
+Die abhängigen Variablen werden über zwei Datenquellen erfasst, die in Abschnitt~\ref{sec:messinstrumente} detailliert beschrieben sind.
+
+\begin{itemize}
+    \item \textbf{System-Logs:} Nutzungs- und Leistungsmetriken, die automatisch während der Bearbeitung aufgezeichnet werden, etwa Bearbeitungszeiten, Fehlerprofile und Drill-Ergebnisse. Für Gruppe~B kommen zusätzlich KI-Nutzungsmetriken hinzu (vgl. Abschnitt~\ref{subsec:logdaten}).
+    \item \textbf{Post-Evaluationsbogen:} Ein abschließender Fragebogen nach Kursende, der Selbsteinschätzungen zum Lernfortschritt, die wahrgenommene Systemqualität und den Cognitive Load erhebt (vgl. Abschnitt~\ref{subsec:fragebogen}).
+\end{itemize}
+
+\subsection{Forschungsfrage}\label{subsec:forschungsfrage}
+
+Die zentrale Forschungsfrage dieser Arbeit lautet:
+
+\begin{quote}
+\textit{Inwiefern verbessert die Integration einer KI-gestützten Drill-Auswahl und eines KI-Tutors die lernbezogenen Indikatoren und die wahrgenommene Lernunterstützung beim Erlernen von Python-Grundlagen im Vergleich zu einem Basis-System ohne diese Komponenten?}
+\end{quote}
+
+\subsection{Hypothesen}\label{subsec:hypothesen}
+
+Aus der Forschungsfrage wird eine gerichtete Haupthypothese abgeleitet:
+
+\begin{itemize}
+    \item \textbf{H1 (Haupthypothese):} Lernende in Gruppe~B weisen im Vergleich zu Gruppe~A günstigere lernbezogene Indikatoren in den Systemlogs (z.\,B. höhere Erfolgsquoten, weniger Fehlversuche, effizientere Bearbeitungszeiten) sowie eine signifikant höhere subjektive Zufriedenheit mit der Lernunterstützung im Post-Fragebogen auf.
+    \item \textbf{H0 (Gegenhypothese):} Zwischen Gruppe~A und Gruppe~B bestehen keine systematischen Unterschiede in den erhobenen Logmetriken und Fragebogenwerten.
+\end{itemize}
+
+
+\section{Stichprobe und Rekrutierung}\label{sec:stichprobe}\label{subsec:gruppenzuweisung}
+
+Die Rekrutierung der Teilnehmenden erfolgte im Rahmen einer \textit{Gelegenheitsstichprobe} (Convenience Sampling), primär durch persönliche Ansprache im sozialen Umfeld des Autors sowie über digitale Netzwerke. Die Teilnehmenden wiesen heterogene Hintergründe auf, wobei sowohl Studierende als auch Berufstätige mit unterschiedlichem IT-Vorwissen vertreten waren. Aufgrund der offenen Bereitstellung der Webplattform kann zudem nicht ausgeschlossen werden, dass weitere Teilnehmende über universitäre Kanäle auf das Projekt aufmerksam wurden.
+
+Die Datenerhebung erfolgte \textit{systemseitig anonym}: Die Registrierung setzte lediglich einen selbstgewählten Benutzernamen voraus, ohne dass personenbezogene Identifikationsmerkmale erhoben wurden. Gleichwohl ist kritisch anzumerken, dass durch die Akquise im privaten Umfeld teilweise ein direktes Bekanntschaftsverhältnis zwischen den Testpersonen und der Studienleitung bestand. Dies schränkt die Repräsentativität der Ergebnisse ein und begünstigt potenzielle Verzerrungen durch soziale Erwünschtheit (\textit{Social Desirability Bias}), was bei der Interpretation der Daten in Abschnitt~\ref{sec:limitationen} reflektiert wird.
+
+Für die statistische Auswertung wird zwischen verschiedenen Datenbeständen differenziert, wobei die zugrundeliegenden Bereinigungsregeln detailliert in Abschnitt~\ref{sec:datenaufbereitung} erläutert werden.
+
+\begin{itemize}
+    \item \textbf{Gesamtregistrierungen:} Es registrierten sich insgesamt \texttt{N = 27} Nutzende (Gruppe~A: \texttt{n\_A = 14}, Gruppe~B: \texttt{n\_B = 13}). Diese Rohzahl enthält mehrere interne Testkonten aus der Entwicklungsphase. Nach deren Entfernung verbleiben \texttt{N = 25} reale Registrierungen (Gruppe~A: \texttt{n\_A = 14}, Gruppe~B: \texttt{n\_B = 11}).
+    \item \textbf{Analyse-Stichprobe:} Um die Validität der Ergebnisse zu sichern, wurden nur Personen berücksichtigt, die eine \textit{substanzielle Interaktion} mit den Aufgaben zeigten. Nach Anwendung dieses \textit{Aktivitätsfilters} (mindestens drei Code-Ausführungen, vgl. Abschnitt~\ref{sec:datenaufbereitung}) umfasst die finale Stichprobe \texttt{N = 18} Teilnehmende, die paritätisch auf beide Gruppen verteilt sind (\texttt{n\_A = 9}, \texttt{n\_B = 9}).
+\end{itemize}
+
+Von dieser bereinigten Stichprobe füllten insgesamt \texttt{N = 16} Personen den abschließenden Evaluationsbogen vollständig aus. Tabelle~\ref{tab:stichprobe_ueberblick} fasst die Fallzahlen auf den jeweiligen Filterebenen zusammen.
+
+Die Gruppenzugehörigkeit wird systemseitig zugewiesen und bleibt dauerhaft stabil. Bei Nutzung eines balancierten Studien-Passworts erfolgt die Zuteilung nach einer 50:50-Logik: Neue Nutzende werden der aktuell kleineren Gruppe zugeordnet, wobei bei Gleichstand Gruppe~A zugeordnet wird. Die Zuteilung ist damit quasi-randomisiert.
+
+Nutzende werden im Onboarding transparent über ihre Gruppenzugehörigkeit informiert. Das Experiment ist nicht verblindet.
+
+\begin{table}[ht]
+  \centering
+  \caption{Stichprobengrößen auf den einzelnen Filterebenen}
+  \label{tab:stichprobe_ueberblick}
+  \begin{tabular}{l p{6cm} ccc}
+    \toprule
+    \textbf{Filterebene} & \textbf{Beschreibung} & \textbf{Gesamt} & \textbf{Gr.~A} & \textbf{Gr.~B} \\
+    \midrule
+    Gesamtregistrierungen
+      & Alle registrierten Nutzenden inkl.\ Testkonten
+      & 27 & 14 & 13 \\
+    Reale Registrierungen
+      & Bereinigter Datensatz nach Ausschluss interner Testkonten
+      & 25 & 14 & 11 \\
+    Analyse-Stichprobe
+      & Anwendung des Aktivitätsfilters (\texttt{num\_runs\_code > 2})
+      & 18 & 9 & 9 \\ % Ignore hbox warning here
+    Evaluationsbogen
+      & Vollständig abgeschlossene Post-Evaluation
+      & 16 & 8 & 8 \\
+    \bottomrule
+  \end{tabular}
+  
+  \vspace{0.2cm}
+  \footnotesize
+  \textit{Anmerkung:} Gr.~A\,=\,Kontrollgruppe (statische Auswahl); 
+  Gr.~B\,=\,Experimentalgruppe (KI-gestützt). 
+  Die Entfernung der Testkonten erfolgte manuell direkt in der Datenbank. 
+  Der Aktivitätsfilter dient der Sicherstellung einer Mindestinteraktion mit dem System (Details vgl.\ Abschnitt~\ref{sec:datenaufbereitung}).
+\end{table}
+
+\section{Datenschutz und ethische Aspekte}\label{sec:datenschutz_ethik}
+
+Die Plattform ist so konzipiert, dass eine Teilnahme ohne Erhebung direkt personenbezogener Identifikationsmerkmale möglich ist (Pseudonymisierung). Die Registrierung erfolgt ausschließlich über einen selbstgewählten Benutzernamen und ein gemeinsames Studien-Passwort. Die Verarbeitung der Studiendaten basiert auf einer ausdrücklichen Einwilligung, die im Rahmen des Anmeldeprozesses eingeholt wird.
+
+Die erhobenen Daten umfassen insbesondere systemseitige \textit{Interaktionsmuster} (Events) sowie die Antworten aus dem Post-Evaluationsbogen. Ziel der Datenerhebung ist die wissenschaftliche Analyse des \textit{Nutzungsverhaltens} sowie der lernbezogenen Indikatoren im Kontext der Forschungsfragen dieser Arbeit. Die Teilnahme an der Untersuchung war zu jedem Zeitpunkt freiwillig. Ein Abbruch der Studie war ohne Angabe von Gründen und ohne Nachteile für die Teilnehmenden möglich.
+
+
+\section{Ablauf der Studie}\label{sec:ablauf}
+
+Der Ablauf der Teilnahme ist vollständig im System abgebildet und folgt einem standardisierten Ablauf:
+
+\begin{enumerate}
+    \item \textbf{Login:} Teilnehmende melden sich mit selbstgewähltem Benutzernamen und zentralem Studien-Passwort an.
+    \item \textbf{Gruppenzuweisung und Onboarding:} Das System weist die Gruppe zu und kommuniziert diese im Onboarding. Im Onboarding werden die Bedienoberfläche (Editor, Aufgabenpanel, Konsole) sowie Drill Tasks erläutert. In Gruppe~B erfolgt zusätzlich die Personalisierung des KI-Tutors über ein kleines Intro des KI-Tutors, welcher sich vorstellt und das Erfahrungslevel des Lernenden erfragt.
+    \item \textbf{Lernphase (Learning Tasks):} Bearbeitung der Kursaufgaben in fester, linearer Reihenfolge. Jede Aufgabe enthält Startercode, Aufgabenbeschreibung, Hinweise und in den meisten Fällen Worked Examples.
+    \item \textbf{Übungsphase (Part-task Practice):} Nach jeder erfolgreich gelösten Aufgabe folgt obligatorisch eine Drill Task (MCQ + Mini-Code). Drill Tasks sind nicht überspringbar. Beide Teile müssen abgeschlossen werden.
+    \item \textbf{Abschluss:} Nach Abschluss des Pflichtkurses (BMI) wird ein Evaluationsbogen angezeigt. Teilnehmende haben die Möglichkeit, den Evaluationsbogen auszufüllen und den Kurs zu beenden oder vorher noch den optionalen Zinsrechner Aufbaukurs zu bearbeiten.
+\end{enumerate}
+
+\subsection{Lernaufgaben (Learning Tasks)}\label{subsec:learning_tasks_studie}
+
+Als Learning Tasks werden zwei projektbasierte Kurse eingesetzt (didaktische Begründung und Aufbau vgl. Abschnitt~\ref{subsec:lernpfad}):
+
+\begin{itemize}
+    \item \textbf{Pflichtkurs (BMI-Rechner):} 12 Steps, strikt lineare Bearbeitung mit additivem Startercode als Scaffolding.
+    \item \textbf{Aufbaukurs (Zinsrechner, optional):} 8 Steps, ebenfalls strikt linear mit additivem Startercode; freigeschaltet nach Abschluss des Pflichtkurses.
+\end{itemize}
+
+Für den Gruppenvergleich wird ausschließlich der Pflichtkurs herangezogen, da nur er für alle Teilnehmenden obligatorisch war und damit eine vollständige Datenbasis liefert.
+
+\subsection{Drill Tasks (Part-task Practice)}\label{subsec:drills_studie}
+
+Nach jedem erfolgreich gelösten Kurs-Step folgt obligatorisch eine Drill Task als Part-task Practice. Eine Drill Task besteht aus (i) einer Multiple-Choice-Frage und (ii) einer kurzen Mini-Code-Aufgabe. Beide Teile müssen abgeschlossen werden, wobei die Versuche nicht begrenzt sind.
+
+Die Drill Tasks entstammen einem statischen, redaktionell erstellten und geprüften Pool (\texttt{278} Drills). Die Drills sind thematisch in sieben Bereiche gegliedert: Textausgabe, Variablen, Datentypen, Zeichenketten, Listen, Schleifen und bedingte Anweisungen. Die Inhalte sind zwischen den Gruppen identisch; der Unterschied liegt ausschließlich in der Auswahlmethode (vgl. Abschnitt~\ref{subsec:studiendesign} sowie Abschnitt~\ref{subsec:ki-rolle} für die detaillierte Beschreibung beider Auswahlverfahren).
+
+Während des gesamten Ablaufs werden relevante Interaktionen als Events in der Datenbank protokolliert (vgl. Abschnitt~\ref{subsec:logdaten}).
+
+
+\section{Erhobene Daten und Messinstrumente}\label{sec:messinstrumente}
+
+Im Folgenden werden die in der Plattform erhobenen Datenquellen sowie die verwendeten Messinstrumente beschrieben.
+
+\subsection{Log-Daten}\label{subsec:logdaten}
+
+Die Plattform nutzt eine Event-Sourcing-Architektur\footnote{Event Sourcing ist ein Architekturmuster, bei dem Zustandsänderungen nicht als aktueller Zustand, sondern als unveränderliche Folge von Ereignissen (Events) gespeichert werden. Der aktuelle Zustand ergibt sich durch sequentielle Auswertung aller Ereignisse.}, in der Interaktionen der Nutzenden als chronologische Ereignisse mit Zeitstempeln gespeichert werden. Zusätzlich wird ein persistentes Lernprofil mit aggregierten Kennzahlen geführt.
+
+Die erhobenen Daten sind auf drei Granularitätsebenen organisiert, die unterschiedliche Auswertungsperspektiven ermöglichen. Auf \textit{Participant-Level} werden pro Person aggregierte Kennzahlen geführt (z.\,B. Bearbeitungszeit, Fehlerprofile, Drill-Erfolgsrate), die einen direkten Gruppenvergleich zwischen A und B erlauben. Auf \textit{Task-Level} werden dieselben Metriken pro Kurs-Schritt aufgezeichnet, sodass Schwierigkeitsverläufe und aufgabenspezifische Unterschiede sichtbar werden. Die \textit{Event-Timeline} schließlich liefert die feingranulare Rohdatenbasis (Session-Events, Code-Ausführungen, Drill- und Chat-Events), aus der beide übergeordneten Ebenen rekonstruiert werden können und die eine nachträgliche Überprüfung einzelner Metriken ermöglicht. Für Gruppe~B existieren zusätzlich separate Exporte für Chat-Nachrichten (inkl.\ Zeitstempel und Hint-Level-Zustand) sowie die vom Modell generierten Begründungen der Drill-Auswahl, die zu Qualitätssicherungszwecken gespeichert, den Lernenden jedoch nicht angezeigt werden.
+
+\subsection{Fragebogen}\label{subsec:fragebogen}
+
+Nach Abschluss des Pflichtkurses wird ein finaler Evaluationsbogen angezeigt. Der vollständige Fragebogen ist im Anhang dokumentiert (vgl. Anhang~A). Er gliedert sich in folgende Abschnitte:
+
+\begin{itemize}
+    \item \textbf{Demografie und Selbsteinschätzung:} Dieser Abschnitt erhebt allgemeine Angaben zur Vorerfahrung mit Programmierung sowie die subjektive Einschätzung des eigenen Wissensstandes. Die Angaben dienen der Charakterisierung der Stichprobe und der Einordnung möglicher Gruppenunterschiede.
+
+    \item \textbf{Cognitive Load (CL):} Zwei Items erfassen die wahrgenommene mentale Anstrengung sowie das erlebte Frustrationsniveau während der Bearbeitung. Damit soll eingeschätzt werden, ob die KI-Funktionen die subjektive Belastung der Lernenden beeinflusst haben.
+
+    \item \textbf{System Usability Scale (SUS):} Die SUS \cite{brooke1996} besteht aus zehn Items auf einer fünfstufigen Likert-Skala und ergibt einen Gesamtwert zwischen 0 und 100. Sie misst die wahrgenommene Gebrauchstauglichkeit des Systems und ermöglicht einen Vergleich mit etablierten Referenzwerten.
+
+    \item \textbf{User Experience Questionnaire Short (UEQ-S):} Der UEQ-S \cite{schrepp2017} umfasst acht Items auf einer siebenstufigen bipolaren Skala und erfasst sowohl die pragmatische als auch die hedonische Qualität der Nutzungserfahrung. Er wurde gewählt, weil er gegenüber der Langfassung deutlich kürzer ist und damit die Ausfüllzeit für Teilnehmende gering hält.
+
+    \item \textbf{Net Promoter Score (NPS) und Freitext:} Eine einzelne Frage auf einer Skala von 0 bis 10 erhebt die Weiterempfehlungsbereitschaft. Ein optionales Freitextfeld gibt den Teilnehmenden die Möglichkeit, qualitatives Feedback zu formulieren, das für die Diskussion ergänzend herangezogen wird.
+
+    \item \textbf{KI-spezifischer Abschnitt (nur Gruppe~B):} Teilnehmende der Gruppe~B bewerten den KI-Chat-Tutor anhand von sechs Items auf einer siebenstufigen Likert-Skala (1\,=\,Stimme überhaupt nicht zu, 7\,=\,Stimme voll zu). Die Items gliedern sich in zwei Subskalen: \textit{Wahrgenommene Nützlichkeit} (drei Items, z.\,B. „Die KI hat mir geholfen, die Aufgabe schneller zu lösen") und \textit{Vertrauen und Sicherheit} (drei Items, z.\,B. „Ich vertraue darauf, dass die Antworten der KI korrekt sind"). Ein Item der Vertrauensskala ist invertiert formuliert und wird vor der Auswertung umgekodiert.
+\end{itemize}
+
+\section{Datenaufbereitung und Auswertungsregeln}\label{sec:datenaufbereitung}
+
+Wie bereits erwähnt, wurden die Rohdaten vor der Auswertung in mehreren Schritten bereinigt. Die folgenden Regeln definieren, welche Datenpunkte in die Analyse eingehen:
+
+\begin{itemize}
+    \item \textbf{Ausschluss interner Accounts:} Zur Sicherstellung der Datenintegrität wurden sämtliche während der Entwicklungsphase angelegten internen Accounts manuell aus dem Datensatz entfernt.
+    Die Registrierung dieser Konten erfolgte nicht über die balancierte systemseitige Gruppenzuteilung (vgl.\ Abschnitt~\ref{subsec:gruppenzuweisung}), sondern durch eine manuelle Zuweisung zu Gruppe~B während der Entwicklungsphase. Ihr Ausschluss erklärt, warum Gruppe~B von \texttt{n\_B = 13} auf \texttt{n\_B = 11} zurückgeht, während Gruppe~A unverändert bei \texttt{n\_A = 14} verbleibt. Nach diesem Schritt umfasst der bereinigte Datensatz \texttt{N = 25} Teilnehmende (Gruppe~A: \texttt{n\_A = 14}, Gruppe~B: \texttt{n\_B = 11}).
+    \item \textbf{Aktivitätsfilter:} Als Mindestkriterium für eine ernstzunehmende Teilnahme wurde festgelegt, dass Nutzende mehr als zwei Code-Ausführungen vorgenommen haben müssen (\texttt{num\_runs\_code > 2}). Personen unterhalb dieses Schwellenwerts haben die Plattform zwar aufgerufen, jedoch keine oder kaum aktive Auseinandersetzung mit den Programmieraufgaben gezeigt. Durch diesen Filter wurden \texttt{7} Teilnehmende ausgeschlossen (Gruppe~A: 5, Gruppe~B: 2), sodass die finale Analyse-Stichprobe \texttt{N = 18} Teilnehmende umfasst (Gruppe~A: \texttt{n\_A = 9}, Gruppe~B: \texttt{n\_B = 9}).
+    \item \textbf{AFK-Bereinigung:} Um Verzerrungen durch längere Inaktivität (Away From Keyboard) zu minimieren, wurde ein Grenzwert von 60 Minuten festgelegt (\texttt{AFK\_CUTOFF\_MINUTES = 60}). Da die Kursaufgaben auf eine Bearbeitungszeit von jeweils 5 bis 15 Minuten ausgelegt sind, gilt eine Unterbrechung von über einer Stunde als eindeutiges Inaktivitätssignal. Bearbeitungszeiten einzelner Kurs-Steps, die diesen Wert überschreiten, werden bei der Berechnung zeitbezogener Kennzahlen ausgeschlossen.
+    \clearpage
+    \item \textbf{Rekonstruktion von KI-Anfragen:} Da die direkten Signale für Hilfeanfragen teilweise unvollständig protokolliert wurden, wurde eine indirekte Metrik mittels Reverse-Engineering erstellt. Dabei werden die Zeitpunkte der Chat-Nachrichten dem jeweils zuletzt gestarteten Bearbeitungsschritt zugeordnet. Die resultierende Kennzahl \enquote{Chat per Step} dient als Proxy für die KI-Inanspruchnahme.
+\end{itemize}
+
+Durch diese Regeln wird sichergestellt, dass trotz technischer Limitierungen beim Logging eine konsistente und vergleichbare Datenbasis für beide Versuchsgruppen vorliegt.
+
+\section{Auswertungsstrategie}\label{sec:auswertungsstrategie}
+
+Die Auswertung folgt einem primär deskriptiven, explorativen Ansatz. Gründe hierfür sind (i) die kleine Stichprobe, (ii) die Quasi-Randomisierung sowie (iii) der Verzicht auf einen standardisierten Pre-/Post-Test. Ergebnisse werden daher vorrangig über Verteilungen, Gruppenmittelwerte/ -mediane und geeignete Visualisierungen berichtet.
+
+Der Gruppenvergleich (A vs. B) wird für zentrale Logmetriken (z.\,B. Abschluss/Abbruch, Fehlerprofile pro Step, Zeitmetriken, Drill-Diversität) und für ausgewählte Post-Evaluationsitems durchgeführt. KI-spezifische Kennzahlen werden ausschließlich innerhalb von Gruppe~B ausgewertet (z.\,B. Chat-Nutzung pro nutzender Person, Zeit bis zur ersten KI-Anfrage). Sofern dies zur Interpretation der Daten beiträgt, werden AFK-bereinigte Zeitmetriken ergänzend zu den Rohwerten berichtet, um die Sensitivität der Ergebnisse gegenüber Ausreißern transparent zu machen.
+
+
+\addtocontents{toc}{\vspace{0.8cm}}
